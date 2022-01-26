@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31515.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{BCAE5A0E-5EA1-4688-9C8E-080D6A6134D1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "backend", "backend", "{6E7AFD53-2C10-491B-BD16-E1D3AC0FD45F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DoctorBob.API", "DoctorBob.API", "{49F8AE3F-FC64-4864-9198-9925AF6E0E33}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "frontend", "frontend", "{437E2C65-B222-4FFD-ADFA-A721FAAFCE35}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8267E49D-30E1-4292-AC0F-F555C8F26BC1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoctorBob.Core", "DoctorBob.Core\DoctorBob.Core.csproj", "{9ED7E62C-9E70-47D8-ABC3-DD65ECD5ADE5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoctorBob.UI", "DoctorBob.UI\DoctorBob.UI.csproj", "{0E4F382E-5552-4D33-829B-982F111BF766}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9ED7E62C-9E70-47D8-ABC3-DD65ECD5ADE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9ED7E62C-9E70-47D8-ABC3-DD65ECD5ADE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9ED7E62C-9E70-47D8-ABC3-DD65ECD5ADE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9ED7E62C-9E70-47D8-ABC3-DD65ECD5ADE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E4F382E-5552-4D33-829B-982F111BF766}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E4F382E-5552-4D33-829B-982F111BF766}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E4F382E-5552-4D33-829B-982F111BF766}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E4F382E-5552-4D33-829B-982F111BF766}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6E7AFD53-2C10-491B-BD16-E1D3AC0FD45F} = {8267E49D-30E1-4292-AC0F-F555C8F26BC1}
+		{49F8AE3F-FC64-4864-9198-9925AF6E0E33} = {6E7AFD53-2C10-491B-BD16-E1D3AC0FD45F}
+		{437E2C65-B222-4FFD-ADFA-A721FAAFCE35} = {8267E49D-30E1-4292-AC0F-F555C8F26BC1}
+		{9ED7E62C-9E70-47D8-ABC3-DD65ECD5ADE5} = {6E7AFD53-2C10-491B-BD16-E1D3AC0FD45F}
+		{0E4F382E-5552-4D33-829B-982F111BF766} = {437E2C65-B222-4FFD-ADFA-A721FAAFCE35}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8376F348-3745-47FA-B75D-AE743A93DDC1}
+	EndGlobalSection
+EndGlobal

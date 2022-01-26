@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DoctorBob.Core.Common.Domain.AuditableEntity">
+    <Position X="13.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAABAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>Common\Domain\AuditableEntity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DoctorBob.Core.DrugManagement.Domain.Drug">
+    <Position X="3.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAABAAAQAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>DrugManagement\Domain\Drug.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Therapy" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DoctorBob.Core.PatientManagement.Domain.Patient">
+    <Position X="9.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAEACAAAAAACAABBIAACAAAAAABAAAAQAAAAAAAg=</HashCode>
+      <FileName>PatientManagement\Domain\Patient.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DoctorBob.Core.PatientManagement.Domain.Room">
+    <Position X="13.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQABAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>PatientManagement\Domain\Room.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Patient" />
+      <Property Name="Robot" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DoctorBob.Core.RoboManagement.Domain.Robot">
+    <Position X="15.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAwAACAAAAABgAAAAEAAAAA=</HashCode>
+      <FileName>RobotManagement\Domain\Robot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DoctorBob.Core.StaffManagement.Domain.Staff">
+    <Position X="6.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAEAAACAAAAAAEQAAAAAAAAAAAAAAAAAAAAAACAg=</HashCode>
+      <FileName>StaffManagement\Domain\Staff.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Patient" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DoctorBob.Core.TherapyManagement.Domain.Therapy">
+    <Position X="5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAIAQAAAEAAAAAQAAAAAAAAAAABAAAAACAI=</HashCode>
+      <FileName>TherapyManagement\Domain\Therapy.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Patient" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DoctorBob.Core.TherapyManagement.Domain.TimeModel">
+    <Position X="2" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>TherapyManagement\Domain\TimeModel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Therapy" />
+    </ShowAsAssociation>
+  </Class>
+  <Enum Name="DoctorBob.Core.PatientManagement.Domain.Gender">
+    <Position X="11" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>PatientManagement\Domain\Patient.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DoctorBob.Core.RoboManagement.Domain.CurrentLocation">
+    <Position X="19.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ggIAAAAAAQAA0AIAAAAAAAAAAAQAAAAAAAIEAAAAAAA=</HashCode>
+      <FileName>RobotManagement\Domain\Robot.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DoctorBob.Core.RoboManagement.Domain.Activity">
+    <Position X="17.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAEAAAAAQACQAAEAAAAAQAIAAAAAAEAAA=</HashCode>
+      <FileName>RobotManagement\Domain\Robot.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DoctorBob.Core.StaffManagement.Domain.Role">
+    <Position X="11.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAEAAAAAAAIAAAAAQAIAAAAAACAAA=</HashCode>
+      <FileName>StaffManagement\Domain\Staff.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

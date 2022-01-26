@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="5.0.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.13">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="DrugManagement\Api\" />
+    <Folder Include="DrugManagement\Application\" />
+    <Folder Include="DrugManagement\Model\" />
+    <Folder Include="DrugManagement\Infrastructure\" />
+    <Folder Include="PatientManagement\Api\" />
+    <Folder Include="PatientManagement\Application\" />
+    <Folder Include="PatientManagement\Infrastructure\" />
+    <Folder Include="PatientManagement\Model\" />
+    <Folder Include="RobotManagement\Api\" />
+    <Folder Include="RobotManagement\Application\" />
+    <Folder Include="RobotManagement\Infrastructure\" />
+    <Folder Include="RobotManagement\Model\" />
+    <Folder Include="StaffManagement\Api\" />
+    <Folder Include="StaffManagement\Application\" />
+    <Folder Include="StaffManagement\Infrastructure\" />
+    <Folder Include="StaffManagement\Model\" />
+    <Folder Include="TherapyManagement\Api\" />
+    <Folder Include="TherapyManagement\Application\" />
+    <Folder Include="TherapyManagement\Infrastructure\" />
+    <Folder Include="TherapyManagement\Model\" />
+  </ItemGroup>
+
+</Project>
