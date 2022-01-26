@@ -12,7 +12,7 @@ using DoctorBob.Core.RoboManagement.Domain;
 using DoctorBob.Core.Common.Domain;
 using System.Threading;
 
-namespace DoctorBob.Core.Repository
+namespace DoctorBob.Core.Common.Infrastructure.Context
 {
     class DoctorBobContext : DbContext
     {
