@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8267E49D-30E
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoctorBob.Core", "DoctorBob.Core\DoctorBob.Core.csproj", "{9ED7E62C-9E70-47D8-ABC3-DD65ECD5ADE5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoctorBob.UI", "DoctorBob.UI\DoctorBob.UI.csproj", "{0E4F382E-5552-4D33-829B-982F111BF766}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoctorBob.UI", "DoctorBob.UI\DoctorBob.UI.csproj", "{0E4F382E-5552-4D33-829B-982F111BF766}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
