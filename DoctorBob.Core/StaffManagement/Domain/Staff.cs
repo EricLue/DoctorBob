@@ -18,13 +18,6 @@ namespace DoctorBob.Core.StaffManagement.Domain
         public string Username { get; set; }
         public string Email { get; set; }
 
-        internal PatientManagement.Domain.Patient Patient
-        {
-            get => default;
-            set
-            {
-            }
-        }
         // Password
     }
 
