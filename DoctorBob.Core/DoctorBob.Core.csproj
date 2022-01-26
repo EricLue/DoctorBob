@@ -30,7 +30,6 @@
     <Folder Include="RobotManagement\Model\" />
     <Folder Include="StaffManagement\Api\" />
     <Folder Include="StaffManagement\Application\" />
-    <Folder Include="StaffManagement\Infrastructure\" />
     <Folder Include="StaffManagement\Model\" />
     <Folder Include="TherapyManagement\Api\" />
     <Folder Include="TherapyManagement\Application\" />
