@@ -32,7 +32,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
 
         public DoctorBobContext(DbContextOptions<DoctorBobContext> options) : base(options)
         {
-
+            Database.EnsureCreated();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

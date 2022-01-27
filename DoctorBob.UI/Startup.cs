@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DoctorBob.Core.StaffManagement.Infrastructure;
+using DoctorBob.Core.Common.Infrastructure.Context;
 
 namespace DoctorBob.UI
 {
@@ -25,6 +26,8 @@ namespace DoctorBob.UI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IStaffRepository, StaffRepository>();
+            services.AddDbContext<DoctorBobContext>();
+            services.AddControllers();
             services.AddRazorPages();
         }
 
