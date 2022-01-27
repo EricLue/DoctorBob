@@ -10,7 +10,7 @@ using DoctorBob.Core.Common.Domain;
 
 namespace DoctorBob.Core.TherapyManagement.Domain
 {
-    class Therapy : AuditableEntity
+    public class Therapy : AuditableEntity
     {
         public int Id { get; set; }
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -22,13 +22,5 @@ namespace DoctorBob.Core.TherapyManagement.Domain
         public Staff CaringStaff { get; set; }
         public int TimeModelId { get; set; }
         public TimeModel TimeModel { get; set; }
-
-        internal PatientManagement.Domain.Patient Patient
-        {
-            get => default;
-            set
-            {
-            }
-        }
     }
 }

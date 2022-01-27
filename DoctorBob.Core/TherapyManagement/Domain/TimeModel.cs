@@ -8,18 +8,10 @@ using DoctorBob.Core.Common.Domain;
 
 namespace DoctorBob.Core.TherapyManagement.Domain
 {
-    class TimeModel : AuditableEntity
+    public class TimeModel : AuditableEntity
     {
         public int Id { get; set; }
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string Time { get; set; }
-
-        internal Therapy Therapy
-        {
-            get => default;
-            set
-            {
-            }
-        }
     }
 }

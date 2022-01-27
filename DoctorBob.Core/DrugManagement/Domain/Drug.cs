@@ -8,19 +8,11 @@ using DoctorBob.Core.Common.Domain;
 
 namespace DoctorBob.Core.DrugManagement.Domain
 {
-    class Drug : AuditableEntity
+    public class Drug : AuditableEntity
     {
         public int Id { get; set; }
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string Name { get; set; }
         public int DoseInMg { get; set; }
-
-        internal TherapyManagement.Domain.Therapy Therapy
-        {
-            get => default;
-            set
-            {
-            }
-        }
     }
 }

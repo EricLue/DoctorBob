@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DoctorBob.Core.StaffManagement.Infrastructure;
 
 namespace DoctorBob.UI
 {

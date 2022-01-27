@@ -8,7 +8,7 @@ using DoctorBob.Core.Common.Infrastructure;
 
 namespace DoctorBob.Core.StaffManagement.Infrastructure
 {
-    interface IStaffRepository : IRepository<Staff>
+    public interface IStaffRepository : IRepository<Staff>
     {
         
     }

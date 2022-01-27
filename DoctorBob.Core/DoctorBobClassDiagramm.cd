@@ -10,12 +10,9 @@
   <Class Name="DoctorBob.Core.DrugManagement.Domain.Drug">
     <Position X="3.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAABAAAQAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAACA=</HashCode>
       <FileName>DrugManagement\Domain\Drug.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Therapy" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="DoctorBob.Core.PatientManagement.Domain.Patient">
     <Position X="9.25" Y="6.75" Width="1.5" />
@@ -27,13 +24,9 @@
   <Class Name="DoctorBob.Core.PatientManagement.Domain.Room">
     <Position X="13.25" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAAAAAAQABAAAAAAAAAAAAAAACAA=</HashCode>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>PatientManagement\Domain\Room.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Patient" />
-      <Property Name="Robot" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="DoctorBob.Core.RoboManagement.Domain.Robot">
     <Position X="15.75" Y="2.75" Width="1.5" />
@@ -45,12 +38,9 @@
   <Class Name="DoctorBob.Core.StaffManagement.Domain.Staff">
     <Position X="6.75" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAEAAACAAAAAAEQAAAAAAAAAAAAAAAAAAAAAACAg=</HashCode>
+      <HashCode>AAACAEAAACAAAAAAEQAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
       <FileName>StaffManagement\Domain\Staff.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Patient" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="DoctorBob.Core.TherapyManagement.Domain.Therapy">
     <Position X="5" Y="6.25" Width="1.5" />
@@ -58,19 +48,13 @@
       <HashCode>AAACAAAAAAIAQAAAEAAAAAQAAAAAAAAAAABAAAAACAI=</HashCode>
       <FileName>TherapyManagement\Domain\Therapy.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Patient" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="DoctorBob.Core.TherapyManagement.Domain.TimeModel">
     <Position X="2" Y="7.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
       <FileName>TherapyManagement\Domain\TimeModel.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Therapy" />
-    </ShowAsAssociation>
   </Class>
   <Enum Name="DoctorBob.Core.PatientManagement.Domain.Gender">
     <Position X="11" Y="8.75" Width="1.5" />

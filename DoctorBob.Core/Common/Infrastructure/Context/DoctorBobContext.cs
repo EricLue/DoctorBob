@@ -14,7 +14,7 @@ using System.Threading;
 
 namespace DoctorBob.Core.Common.Infrastructure.Context
 {
-    class DoctorBobContext : DbContext
+    public class DoctorBobContext : DbContext
     {
         #region Domains
         public DbSet<Drug> Drugs { get; set; }

@@ -9,7 +9,7 @@ using DoctorBob.Core.Common.Infrastructure.Context;
 
 namespace DoctorBob.Core.StaffManagement.Infrastructure
 {
-    class StaffRepository : IStaffRepository
+    public class StaffRepository : IStaffRepository
     {
         private readonly DoctorBobContext _context;
 

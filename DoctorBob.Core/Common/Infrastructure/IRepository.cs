@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DoctorBob.Core.Common.Infrastructure
 {
-    interface IRepository<T>
+    public interface IRepository<T>
     {
         // Get all Entities
         Task<IEnumerable<T>> Get();

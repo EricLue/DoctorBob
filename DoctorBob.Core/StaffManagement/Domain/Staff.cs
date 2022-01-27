@@ -8,7 +8,7 @@ using DoctorBob.Core.Common.Domain;
 
 namespace DoctorBob.Core.StaffManagement.Domain
 {
-    class Staff : AuditableEntity
+    public class Staff : AuditableEntity
     {
         public int Id { get; set; }
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -21,7 +21,7 @@ namespace DoctorBob.Core.StaffManagement.Domain
         // Password
     }
 
-    enum Role
+    public enum Role
     {
         Nurse,
         Doctor,

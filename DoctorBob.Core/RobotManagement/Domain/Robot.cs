@@ -9,7 +9,7 @@ using DoctorBob.Core.PatientManagement.Domain;
 
 namespace DoctorBob.Core.RoboManagement.Domain
 {
-    class Robot : AuditableEntity
+    public class Robot : AuditableEntity
     {
         public int Id { get; set; }
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -24,7 +24,7 @@ namespace DoctorBob.Core.RoboManagement.Domain
 
     }
 
-    enum CurrentLocation
+    public enum CurrentLocation
     {
         Home,
         DrugStore,
@@ -39,7 +39,7 @@ namespace DoctorBob.Core.RoboManagement.Domain
         WayToHome
     }
     
-    enum Activity
+    public enum Activity
     {
         Standby,
         Charging,

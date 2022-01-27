@@ -9,7 +9,7 @@ using DoctorBob.Core.Common.Domain;
 
 namespace DoctorBob.Core.PatientManagement.Domain
 {
-    class Patient : AuditableEntity
+    public class Patient : AuditableEntity
     {
         public int Id { get; set; }
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -25,7 +25,7 @@ namespace DoctorBob.Core.PatientManagement.Domain
         public DateTime LeavingDate { get; set; }
     }
 
-    enum Gender
+    public enum Gender
     {
         Male,
         Female
