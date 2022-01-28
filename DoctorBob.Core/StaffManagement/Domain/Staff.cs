@@ -16,7 +16,6 @@ namespace DoctorBob.Core.StaffManagement.Domain
         public string LastName { get; set; }
         public Role Role { get; set; }
         public string Username { get; set; }
-        public string Email { get; set; }
 
         // Password
     }

@@ -14,5 +14,6 @@ namespace DoctorBob.Core.DrugManagement.Domain
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string Name { get; set; }
         public int DoseInMg { get; set; }
+        public string Description { get; set; }
     }
 }

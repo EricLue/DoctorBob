@@ -123,7 +123,6 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     LastName = "Schmitter",
                     Role = Role.ChiefDoctor,
                     Username = "aschmitter",
-                    Email = ""
                 },
                 new Staff
                 {
@@ -132,7 +131,6 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     LastName = "Sahli",
                     Role = Role.Doctor,
                     Username = "rsahli",
-                    Email = ""
                 },
                 new Staff
                 {
@@ -141,7 +139,6 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     LastName = "Kesay",
                     Role = Role.Doctor,
                     Username = "ikesay",
-                    Email = ""
                 },
                 new Staff
                 {
@@ -150,7 +147,6 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     LastName = "Kluser",
                     Role = Role.Nurse,
                     Username = "skluser",
-                    Email = ""
                 },
                 new Staff
                 {
@@ -159,7 +155,6 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     LastName = "Seitz",
                     Role = Role.Nurse,
                     Username = "sseitz",
-                    Email = ""
                 },
                 new Staff
                 {
@@ -168,7 +163,6 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     LastName = "Agger",
                     Role = Role.Nurse,
                     Username = "ragger",
-                    Email = ""
                 },
                 new Staff
                 {
@@ -177,7 +171,6 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     LastName = "Fernandez",
                     Role = Role.Nurse,
                     Username = "sfernandez",
-                    Email = ""
                 },
                 new Staff
                 {
@@ -186,7 +179,6 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     LastName = "Seger",
                     Role = Role.Anesthetist,
                     Username = "wseger",
-                    Email = ""
                 },
                 new Staff
                 {
@@ -195,7 +187,6 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     LastName = "Popp",
                     Role = Role.Administration,
                     Username = "kpopp",
-                    Email = ""
                 },
                 new Staff
                 {
@@ -204,7 +195,6 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     LastName = "Holenstein",
                     Role = Role.Technician,
                     Username = "fholenstein",
-                    Email = ""
                 }
             };
             #endregion
@@ -215,26 +205,30 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                 new Drug
                 {
                     Id = 1000,
-                    DoseInMg = 50,
-                    Name = "AAA"
+                    DoseInMg = 5,
+                    Name = "Bisoprolol",
+                    Description = "Senkung Puls"
                 },
                 new Drug
                 {
                     Id = 1001,
-                    DoseInMg = 250,
-                    Name = "BBB"
+                    DoseInMg = 14,
+                    Name = "Metformin",
+                    Description = "Regulation Blutzucker"
                 },
                 new Drug
                 {
                     Id = 1002,
-                    DoseInMg = 75,
-                    Name = "CCC"
+                    DoseInMg = 500,
+                    Name = "Novalgin",
+                    Description = "Schmerzmittel"
                 },
                 new Drug
                 {
                     Id = 1003,
-                    DoseInMg = 115,
-                    Name = "DDD"
+                    DoseInMg = 5,
+                    Name = "Amlodipin",
+                    Description = "Senkung Blutdruck"
                 }
 
             };
