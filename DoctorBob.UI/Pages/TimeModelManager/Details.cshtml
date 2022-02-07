@@ -1,0 +1,49 @@
+﻿@page
+@model DoctorBob.UI.Pages.TimeModelManager.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>TimeModel</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimeModel.Time)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimeModel.Time)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimeModel.CreatedBy)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimeModel.CreatedBy)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimeModel.ModifiedBy)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimeModel.ModifiedBy)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimeModel.CreatedAt)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimeModel.CreatedAt)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimeModel.ModifiedAt)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimeModel.ModifiedAt)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.TimeModel.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

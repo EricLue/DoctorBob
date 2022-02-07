@@ -1,0 +1,73 @@
+﻿@page
+@model DoctorBob.UI.Pages.RobotManager.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Robot</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Robot.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Robot.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Robot.LastRoom)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Robot.LastRoom.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Robot.CurrentLocation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Robot.CurrentLocation)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Robot.Power)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Robot.Power)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Robot.Activity)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Robot.Activity)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Robot.CreatedBy)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Robot.CreatedBy)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Robot.ModifiedBy)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Robot.ModifiedBy)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Robot.CreatedAt)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Robot.CreatedAt)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Robot.ModifiedAt)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Robot.ModifiedAt)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Robot.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

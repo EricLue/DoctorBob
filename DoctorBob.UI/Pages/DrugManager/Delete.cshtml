@@ -1,0 +1,64 @@
+﻿@page
+@model DoctorBob.UI.Pages.DrugManager.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Drug</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Drug.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Drug.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Drug.DoseInMg)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Drug.DoseInMg)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Drug.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Drug.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Drug.CreatedBy)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Drug.CreatedBy)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Drug.ModifiedBy)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Drug.ModifiedBy)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Drug.CreatedAt)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Drug.CreatedAt)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Drug.ModifiedAt)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Drug.ModifiedAt)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Drug.Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

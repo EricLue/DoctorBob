@@ -1,0 +1,90 @@
+﻿@page
+@model DoctorBob.UI.Pages.PatientManager.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Patient</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Patient.Id" />
+            <div class="form-group">
+                <label asp-for="Patient.FirstName" class="control-label"></label>
+                <input asp-for="Patient.FirstName" class="form-control" />
+                <span asp-validation-for="Patient.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Patient.LastName" class="control-label"></label>
+                <input asp-for="Patient.LastName" class="form-control" />
+                <span asp-validation-for="Patient.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Patient.Gender" class="control-label"></label>
+                <select asp-for="Patient.Gender" class="form-control"></select>
+                <span asp-validation-for="Patient.Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Patient.RoomId" class="control-label"></label>
+                <select asp-for="Patient.RoomId" class="form-control" asp-items="ViewBag.RoomId"></select>
+                <span asp-validation-for="Patient.RoomId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Patient.TherapyId" class="control-label"></label>
+                <select asp-for="Patient.TherapyId" class="form-control" asp-items="ViewBag.TherapyId"></select>
+                <span asp-validation-for="Patient.TherapyId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Patient.MedicalHistory" class="control-label"></label>
+                <input asp-for="Patient.MedicalHistory" class="form-control" />
+                <span asp-validation-for="Patient.MedicalHistory" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Patient.EntryDate" class="control-label"></label>
+                <input asp-for="Patient.EntryDate" class="form-control" />
+                <span asp-validation-for="Patient.EntryDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Patient.LeavingDate" class="control-label"></label>
+                <input asp-for="Patient.LeavingDate" class="form-control" />
+                <span asp-validation-for="Patient.LeavingDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Patient.CreatedBy" class="control-label"></label>
+                <input asp-for="Patient.CreatedBy" class="form-control" />
+                <span asp-validation-for="Patient.CreatedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Patient.ModifiedBy" class="control-label"></label>
+                <input asp-for="Patient.ModifiedBy" class="form-control" />
+                <span asp-validation-for="Patient.ModifiedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Patient.CreatedAt" class="control-label"></label>
+                <input asp-for="Patient.CreatedAt" class="form-control" />
+                <span asp-validation-for="Patient.CreatedAt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Patient.ModifiedAt" class="control-label"></label>
+                <input asp-for="Patient.ModifiedAt" class="form-control" />
+                <span asp-validation-for="Patient.ModifiedAt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

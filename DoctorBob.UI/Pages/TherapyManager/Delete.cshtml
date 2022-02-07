@@ -1,0 +1,76 @@
+﻿@page
+@model DoctorBob.UI.Pages.TherapyManager.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Therapy</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Therapy.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Therapy.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Therapy.QuantityOfDrug)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Therapy.QuantityOfDrug)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Therapy.Drug)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Therapy.Drug.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Therapy.CaringStaff)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Therapy.CaringStaff.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Therapy.TimeModel)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Therapy.TimeModel.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Therapy.CreatedBy)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Therapy.CreatedBy)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Therapy.ModifiedBy)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Therapy.ModifiedBy)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Therapy.CreatedAt)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Therapy.CreatedAt)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Therapy.ModifiedAt)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Therapy.ModifiedAt)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Therapy.Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

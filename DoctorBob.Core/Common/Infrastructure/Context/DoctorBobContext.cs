@@ -21,6 +21,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
         public DbSet<Patient> Patients { get; set; }
         public DbSet<TimeModel> TimeModels { get; set; }
         public DbSet<Therapy> Therapies { get; set; }
+        public DbSet<Room> Rooms { get; set; }
         public DbSet<Staff> StaffMembers { get; set; }
         public DbSet<Robot> Robot { get; set; }
         #endregion
