@@ -42,13 +42,13 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasSequence<int>("RobotNr", schema: "shared")
-                .StartsAt(1);
-
             modelBuilder.HasSequence<int>("StaffNr", schema: "shared")
                 .StartsAt(100);
 
             modelBuilder.HasSequence<int>("TherapyNr", schema: "shared")
+                .StartsAt(100);
+
+            modelBuilder.HasSequence<int>("RoomNr", schema: "shared")
                 .StartsAt(100);
 
             modelBuilder.HasSequence<int>("DrugNr", schema: "shared")
@@ -59,6 +59,9 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
 
             modelBuilder.HasSequence<int>("PatientNr", schema: "shared")
                 .StartsAt(10_000);
+
+            modelBuilder.HasSequence<int>("RobotNr", schema: "shared")
+                .StartsAt(1);
 
             //modelBuilder.Entity<Robot>()
             //    .Property(r => r.Id)
@@ -97,21 +100,6 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
 
             modelBuilder.Entity<Robot>()
                 .HasOne(p => p.LastRoom);
-
-            #region Robot
-            var robot = new List<Robot>
-            {
-                new Robot
-                {
-                    Id = 1,
-                    Name = "DoctorBob 1.0",
-                    LastRoomId = 999,
-                    CurrentLocation = CurrentLocation.Home,
-                    Power = 100,
-                    Activity = Activity.Standby
-                }
-            };
-            #endregion
 
             #region List of Staff
             var staffMembers = new List<Staff>
@@ -412,13 +400,29 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
             };
             #endregion
 
+            #region Robot
+            var robot = new List<Robot>
+            {
+                new Robot
+                {
+                    Id = 1,
+                    Name = "DoctorBob 1.0",
+                    LastRoomId = 999,
+                    CurrentLocation = CurrentLocation.Home,
+                    Power = 100,
+                    Activity = Activity.Standby
+                }
+            };
+            #endregion
+
             #region Preload Data
-            robot.ForEach(r => modelBuilder.Entity<Robot>().HasData(r));
             staffMembers.ForEach(s => modelBuilder.Entity<Staff>().HasData(s));
             drugs.ForEach(d => modelBuilder.Entity<Drug>().HasData(d));
+            rooms.ForEach(r => modelBuilder.Entity<Room>().HasData(r));
             timeModels.ForEach(t => modelBuilder.Entity<TimeModel>().HasData(t));
             therapies.ForEach(t => modelBuilder.Entity<Therapy>().HasData(t));
             patients.ForEach(p => modelBuilder.Entity<Patient>().HasData(p));
+            robot.ForEach(r => modelBuilder.Entity<Robot>().HasData(r));
             #endregion
         }
 
