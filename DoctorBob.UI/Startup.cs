@@ -29,6 +29,10 @@ namespace DoctorBob.UI
             services.AddDbContext<DoctorBobContext>();
             services.AddControllers();
             services.AddRazorPages();
+            services.AddMvc().AddRazorPagesOptions(options =>
+            {
+                options.Conventions.AddPageRoute("/Account/Login", "");
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +50,7 @@ namespace DoctorBob.UI
             }
 
             app.UseHttpsRedirection();
+
             app.UseStaticFiles();
 
             app.UseRouting();

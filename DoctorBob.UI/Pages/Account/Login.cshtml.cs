@@ -15,12 +15,11 @@ namespace DoctorBob.UI.Pages.Account
 
         public void OnGet()
         {
-
         }
 
         public void OnPost()
         {
-
+            // Method is called when clicked "Login"
         }
     }
 

@@ -39,6 +39,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Data Source =.; Database = DoctorBob; Trusted_Connection = True");
+            //optionsBuilder.UseMySQL("server=localhost;database=library;user=user;password=password");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
