@@ -1,0 +1,84 @@
+﻿@page
+@model DoctorBob.UI.Pages.Home.HomeViewModel
+@{
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - DoctorBob.UI</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div class="container border" style="padding:20px">
+        <form method="get">
+            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+            <div class="form-group row">
+                <div class="col-3">
+                    <label>Roboter ID</label>
+                </div>
+                <div class="col-5">
+                    <label>DoctorBob 42</label>
+                </div>
+                <span class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <div class="col-3">
+                    <label>Location</label>
+                </div>
+                <div class="col-5">
+                    <label>An Ladestation</label>
+                </div>
+                <span class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <div class="col-3">
+                    <label>Status</label>
+                </div>
+                <div class="col-5">
+                    <link rel="icon" type="image/gif" href="/images/green_state.gif">
+                </div>
+                <span class="text-danger"></span>
+            </div>
+        </form>
+    </div>
+    <div class="container border" style="padding:20px">
+        <form method="post">
+            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+            <div class="form-group row">
+                <div class="col-2">
+                    <input type="submit" class="btn btn-primary" value="Patienten-Dashboard" asp-area="" asp-page="/PatientManager/Index" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-2">
+                    <input type="submit" class="btn btn-primary" value="Roboter-Dashboard" asp-area="" asp-page="/RobotManager/Index" />
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="container border" style="padding:20px">
+        <form method="post">
+            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+            <div class="form-group row">
+                <div class="col-2">
+                    <input type="submit" class="btn btn-secondary" value="Personal" asp-area="" asp-page="/StaffManager/Index" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-2">
+                    <input type="submit" class="btn btn-secondary" value="Therapien" asp-area="" asp-page="/TherapyManager/Index" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-2">
+                    <input type="submit" class="btn btn-secondary" value="Raumverwaltung" asp-area="" asp-page="/RoomManager/Index" />
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

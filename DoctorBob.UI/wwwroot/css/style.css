@@ -1,0 +1,403 @@
+/* COLOR */
+
+/* ----------------------------- */
+/* BASIC SETUP */
+/* ----------------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    background-color: #fff;
+    color: #555;
+    font-family: 'Lato', 'Arial', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+}
+
+.clearfix {zoom:1}
+.clearfix:after {
+    content: '.';
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+/* ----------------------------- */
+/* REUSABLE COMPONENTS */
+/* ----------------------------- */
+
+.row {
+    max-width: auto;
+    margin: auto 0;
+}
+
+section {
+    padding: 80px 0;
+}
+
+.box {
+    padding: 2%;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ----------------------------- */
+/* HEADINGS */
+/* ----------------------------- */
+
+h1, h2, h3 {
+    font-weight: 300;
+    text-align: center;
+}
+
+h1 {
+    margin-top: 80px;
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 200%;
+    word-spacing: 10px;
+    letter-spacing: 2px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+h1:after {
+    content: "";
+    border-bottom: 5px solid #ebcb16;
+    display: block;
+    padding: 20px;
+    width: 20%;
+    margin: auto;
+}
+
+h2 {
+    font-size: 180%;
+    word-spacing: 2px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-bottom: 2%;
+}
+
+h3 {
+    color: #fff;
+    font-size: 180%;
+    word-spacing: 10px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+h3:after {
+    content: "";
+    border-bottom: 2px solid #ebcb16;
+    display: block;
+    padding: 20px;
+    width: 20%;
+    margin: auto;
+}
+
+h4 {
+    font-size: 110%;
+}
+
+/* ----------------------------- */
+/* HEADER */
+/* ----------------------------- */
+
+.menu {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+header {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(/background_stetoscope.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    background-attachment: fixed;
+}
+
+.menu ul li {
+    list-style-type: none;
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+    float: right
+}
+
+/* ----------------------------- */
+/* LINKS */
+/* ----------------------------- */
+
+.menu ul li a:link,
+.menu ul li a:visited {
+    padding: 8px;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 90%;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.2s;
+}
+
+    .menu ul li a:hover,
+    .menu ul li a:active {
+        border-bottom: 2px solid #f48f8f;
+    }
+
+/* ----------------------------- */
+/* BUTTONS */
+/* ----------------------------- */
+
+.btn-header {
+    margin-top: 60px;
+    text-align: center;
+    font-size: 25px;
+    
+}
+
+.btn-full:link,
+.btn-full:visited {
+    color: #fff;
+    background-color: #ebcb16;
+    border: 1px solid #ebcb16;
+    border-radius: 25%;
+    padding: 2%;
+    margin: 10px;
+}
+
+.btn-full:hover,
+.btn-full:active {
+    background-color: #f48f8f;
+    border: 1px solid #f48f8f;
+    transition: background-color 1s, border 1s, color 1s;
+}
+
+.btn-ghost {
+    color: #f48f8f;
+    border: 1px solid #f48f8f;
+    border-radius: 25%;
+    padding: 2%;
+    margin: 10px;
+}
+
+    .btn-ghost:hover,
+    .btn-ghost:active {
+        background-color: #f48f8f;
+        border: 1px solid #f48f8f;
+        color: #fff;
+        transition: background-color 1s, border 1s, color 1s;
+    }
+
+/* ----------------------------- */
+/*ICONS */
+/* ----------------------------- */
+
+.icon-hammer {
+    color: #786b3c;
+    font-size: 250%;
+    margin-bottom: 15px;
+	display: block;
+}
+
+.icon-bulb {
+    color: #fae634;
+    font-size: 250%;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.icon-house {
+    color: #cf1f3f;
+    font-size: 250%;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.icon-special {
+    color: #1fbe5c;
+    font-size: 250%;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.icon-big {
+    color: #8e8345;
+    font-size: 250%;
+    margin-bottom: 15px;
+    display: block;
+}
+
+/* ----------------------------- */
+/*SECTION INFORMATIONS */
+/* ----------------------------- */
+
+.box h4 {
+    display: block;
+    margin-bottom: 15%;
+} 
+
+.box p {
+    display: block;
+    margin-bottom: 10%;
+}
+
+/* ----------------------------- */
+/*SECTION PRODUCTS */
+/* ----------------------------- */
+
+.section-products {
+    text-align: center;
+    background-color: #f48f8f;
+}
+
+.section-products h2:after {
+    content: "";
+    border-bottom: 5px solid #293133;
+    display: block;
+    padding: 20px;
+    width: 75%;
+    margin: auto;
+}
+
+.product-detail {
+    padding-top: 10px;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.product-photo img {
+    opacity: 0.8;
+    height: 420px;
+    transform: scale(0.90);
+    transition: transform 0.5s, opacity 0.5s;
+}
+
+.product-photo img:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.icon-cash {
+    color: #479154;
+    font-size: 350%;
+    margin-bottom: 15px;
+    display: block;
+}
+
+#product_line:after {
+    content: "";
+    border-bottom: 2px solid #293133;
+    display: block;
+    padding: 20px;
+    width: 75%;
+    margin: auto;
+}
+
+#cashycash {
+    font-weight: bold;
+}
+	
+/* ----------------------------- */
+/*SECTION IMPRESSIONS */
+/* ----------------------------- */
+
+.section-impressions {
+    padding: 0;
+}
+
+.impressions-showcase {
+    list-style-type: none;
+    width: 100%;
+}
+
+.impressions-showcase li {
+    display: block;
+    float: left;
+    width: 25%;
+}
+
+.impression-photo {
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+    background: #000;
+}
+
+.impression-photo img {
+    opacity: 0.7;
+    width: 100%;
+    height: auto;
+}
+
+/* ----------------------------- */
+/*SECTION CONTACT */
+/* ----------------------------- */
+
+.section-contact {
+    padding: 10;
+	display: block;
+	background-color: #f0f1f2;
+}
+
+.data-contact {
+	text-align: center;
+}
+
+.logo img {
+	width: 60%;
+	display: block;
+	margin: 0 auto;
+}
+
+.icon-mail {
+    color: #ffbf00;
+    font-size: 250%;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.icon-map {
+	color: #237ce8;
+    font-size: 250%;
+    margin-bottom: 15px;
+    display: block;
+}
+
+/* ----------------------------- */
+/*SECTION ARTIST */
+/* ----------------------------- */
+
+.section-artist {
+    padding: 10%;
+}
+
+.photo-artist img {
+    width: 100%;
+    margin: 0;
+    border: 1px solid #555;
+    border-radius: 20px;    
+}
+
+/* ----------------------------- */
+/*SECTION IMPRESSUM */
+/* ----------------------------- */
+
+.section-impressum {
+	background-color: #595954;
+	font-size: 50%;
+}
+
+.section-impressum p {
+	color: #ffffff;
+	margin: 2%;
+}

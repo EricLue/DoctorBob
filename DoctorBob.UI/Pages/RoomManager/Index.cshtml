@@ -5,10 +5,10 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Raum Verwaltung</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create">Raum erfassen</a>
 </p>
 <table class="table">
     <thead>
@@ -32,7 +32,7 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Room) {
+@*@foreach (var item in Model.Room) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
@@ -55,6 +55,6 @@
                 <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
-}
+}*@
     </tbody>
 </table>

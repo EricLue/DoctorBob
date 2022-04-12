@@ -19,7 +19,7 @@ namespace DoctorBob.UI.Pages.StaffManager
             _context = context;
         }
 
-        public IList<Staff> Staff { get;set; }
+        public IList<Staff> Staff { get; set; }
 
         public async Task OnGetAsync()
         {

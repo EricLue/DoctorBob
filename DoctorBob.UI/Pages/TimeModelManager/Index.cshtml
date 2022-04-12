@@ -5,10 +5,10 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Zeitmodelle</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create">Neues Zeitmodell erfassen</a>
 </p>
 <table class="table">
     <thead>
@@ -32,7 +32,7 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.TimeModel) {
+@*@foreach (var item in Model.TimeModel) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Time)
@@ -55,6 +55,6 @@
                 <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
-}
+}*@
     </tbody>
 </table>
