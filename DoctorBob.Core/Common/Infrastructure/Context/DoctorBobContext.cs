@@ -38,32 +38,93 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source =.; Database = DoctorBob; Trusted_Connection = True");
+            //optionsBuilder.UseSqlServer("Data Source =.; Database = DoctorBob; Trusted_Connection = True");
+            String connectionString = "server = localhost; database = DoctorBob; user = root; password =Esojogacora17";
+            optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+            //server = localhost; user = root; database = MedTech; password =[password]
             //optionsBuilder.UseMySQL("server=localhost;database=library;user=user;password=password");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasSequence<int>("StaffNr", schema: "shared")
-                .StartsAt(100);
+            base.OnModelCreating(modelBuilder);
 
-            modelBuilder.HasSequence<int>("TherapyNr", schema: "shared")
-                .StartsAt(100);
+            //modelBuilder.Entity<Book>(entity =>
+            //{
+            //    entity.HasKey(e => e.ISBN);
+            //    entity.Property(e => e.Title).IsRequired();
+            //    entity.HasOne(d => d.Publisher)
+            //      .WithMany(p => p.Books);
+            //});
 
-            modelBuilder.HasSequence<int>("RoomNr", schema: "shared")
-                .StartsAt(100);
+            modelBuilder.Entity<Staff>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.LastName).IsRequired();
+            });
 
-            modelBuilder.HasSequence<int>("DrugNr", schema: "shared")
-                .StartsAt(1_000);
+            modelBuilder.Entity<Therapy>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.Name).IsRequired();
+                entity.HasOne(e => e.Drug);
+                entity.HasOne(e => e.CaringStaff);
+                entity.HasOne(e => e.TimeModel);
+            });
 
-            modelBuilder.HasSequence<int>("TimeModelNr", schema: "shared")
-                .StartsAt(1_000);
+            modelBuilder.Entity<Room>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.Name).IsRequired();
+            });
 
-            modelBuilder.HasSequence<int>("PatientNr", schema: "shared")
-                .StartsAt(10_000);
+            modelBuilder.Entity<Drug>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.Name).IsRequired();
+            });
 
-            modelBuilder.HasSequence<int>("RobotNr", schema: "shared")
-                .StartsAt(1);
+            modelBuilder.Entity<TimeModel>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.Time).IsRequired();
+            });
+
+            modelBuilder.Entity<Patient>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.LastName).IsRequired();
+                entity.HasOne(e => e.Therapy);
+                entity.HasOne(e => e.Room);
+            });
+
+            modelBuilder.Entity<Robot>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.Name).IsRequired();
+                entity.HasOne(e => e.LastRoom);
+            });
+
+            //modelBuilder.HasSequence<int>("StaffNr")
+            //    .StartsAt(100);
+
+            //modelBuilder.HasSequence<int>("TherapyNr")
+            //    .StartsAt(100);
+
+            //modelBuilder.HasSequence<int>("RoomNr")
+            //    .StartsAt(100);
+
+            //modelBuilder.HasSequence<int>("DrugNr")
+            //    .StartsAt(1_000);
+
+            //modelBuilder.HasSequence<int>("TimeModelNr")
+            //    .StartsAt(1_000);
+
+            //modelBuilder.HasSequence<int>("PatientNr")
+            //    .StartsAt(10_000);
+
+            //modelBuilder.HasSequence<int>("RobotNr")
+            //    .StartsAt(1);
 
             //modelBuilder.Entity<Robot>()
             //    .Property(r => r.Id)
@@ -85,23 +146,23 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
             //    .Property(d => d.Id)
             //    .HasDefaultValueSql("NEXT VALUE FOR shared.Id");
 
-            modelBuilder.Entity<Therapy>()
-                  .HasOne(t => t.Drug);
+            //modelBuilder.Entity<Therapy>()
+            //      .HasOne(t => t.Drug);
 
-            modelBuilder.Entity<Therapy>()
-                .HasOne(t => t.CaringStaff);
+            //modelBuilder.Entity<Therapy>()
+            //    .HasOne(t => t.CaringStaff);
 
-            modelBuilder.Entity<Therapy>()
-                .HasOne(t => t.TimeModel);
+            //modelBuilder.Entity<Therapy>()
+            //    .HasOne(t => t.TimeModel);
 
-            modelBuilder.Entity<Patient>()
-                .HasOne(p => p.Therapy);
+            //modelBuilder.Entity<Patient>()
+            //    .HasOne(p => p.Therapy);
 
-            modelBuilder.Entity<Patient>()
-                .HasOne(p => p.Room);
+            //modelBuilder.Entity<Patient>()
+            //    .HasOne(p => p.Room);
 
-            modelBuilder.Entity<Robot>()
-                .HasOne(p => p.LastRoom);
+            //modelBuilder.Entity<Robot>()
+            //    .HasOne(p => p.LastRoom);
 
             #region List of Staff
             var staffMembers = new List<Staff>
@@ -333,28 +394,28 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
             #region List of Patients
             var patients = new List<Patient>
             {
-                new Patient
-                {
-                    Id = 10000,
-                    FirstName = "Marco",
-                    LastName = "Inverardi",
-                    Gender = Gender.Male,
-                    TherapyId = 103,
-                    MedicalHistory = "Operation Blinddarum im Jahre 2018",
-                    EntryDate = new DateTime(2022,06,20),
-                    LeavingDate = new DateTime(2022,06,22)
-                },
-                new Patient
-                {
-                    Id = 10001,
-                    FirstName = "Heidi",
-                    LastName = "Geissbühler",
-                    Gender = Gender.Female,
-                    TherapyId = 102,
-                    MedicalHistory = "Hüftoperation 01.2017",
-                    EntryDate = new DateTime(2022,06,20),
-                    LeavingDate = new DateTime(2022,06,21)
-                },
+                //new Patient
+                //{
+                //    Id = 10000,
+                //    FirstName = "Marco",
+                //    LastName = "Inverardi",
+                //    Gender = Gender.Male,
+                //    TherapyId = 103,
+                //    MedicalHistory = "Operation Blinddarum im Jahre 2018",
+                //    EntryDate = new DateTime(2022,06,20),
+                //    LeavingDate = new DateTime(2022,06,22)
+                //},
+                //new Patient
+                //{
+                //    Id = 10001,
+                //    FirstName = "Heidi",
+                //    LastName = "Geissbühler",
+                //    Gender = Gender.Female,
+                //    TherapyId = 102,
+                //    MedicalHistory = "Hüftoperation 01.2017",
+                //    EntryDate = new DateTime(2022,06,20),
+                //    LeavingDate = new DateTime(2022,06,21)
+                //},
                 new Patient
                 {
                     Id = 10002,

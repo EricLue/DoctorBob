@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations.Schema;
+//using System.ComponentModel.DataAnnotations.Schema;
 using DoctorBob.Core.TherapyManagement.Domain;
 using DoctorBob.Core.Common.Domain;
 
@@ -12,7 +12,7 @@ namespace DoctorBob.Core.PatientManagement.Domain
     public class Patient : AuditableEntity
     {
         public int Id { get; set; }
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public Gender Gender { get; set; }
