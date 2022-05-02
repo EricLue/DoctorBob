@@ -38,11 +38,8 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //optionsBuilder.UseSqlServer("Data Source =.; Database = DoctorBob; Trusted_Connection = True");
-            String connectionString = "server = localhost; database = DoctorBob; user = root; password =Esojogacora17";
+            String connectionString = "server = localhost; database = DoctorBob; user = root; password =PASSWORD";
             optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
-            //server = localhost; user = root; database = MedTech; password =[password]
-            //optionsBuilder.UseMySQL("server=localhost;database=library;user=user;password=password");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -455,7 +452,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     FirstName = "Lisa",
                     LastName = "Zellweger",
                     Gender = Gender.Female,
-                    RoomId = 103,
+                    RoomId = 104,
                     TherapyId = 101,
                     MedicalHistory = "Herzstillstand 05.2011 mit anschliessender Reanimation",
                     EntryDate = new DateTime(2022,06,24),
