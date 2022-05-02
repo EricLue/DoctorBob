@@ -17,6 +17,7 @@ namespace DoctorBob.UI.Pages.TherapyManager
         public IndexModel(DoctorBob.Core.Common.Infrastructure.Context.DoctorBobContext context)
         {
             _context = context;
+            Therapy = _context.Therapies.ToList();
         }
 
         public IList<Therapy> Therapy { get;set; }

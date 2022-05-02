@@ -44,7 +44,7 @@
         </tr>
     </thead>
     <tbody>
-@*@foreach (var item in Model.Therapy) {
+@foreach (var item in Model.Therapy) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
@@ -79,6 +79,6 @@
                 <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
-}*@
+}
     </tbody>
 </table>

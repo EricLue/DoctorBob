@@ -17,6 +17,7 @@ namespace DoctorBob.UI.Pages.PatientManager
         public IndexModel(DoctorBob.Core.Common.Infrastructure.Context.DoctorBobContext context)
         {
             _context = context;
+            Patient = _context.Patients.ToList();
         }
 
         public IList<Patient> Patient { get;set; }

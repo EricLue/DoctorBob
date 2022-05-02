@@ -23,7 +23,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
         public DbSet<Therapy> Therapies { get; set; }
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Staff> StaffMembers { get; set; }
-        public DbSet<Robot> Robot { get; set; }
+        public DbSet<Robot> Robots { get; set; }
         #endregion
 
         public DoctorBobContext()
@@ -45,14 +45,6 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-            //modelBuilder.Entity<Book>(entity =>
-            //{
-            //    entity.HasKey(e => e.ISBN);
-            //    entity.Property(e => e.Title).IsRequired();
-            //    entity.HasOne(d => d.Publisher)
-            //      .WithMany(p => p.Books);
-            //});
 
             modelBuilder.Entity<Staff>(entity =>
             {
@@ -171,6 +163,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     LastName = "Schmitter",
                     Role = Role.ChiefDoctor,
                     Username = "aschmitter",
+                    Password = "bobby123",
                 },
                 new Staff
                 {
@@ -179,6 +172,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     LastName = "Sahli",
                     Role = Role.Doctor,
                     Username = "rsahli",
+                    Password = "goku99",
                 },
                 new Staff
                 {
@@ -187,6 +181,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     LastName = "Kesay",
                     Role = Role.Doctor,
                     Username = "ikesay",
+                    Password = "jacky91",
                 },
                 new Staff
                 {
@@ -195,6 +190,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     LastName = "Kluser",
                     Role = Role.Nurse,
                     Username = "skluser",
+                    Password = "sloth17",
                 },
                 new Staff
                 {
@@ -203,6 +199,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     LastName = "Seitz",
                     Role = Role.Nurse,
                     Username = "sseitz",
+                    Password = "uiop98",
                 },
                 new Staff
                 {
@@ -211,6 +208,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     LastName = "Agger",
                     Role = Role.Nurse,
                     Username = "ragger",
+                    Password = "65lolapola",
                 },
                 new Staff
                 {
@@ -219,6 +217,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     LastName = "Fernandez",
                     Role = Role.Nurse,
                     Username = "sfernandez",
+                    Password = "esel15",
                 },
                 new Staff
                 {
@@ -227,6 +226,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     LastName = "Seger",
                     Role = Role.Anesthetist,
                     Username = "wseger",
+                    Password = "losangeles20",
                 },
                 new Staff
                 {
@@ -235,6 +235,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     LastName = "Popp",
                     Role = Role.Administration,
                     Username = "kpopp",
+                    Password = "gandalf9!",
                 },
                 new Staff
                 {
@@ -243,6 +244,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     LastName = "Holenstein",
                     Role = Role.Technician,
                     Username = "fholenstein",
+                    Password = "santaclause11",
                 }
             };
             #endregion

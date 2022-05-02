@@ -14,6 +14,11 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
+                <label asp-for="Staff.FirstName" class="control-label"></label>
+                <input asp-for="Staff.FirstName" class="form-control" />
+                <span asp-validation-for="Staff.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Staff.LastName" class="control-label"></label>
                 <input asp-for="Staff.LastName" class="form-control" />
                 <span asp-validation-for="Staff.LastName" class="text-danger"></span>
@@ -27,6 +32,11 @@
                 <label asp-for="Staff.Username" class="control-label"></label>
                 <input asp-for="Staff.Username" class="form-control" />
                 <span asp-validation-for="Staff.Username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Staff.Password" class="control-label"></label>
+                <input asp-for="Staff.Password" class="form-control" />
+                <span asp-validation-for="Staff.Password" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Staff.CreatedBy" class="control-label"></label>

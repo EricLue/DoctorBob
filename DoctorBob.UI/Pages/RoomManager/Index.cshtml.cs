@@ -17,6 +17,7 @@ namespace DoctorBob.UI.Pages.RoomManager
         public IndexModel(DoctorBob.Core.Common.Infrastructure.Context.DoctorBobContext context)
         {
             _context = context;
+            Room = _context.Rooms.ToList();
         }
 
         public IList<Room> Room { get;set; }

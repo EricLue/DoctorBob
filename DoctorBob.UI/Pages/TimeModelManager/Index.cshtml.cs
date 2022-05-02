@@ -17,6 +17,7 @@ namespace DoctorBob.UI.Pages.TimeModelManager
         public IndexModel(DoctorBob.Core.Common.Infrastructure.Context.DoctorBobContext context)
         {
             _context = context;
+            TimeModel = _context.TimeModels.ToList();
         }
 
         public IList<TimeModel> TimeModel { get;set; }

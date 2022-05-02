@@ -17,6 +17,7 @@ namespace DoctorBob.UI.Pages.DrugManager
         public IndexModel(DoctorBobContext context)
         {
             _context = context;
+            Drug = _context.Drugs.ToList();
         }
 
         public IList<Drug> Drug { get;set; }

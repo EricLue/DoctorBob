@@ -53,9 +53,6 @@
         </tr>
     </thead>
     <tbody>
-
-        @*// foreach wieder einbauen
-
 @foreach (var item in Model.Patient) {
         <tr>
             <td>
@@ -100,6 +97,6 @@
                 <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
-}*@
+}
     </tbody>
 </table>

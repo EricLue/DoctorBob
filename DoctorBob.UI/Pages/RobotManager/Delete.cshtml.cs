@@ -29,7 +29,7 @@ namespace DoctorBob.UI.Pages.RobotManager
                 return NotFound();
             }
 
-            Robot = await _context.Robot
+            Robot = await _context.Robots
                 .Include(r => r.LastRoom).FirstOrDefaultAsync(m => m.Id == id);
 
             if (Robot == null)
@@ -46,11 +46,11 @@ namespace DoctorBob.UI.Pages.RobotManager
                 return NotFound();
             }
 
-            Robot = await _context.Robot.FindAsync(id);
+            Robot = await _context.Robots.FindAsync(id);
 
             if (Robot != null)
             {
-                _context.Robot.Remove(Robot);
+                _context.Robots.Remove(Robot);
                 await _context.SaveChangesAsync();
             }
 

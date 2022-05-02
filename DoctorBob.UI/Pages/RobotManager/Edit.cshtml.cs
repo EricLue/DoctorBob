@@ -30,7 +30,7 @@ namespace DoctorBob.UI.Pages.RobotManager
                 return NotFound();
             }
 
-            Robot = await _context.Robot
+            Robot = await _context.Robots
                 .Include(r => r.LastRoom).FirstOrDefaultAsync(m => m.Id == id);
 
             if (Robot == null)
@@ -73,7 +73,7 @@ namespace DoctorBob.UI.Pages.RobotManager
 
         private bool RobotExists(int id)
         {
-            return _context.Robot.Any(e => e.Id == id);
+            return _context.Robots.Any(e => e.Id == id);
         }
     }
 }

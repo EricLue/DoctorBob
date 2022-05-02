@@ -36,7 +36,7 @@ namespace DoctorBob.UI.Pages.RobotManager
                 return Page();
             }
 
-            _context.Robot.Add(Robot);
+            _context.Robots.Add(Robot);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

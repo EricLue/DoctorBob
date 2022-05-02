@@ -17,13 +17,14 @@ namespace DoctorBob.UI.Pages.RobotManager
         public IndexModel(DoctorBob.Core.Common.Infrastructure.Context.DoctorBobContext context)
         {
             _context = context;
+            Robot = _context.Robots.ToList();
         }
 
         public IList<Robot> Robot { get;set; }
 
         public async Task OnGetAsync()
         {
-            Robot = await _context.Robot
+            Robot = await _context.Robots
                 .Include(r => r.LastRoom).ToListAsync();
         }
     }
