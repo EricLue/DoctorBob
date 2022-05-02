@@ -38,7 +38,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            String connectionString = "server = localhost; database = DoctorBob; user = root; password =PASSWORD";
+            String connectionString = "server = localhost; database = DoctorBob; user = root; password =Esojogacora17";
             optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
         }
 

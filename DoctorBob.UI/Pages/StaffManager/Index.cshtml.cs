@@ -17,6 +17,7 @@ namespace DoctorBob.UI.Pages.StaffManager
         public IndexModel(DoctorBob.Core.Common.Infrastructure.Context.DoctorBobContext context)
         {
             _context = context;
+            Staff = _context.StaffMembers.ToList();
         }
 
         public IList<Staff> Staff { get; set; }
