@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DoctorBob.Core.Common.Infrastructure.Context;
 using DoctorBob.Core.DrugManagement.Domain;
+using DoctorBob.UI.Pages.Account;
 
 namespace DoctorBob.UI.Pages.DrugManager
 {
@@ -47,7 +48,9 @@ namespace DoctorBob.UI.Pages.DrugManager
             {
                 return Page();
             }
-
+            
+            Drug.ModifiedAt = DateTime.Today;
+            //Drug.ModifiedBy = //;
             _context.Attach(Drug).State = EntityState.Modified;
 
             try

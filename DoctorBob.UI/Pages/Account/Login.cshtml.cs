@@ -10,7 +10,7 @@ namespace DoctorBob.UI.Pages.Account
 {
     public class LoginModel : PageModel
     {
-
+        [BindProperty]
         public Credential Credential { get; set; }
 
         public void OnGet()
@@ -22,7 +22,12 @@ namespace DoctorBob.UI.Pages.Account
         //    // Method is called when clicked "Login"
         //}
 
-        public IActionResult OnPost()
+        public void OnPost()
+        {
+            Redirect();
+        }
+
+        public IActionResult Redirect()
         {
             return new RedirectToPageResult("/Home/HomeView");
         }
