@@ -164,6 +164,10 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     Role = Role.ChiefDoctor,
                     Username = "aschmitter",
                     Password = "bobby123",
+                    CreatedBy = "admin",
+                    CreatedAt = new DateTime(2022,01,10,16,44,21),
+                    ModifiedBy = "admin",
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
                 },
                 new Staff
                 {
@@ -173,6 +177,10 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     Role = Role.Doctor,
                     Username = "rsahli",
                     Password = "goku99",
+                    CreatedBy = "admin",
+                    CreatedAt = new DateTime(2022,01,10,16,44,21),
+                    ModifiedBy = "admin",
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
                 },
                 new Staff
                 {
@@ -182,6 +190,10 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     Role = Role.Doctor,
                     Username = "ikesay",
                     Password = "jacky91",
+                    CreatedBy = "admin",
+                    CreatedAt = new DateTime(2022,01,10,16,44,21),
+                    ModifiedBy = "admin",
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
                 },
                 new Staff
                 {
@@ -191,6 +203,10 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     Role = Role.Nurse,
                     Username = "skluser",
                     Password = "sloth17",
+                    CreatedBy = "admin",
+                    CreatedAt = new DateTime(2022,01,10,16,44,21),
+                    ModifiedBy = "admin",
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
                 },
                 new Staff
                 {
@@ -200,6 +216,10 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     Role = Role.Nurse,
                     Username = "sseitz",
                     Password = "uiop98",
+                    CreatedBy = "admin",
+                    CreatedAt = new DateTime(2022,01,10,16,44,21),
+                    ModifiedBy = "admin",
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
                 },
                 new Staff
                 {
@@ -209,6 +229,10 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     Role = Role.Nurse,
                     Username = "ragger",
                     Password = "65lolapola",
+                    CreatedBy = "admin",
+                    CreatedAt = new DateTime(2022,01,10,16,44,21),
+                    ModifiedBy = "admin",
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
                 },
                 new Staff
                 {
@@ -218,6 +242,10 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     Role = Role.Nurse,
                     Username = "sfernandez",
                     Password = "esel15",
+                    CreatedBy = "admin",
+                    CreatedAt = new DateTime(2022,01,10,16,44,21),
+                    ModifiedBy = "admin",
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
                 },
                 new Staff
                 {
@@ -227,6 +255,10 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     Role = Role.Anesthetist,
                     Username = "wseger",
                     Password = "losangeles20",
+                    CreatedBy = "admin",
+                    CreatedAt = new DateTime(2022,01,10,16,44,21),
+                    ModifiedBy = "admin",
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
                 },
                 new Staff
                 {
@@ -236,6 +268,10 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     Role = Role.Administration,
                     Username = "kpopp",
                     Password = "gandalf9!",
+                    CreatedBy = "admin",
+                    CreatedAt = new DateTime(2022,01,10,16,44,21),
+                    ModifiedBy = "admin",
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
                 },
                 new Staff
                 {
@@ -245,6 +281,10 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     Role = Role.Technician,
                     Username = "fholenstein",
                     Password = "santaclause11",
+                    CreatedBy = "admin",
+                    CreatedAt = new DateTime(2022,01,10,16,44,21),
+                    ModifiedBy = "admin",
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
                 }
             };
             #endregion
@@ -257,28 +297,44 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     Id = 1000,
                     DoseInMg = 5,
                     Name = "Bisoprolol",
-                    Description = "Senkung Puls"
+                    Description = "Senkung Puls",
+                    CreatedBy = "admin",
+                    CreatedAt = new DateTime(2022,01,10,16,44,21),
+                    ModifiedBy = "admin",
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
                 },
                 new Drug
                 {
                     Id = 1001,
                     DoseInMg = 14,
                     Name = "Metformin",
-                    Description = "Regulation Blutzucker"
+                    Description = "Regulation Blutzucker",
+                    CreatedBy = "admin",
+                    CreatedAt = new DateTime(2022,01,10,16,44,21),
+                    ModifiedBy = "admin",
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
                 },
                 new Drug
                 {
                     Id = 1002,
                     DoseInMg = 500,
                     Name = "Novalgin",
-                    Description = "Schmerzmittel"
+                    Description = "Schmerzmittel",
+                    CreatedBy = "admin",
+                    CreatedAt = new DateTime(2022,01,10,16,44,21),
+                    ModifiedBy = "admin",
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
                 },
                 new Drug
                 {
                     Id = 1003,
                     DoseInMg = 5,
                     Name = "Amlodipin",
-                    Description = "Senkung Blutdruck"
+                    Description = "Senkung Blutdruck",
+                    CreatedBy = "admin",
+                    CreatedAt = new DateTime(2022,01,10,16,44,21),
+                    ModifiedBy = "admin",
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
                 }
 
             };
@@ -290,32 +346,56 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                 new Room
                 {
                     Id = 101,
-                    Name = "Raum 101"
+                    Name = "Raum 101",
+                    CreatedBy = "admin",
+                    CreatedAt = new DateTime(2022,01,10,16,44,21),
+                    ModifiedBy = "admin",
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
                 },
                 new Room
                 {
                     Id = 102,
-                    Name = "Raum 102"
+                    Name = "Raum 102",
+                    CreatedBy = "admin",
+                    CreatedAt = new DateTime(2022,01,10,16,44,21),
+                    ModifiedBy = "admin",
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
                 },
                 new Room
                 {
                     Id = 103,
-                    Name = "Raum 103"
+                    Name = "Raum 103",
+                    CreatedBy = "admin",
+                    CreatedAt = new DateTime(2022,01,10,16,44,21),
+                    ModifiedBy = "admin",
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
                 },
                 new Room
                 {
                     Id = 104,
-                    Name = "Raum 104"
+                    Name = "Raum 104",
+                    CreatedBy = "admin",
+                    CreatedAt = new DateTime(2022,01,10,16,44,21),
+                    ModifiedBy = "admin",
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
                 },
                 new Room
                 {
                     Id = 900,
-                    Name = "Spital-Apotheke"
+                    Name = "Spital-Apotheke",
+                    CreatedBy = "admin",
+                    CreatedAt = new DateTime(2022,01,10,16,44,21),
+                    ModifiedBy = "admin",
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
                 },
                 new Room
                 {
                     Id = 999,
-                    Name = "Homebase"
+                    Name = "Homebase",
+                    CreatedBy = "admin",
+                    CreatedAt = new DateTime(2022,01,10,16,44,21),
+                    ModifiedBy = "admin",
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
                 }
 
             };
@@ -327,22 +407,38 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                 new TimeModel
                 {
                     Id = 1000,
-                    Time = "08.30 / 11.00"
+                    Time = "08.30 / 11.00",
+                    CreatedBy = "admin",
+                    CreatedAt = new DateTime(2022,01,10,16,44,21),
+                    ModifiedBy = "admin",
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
                 },
                 new TimeModel
                 {
                     Id = 1001,
-                    Time = "11.00"
+                    Time = "11.00",
+                    CreatedBy = "admin",
+                    CreatedAt = new DateTime(2022,01,10,16,44,21),
+                    ModifiedBy = "admin",
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
                 },
                 new TimeModel
                 {
                     Id = 1002,
-                    Time = "08.00 / 14.30 / 18.30"
+                    Time = "08.00 / 14.30 / 18.30",
+                    CreatedBy = "admin",
+                    CreatedAt = new DateTime(2022,01,10,16,44,21),
+                    ModifiedBy = "admin",
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
                 },
                 new TimeModel
                 {
                     Id = 1003,
-                    Time = "18.00"
+                    Time = "18.00",
+                    CreatedBy = "admin",
+                    CreatedAt = new DateTime(2022,01,10,16,44,21),
+                    ModifiedBy = "admin",
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
                 }
 
             };
@@ -358,7 +454,11 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     QuantityOfDrug = 1,
                     DrugId = 1000,
                     CaringStaffId = 120,
-                    TimeModelId = 1001
+                    TimeModelId = 1001,
+                    CreatedBy = "admin",
+                    CreatedAt = new DateTime(2022,01,10,16,44,21),
+                    ModifiedBy = "admin",
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
                 },
                 new Therapy
                 {
@@ -367,7 +467,11 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     QuantityOfDrug = 3,
                     DrugId = 1001,
                     CaringStaffId = 121,
-                    TimeModelId = 1002
+                    TimeModelId = 1002,
+                    CreatedBy = "admin",
+                    CreatedAt = new DateTime(2022,01,10,16,44,21),
+                    ModifiedBy = "admin",
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
                 },
                 new Therapy
                 {
@@ -376,7 +480,11 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     QuantityOfDrug = 1,
                     DrugId = 1002,
                     CaringStaffId = 123,
-                    TimeModelId = 1003
+                    TimeModelId = 1003,
+                    CreatedBy = "admin",
+                    CreatedAt = new DateTime(2022,01,10,16,44,21),
+                    ModifiedBy = "admin",
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
                 },
                 new Therapy
                 {
@@ -385,7 +493,11 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     QuantityOfDrug = 2,
                     DrugId = 1003,
                     CaringStaffId = 122,
-                    TimeModelId = 1000
+                    TimeModelId = 1000,
+                    CreatedBy = "admin",
+                    CreatedAt = new DateTime(2022,01,10,16,44,21),
+                    ModifiedBy = "admin",
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
                 }
             };
             #endregion
@@ -425,6 +537,10 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     TherapyId = 103,
                     MedicalHistory = "",
                     EntryDate = new DateTime(2022,06,20),
+                    CreatedBy = "sfernandez",
+                    CreatedAt = new DateTime(2022,06,20,10,15,03),
+                    ModifiedBy = "sfernandez",
+                    ModifiedAt = new DateTime(2022,06,20,10,15,03)
                 },
                 new Patient
                 {
@@ -436,6 +552,10 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     TherapyId = 100,
                     MedicalHistory = "Schlaganfall im Juli 2015, diverse tägliche Medikamentenzunahme",
                     EntryDate = new DateTime(2022,06,25),
+                    CreatedBy = "skluser",
+                    CreatedAt = new DateTime(2022,06,25,09,38,57),
+                    ModifiedBy = "skluser",
+                    ModifiedAt = new DateTime(2022,06,25,09,38,57)
                 },
                 new Patient
                 {
@@ -447,6 +567,10 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     TherapyId = 102,
                     MedicalHistory = "",
                     EntryDate = new DateTime(2022,06,26),
+                    CreatedBy = "skluser",
+                    CreatedAt = new DateTime(2022,06,26,20,42,03),
+                    ModifiedBy = "skluser",
+                    ModifiedAt = new DateTime(2022,06,26,20,42,03)
                 },
                 new Patient
                 {
@@ -458,6 +582,10 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     TherapyId = 101,
                     MedicalHistory = "Herzstillstand 05.2011 mit anschliessender Reanimation",
                     EntryDate = new DateTime(2022,06,24),
+                    CreatedBy = "ragger",
+                    CreatedAt = new DateTime(2022,06,24,05,18,22),
+                    ModifiedBy = "ragger",
+                    ModifiedAt = new DateTime(2022,06,24,05,18,22)
                 },
             };
             #endregion
@@ -472,7 +600,11 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     LastRoomId = 999,
                     CurrentLocation = CurrentLocation.Home,
                     Power = 100,
-                    Activity = Activity.Standby
+                    Activity = Activity.Standby,
+                    CreatedBy = "admin",
+                    CreatedAt = new DateTime(2022,01,10,16,44,21),
+                    ModifiedBy = "admin",
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
                 }
             };
             #endregion
