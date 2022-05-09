@@ -22,12 +22,7 @@ namespace DoctorBob.UI.Pages.Account
         //    // Method is called when clicked "Login"
         //}
 
-        public void OnPost()
-        {
-            Redirect();
-        }
-
-        public IActionResult Redirect()
+        public IActionResult OnPost()
         {
             return new RedirectToPageResult("/Home/HomeView");
         }
