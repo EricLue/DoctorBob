@@ -14,40 +14,25 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Patient[0].FirstName)
+                @Html.DisplayName("Vorname")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Patient[0].LastName)
+                @Html.DisplayName("Nachname")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Patient[0].Gender)
+                @Html.DisplayName("Geschlecht")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Patient[0].Room)
+                @Html.DisplayName("Raum")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Patient[0].Therapy)
+                @Html.DisplayName("Therapie")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Patient[0].MedicalHistory)
+                @Html.DisplayName("Eintritt")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Patient[0].EntryDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Patient[0].LeavingDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Patient[0].CreatedBy)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Patient[0].ModifiedBy)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Patient[0].CreatedAt)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Patient[0].ModifiedAt)
+                @Html.DisplayName("Austritt")
             </th>
             <th></th>
         </tr>
@@ -71,25 +56,10 @@
                 @Html.DisplayFor(modelItem => item.Therapy.Id)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.MedicalHistory)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.EntryDate)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.LeavingDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedBy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ModifiedBy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ModifiedAt)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |

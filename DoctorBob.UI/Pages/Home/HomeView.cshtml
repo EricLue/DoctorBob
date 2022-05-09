@@ -1,5 +1,6 @@
 ﻿@page
-@model DoctorBob.UI.Pages.Home.HomeViewModel
+@*@model DoctorBob.UI.Pages.Home.HomeViewModel*@
+@model DoctorBob.UI.Pages.RobotManager.IndexModel 
 @{
 }
 
@@ -14,76 +15,60 @@
 </head>
 <body>
     <div class="container border" style="padding:20px">
-        <form method="get">
-            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
-            <div class="form-group row">
-                <div class="col-3">
-                    <label>Roboter ID</label>
-                </div>
-                <div class="col-5">
-                    <label>DoctorBob 42</label>
-                </div>
-                <span class="text-danger"></span>
-            </div>
-            <div class="form-group row">
-                <div class="col-3">
-                    <label>Location</label>
-                </div>
-                <div class="col-5">
-                    <label>An Ladestation</label>
-                </div>
-                <span class="text-danger"></span>
-            </div>
-            <div class="form-group row">
-                <div class="col-3">
-                    <label>Status</label>
-                </div>
-                <div class="col-5">
-                    <link rel="icon" type="image/gif" href="/images/green_state.gif">
-                </div>
-                <span class="text-danger"></span>
-            </div>
-        </form>
+        <h2>Roboter QuickInfo</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayName("Name")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Letzter Raum")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Location")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Power")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Aktivität")
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Robot)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LastRoom.Id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CurrentLocation)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Power)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Activity)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     </div>
     <div class="container border" style="padding:20px">
-        <form method="post">
-            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
-            <div class="form-group row">
-                <div class="col-2">
-                    <input type="submit" class="btn btn-primary" value="Patienten-Dashboard" asp-area="" asp-page="/PatientManager/Index" />
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-2">
-                    <input type="submit" class="btn btn-primary" value="Roboter-Dashboard" asp-area="" asp-page="/RobotManager/Index" />
-                </div>
-            </div>
-        </form>
+        <a type="submit" class="btn btn-primary" asp-area="" asp-page="/RobotManager/Index">Roboter-Dashboard</a>
+        <a type="submit" class="btn btn-primary" asp-area="" asp-page="/PatientManager/Index">Patienten-Dashboard</a>
     </div>
     <div class="container border" style="padding:20px">
-        <form method="post">
-            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
-            <div class="form-group row">
-                <div class="col-2">
-                    <input type="submit" class="btn btn-secondary" value="Personal" asp-area="" asp-page="/StaffManager/Index" />
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-2">
-                    <input type="submit" class="btn btn-secondary" value="Medikamente" asp-area="" asp-page="/DrugManager/Index" />
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-2">
-                    <input type="submit" class="btn btn-secondary" value="Therapien" asp-area="" asp-page="/TherapyManager/Index" />
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-2">
-                    <input type="submit" class="btn btn-secondary" value="Raumverwaltung" asp-area="" asp-page="/RoomManager/Index" />
-                </div>
-            </div>
-        </form>
+        <a type="submit" class="btn btn-secondary" asp-area="" asp-page="/StaffManager/Index">Personal</a>
+        <a type="submit" class="btn btn-secondary" asp-area="" asp-page="/DrugManager/Index">Medikamente</a>
+        <a type="submit" class="btn btn-secondary" asp-area="" asp-page="/TherapyManager/Index">Therapien</a>
+        <a type="submit" class="btn btn-secondary" asp-area="" asp-page="/RoomManager/Index">Raumverwaltung</a>
     </div>
 </body>
 </html>

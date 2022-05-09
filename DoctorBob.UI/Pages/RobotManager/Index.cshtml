@@ -14,31 +14,19 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Robot[0].Name)
+                @Html.DisplayName("Name")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Robot[0].LastRoom)
+                @Html.DisplayName("Letzter Raum")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Robot[0].CurrentLocation)
+                @Html.DisplayName("Location")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Robot[0].Power)
+                @Html.DisplayName("Power")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Robot[0].Activity)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Robot[0].CreatedBy)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Robot[0].ModifiedBy)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Robot[0].CreatedAt)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Robot[0].ModifiedAt)
+                @Html.DisplayName("Aktivität")
             </th>
             <th></th>
         </tr>
@@ -60,18 +48,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Activity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedBy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ModifiedBy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ModifiedAt)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |

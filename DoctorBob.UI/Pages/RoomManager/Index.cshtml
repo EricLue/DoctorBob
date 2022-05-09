@@ -16,18 +16,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.Room[0].Name)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Room[0].CreatedBy)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Room[0].ModifiedBy)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Room[0].CreatedAt)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Room[0].ModifiedAt)
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -36,18 +24,6 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedBy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ModifiedBy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ModifiedAt)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
