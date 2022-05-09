@@ -5,9 +5,9 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<h1>Bearbeiten</h1>
 
-<h4>Drug</h4>
+<h4>Medikament</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -20,12 +20,12 @@
                 <span asp-validation-for="Drug.Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Drug.DoseInMg" class="control-label"></label>
+                <label asp-for="Drug.DoseInMg" class="control-label">Dosis in Milligramm</label>
                 <input asp-for="Drug.DoseInMg" class="form-control" />
                 <span asp-validation-for="Drug.DoseInMg" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Drug.Description" class="control-label"></label>
+                <label asp-for="Drug.Description" class="control-label">Verwendung / Zweck</label>
                 <input asp-for="Drug.Description" class="form-control" />
                 <span asp-validation-for="Drug.Description" class="text-danger"></span>
             </div>
@@ -49,15 +49,12 @@
                 <input asp-for="Drug.ModifiedAt" class="form-control" />
                 <span asp-validation-for="Drug.ModifiedAt" class="text-danger"></span>
             </div>*@
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
+        <div class="form-group">
+            <input type="submit" value="Speichern" class="btn btn-primary" /> |
+            <a type="submit" class="btn btn-primary" asp-page="./Index">Zurück zu Liste</a>
+        </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-page="./Index">Back to List</a>
 </div>
 
 @section Scripts {

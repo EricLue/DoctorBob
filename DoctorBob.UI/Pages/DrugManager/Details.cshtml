@@ -8,7 +8,7 @@
 <h1>Details</h1>
 
 <div>
-    <h4>Drug</h4>
+    <h4>Medikament</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -18,37 +18,37 @@
             @Html.DisplayFor(model => model.Drug.Name)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Drug.DoseInMg)
+            @Html.DisplayName("Dosis in Milligramm")
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Drug.DoseInMg)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Drug.Description)
+            @Html.DisplayName("Verwendung / Zweck")
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Drug.Description)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Drug.CreatedBy)
+            @Html.DisplayName("Erstellt von")
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Drug.CreatedBy)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Drug.CreatedAt)
+            @Html.DisplayName("Erstellt am")
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Drug.CreatedAt)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Drug.ModifiedBy)
+            @Html.DisplayName("Bearbeitet von")
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Drug.ModifiedBy)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Drug.ModifiedAt)
+            @Html.DisplayName("Bearbeitet am")
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Drug.ModifiedAt)
@@ -56,6 +56,6 @@
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Drug.Id">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    <a type="submit" class="btn btn-primary" asp-page="./Edit" asp-route-id="@Model.Drug.Id">Bearbeiten</a> |
+    <a type="submit" class="btn btn-primary" asp-page="./Index">Zurück zu Liste</a>
 </div>

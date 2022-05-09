@@ -49,8 +49,10 @@ namespace DoctorBob.UI.Pages.DrugManager
                 return Page();
             }
             
-            Drug.ModifiedAt = DateTime.Today;
-            //Drug.ModifiedBy = //;
+            // Anpassen auf CurrentUser
+            Drug.ModifiedBy = "eluechinger";
+            Drug.ModifiedAt = DateTimeOffset.UtcNow;
+
             _context.Attach(Drug).State = EntityState.Modified;
 
             try

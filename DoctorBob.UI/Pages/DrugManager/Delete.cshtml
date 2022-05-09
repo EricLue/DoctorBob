@@ -5,11 +5,10 @@
     ViewData["Title"] = "Delete";
 }
 
-<h1>Delete</h1>
+<h1>Löschen</h1>
 
-<h3>Are you sure you want to delete this?</h3>
+<h4>Sind Sie sicher, dass dieses Medikament gelöscht werden soll?</h4>
 <div>
-    <h4>Drug</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -19,37 +18,37 @@
             @Html.DisplayFor(model => model.Drug.Name)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Drug.DoseInMg)
+            @Html.DisplayName("Dosis in Milligramm")
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Drug.DoseInMg)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Drug.Description)
+            @Html.DisplayName("Verwendung / Zweck")
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Drug.Description)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Drug.CreatedBy)
+            @Html.DisplayName("Erstellt von")
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Drug.CreatedBy)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Drug.ModifiedBy)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Drug.ModifiedBy)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Drug.CreatedAt)
+            @Html.DisplayName("Erstellt am")
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Drug.CreatedAt)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Drug.ModifiedAt)
+            @Html.DisplayName("Bearbeitet von")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Drug.ModifiedBy)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayName("Bearbeitet am")
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Drug.ModifiedAt)
@@ -58,7 +57,7 @@
     
     <form method="post">
         <input type="hidden" asp-for="Drug.Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-page="./Index">Back to List</a>
+        <input type="submit" value="Löschen" class="btn btn-danger" /> |
+        <input type="submit" class="btn btn-primary" value="Zurück zu Liste" asp-page="./Index"/>
     </form>
 </div>

@@ -35,6 +35,14 @@ namespace DoctorBob.UI.Pages.DrugManager
                 return Page();
             }
 
+            // Anpassen auf CurrentUser
+            Drug.CreatedBy = "eluechinger";
+            Drug.CreatedAt = DateTimeOffset.UtcNow;
+
+            // Anpassen auf CurrentUser
+            Drug.ModifiedBy = "eluechinger";
+            Drug.ModifiedAt = DateTimeOffset.UtcNow;
+
             _context.Drugs.Add(Drug);
             await _context.SaveChangesAsync();
 

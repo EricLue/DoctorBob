@@ -306,7 +306,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                 new Drug
                 {
                     Id = 1001,
-                    DoseInMg = 14,
+                    DoseInMg = 850,
                     Name = "Metformin",
                     Description = "Regulation Blutzucker",
                     CreatedBy = "admin",
@@ -335,8 +335,29 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
                     ModifiedAt = new DateTime(2022,01,10,16,44,21)
+                },
+                new Drug
+                {
+                    Id = 1004,
+                    DoseInMg = 33,
+                    Name = "Aspirin",
+                    Description = "Kopfschmerzen",
+                    CreatedBy = "admin",
+                    CreatedAt = new DateTime(2022,01,10,16,44,21),
+                    ModifiedBy = "admin",
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
+                },
+                new Drug
+                {
+                    Id = 1005,
+                    DoseInMg = 450,
+                    Name = "Tafalgan",
+                    Description = "Schmerzmittel",
+                    CreatedBy = "admin",
+                    CreatedAt = new DateTime(2022,01,10,16,44,21),
+                    ModifiedBy = "admin",
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
                 }
-
             };
             #endregion
 

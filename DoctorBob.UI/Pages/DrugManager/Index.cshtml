@@ -5,68 +5,50 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Medikamenten Verwaltung</h1>
+<h1>Medikamente Spitalapotheke</h1>
 
 <p>
-    <a asp-page="Create">Hinzufügen</a>
+    <a type="submit" class="btn btn-primary" asp-page="Create">Hinzufügen</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Drug[0].Name)
+                @Html.DisplayName("Name")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Drug[0].DoseInMg)
+                @Html.DisplayName("Dosis in Milligramm")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Drug[0].Description)
+                @Html.DisplayName("Verwendung / Zweck")
             </th>
-            @*<th>
-                @Html.DisplayNameFor(model => model.Drug[0].CreatedBy)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Drug[0].ModifiedBy)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Drug[0].CreatedAt)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Drug[0].ModifiedAt)
-            </th>*@
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Drug) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DoseInMg)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.CreatedBy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ModifiedBy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ModifiedAt)
-            </td>*@
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.Drug)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DoseInMg)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Bearbeiten</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">Details anzeigen</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Löschen</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+<div class="form-group row">
+    <div class="col-2">
+        <a type="submit" class="btn btn-primary" value="Zurück zu Liste" asp-area="" asp-page="/Home/HomeView">Home</a>
+    </div>
+</div>
