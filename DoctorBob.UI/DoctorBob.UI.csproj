@@ -24,6 +24,7 @@
 
   <ItemGroup>
     <Folder Include="Pages\Home\Resources\Css\" />
+    <Folder Include="Pages\OrderManager\" />
   </ItemGroup>
 
 </Project>

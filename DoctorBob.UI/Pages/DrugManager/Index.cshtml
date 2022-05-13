@@ -6,9 +6,11 @@
 }
 
 <h1>Medikamente Spitalapotheke</h1>
-
+<h1></h1>
 <p>
-    <a type="submit" class="btn btn-primary" asp-page="Create">Hinzufügen</a>
+    <a type="submit" class="btn btn-light" asp-page="Create">
+        <img border="0" alt="new" width="40" height="40" src="/images/new.png" title="Hinzufügen" />
+    </a>
 </p>
 <table class="table">
     <thead>
@@ -39,9 +41,15 @@
                     @Html.DisplayFor(modelItem => item.Description)
                 </td>
                 <td>
-                    <a asp-page="./Edit" asp-route-id="@item.Id">Bearbeiten</a> |
-                    <a asp-page="./Details" asp-route-id="@item.Id">Details anzeigen</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.Id">Löschen</a>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">
+                        <img border="0" alt="edit" width="20" height="20"src="/images/edit.png" title="Bearbeiten"/>
+                        </a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">
+                        <img border="0" alt="view" width="20" height="20" src="/images/details.png" title="Details anzeigen" />
+                        </a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">
+                        <img border="0" alt="delete" width="20" height="20" src="/images/delete.png" title="Löschen" />
+                    </a>
                 </td>
             </tr>
         }
