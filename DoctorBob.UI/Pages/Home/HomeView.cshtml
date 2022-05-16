@@ -44,16 +44,16 @@
                             @Html.DisplayFor(modelItem => item.Name)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.LastRoom.Id)
+                            @Html.DisplayName(Model.GetLastRoomName(item.LastRoomId))
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.CurrentLocation)
+                            @Html.DisplayName(Model.GetCurrentLocationName(item.CurrentLocationId))
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Power)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Activity)
+                            @Html.DisplayName(Model.GetActivityName(item.ActivityId))
                         </td>
                     </tr>
                 }

@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DoctorBob.Core.Common.Infrastructure.Context;
-using DoctorBob.Core.RoboManagement.Domain;
+using DoctorBob.Core.RobotManagement.Domain;
 
 namespace DoctorBob.UI.Pages.RobotManager
 {

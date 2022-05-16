@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using DoctorBob.Core.Common.Infrastructure.Context;
-using DoctorBob.Core.RoboManagement.Domain;
+using DoctorBob.Core.RobotManagement.Domain;
 
 namespace DoctorBob.UI.Pages.RobotManager
 {
@@ -26,6 +26,21 @@ namespace DoctorBob.UI.Pages.RobotManager
         {
             Robot = await _context.Robots
                 .Include(r => r.LastRoom).ToListAsync();
+        }
+
+        public String GetLastRoomName(int Id)
+        {
+            return _context.Rooms.Find(Id).Name;
+        }
+
+        public String GetCurrentLocationName(int Id)
+        {
+            return _context.CurrentLocations.Find(Id).Name;
+        }
+
+        public String GetActivityName(int Id)
+        {
+            return _context.Activities.Find(Id).Name;
         }
     }
 }

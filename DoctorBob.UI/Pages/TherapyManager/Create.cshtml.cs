@@ -21,9 +21,9 @@ namespace DoctorBob.UI.Pages.TherapyManager
 
         public IActionResult OnGet()
         {
-        ViewData["CaringStaffId"] = new SelectList(_context.StaffMembers, "Id", "Id");
-        ViewData["DrugId"] = new SelectList(_context.Drugs, "Id", "Id");
-        ViewData["TimeModelId"] = new SelectList(_context.TimeModels, "Id", "Id");
+        ViewData["CaringStaff"] = new SelectList(_context.StaffMembers, "Id", "FirstName", "LastName");
+        ViewData["Drug"] = new SelectList(_context.Drugs, "Id", "Name");
+        ViewData["TimeModel"] = new SelectList(_context.TimeModels, "Id", "Time");
             return Page();
         }
 
@@ -37,6 +37,14 @@ namespace DoctorBob.UI.Pages.TherapyManager
             {
                 return Page();
             }
+
+            // Anpassen auf CurrentUser
+            Therapy.CreatedBy = "eluechinger";
+            Therapy.CreatedAt = DateTimeOffset.UtcNow;
+
+            // Anpassen auf CurrentUser
+            Therapy.ModifiedBy = "eluechinger";
+            Therapy.ModifiedAt = DateTimeOffset.UtcNow;
 
             _context.Therapies.Add(Therapy);
             await _context.SaveChangesAsync();

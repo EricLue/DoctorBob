@@ -35,6 +35,14 @@ namespace DoctorBob.UI.Pages.RoomManager
                 return Page();
             }
 
+            // Anpassen auf CurrentUser
+            Room.CreatedBy = "eluechinger";
+            Room.CreatedAt = DateTimeOffset.UtcNow;
+
+            // Anpassen auf CurrentUser
+            Room.ModifiedBy = "eluechinger";
+            Room.ModifiedAt = DateTimeOffset.UtcNow;
+
             _context.Rooms.Add(Room);
             await _context.SaveChangesAsync();
 

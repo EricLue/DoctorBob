@@ -26,5 +26,10 @@ namespace DoctorBob.UI.Pages.StaffManager
         {
             Staff = await _context.StaffMembers.ToListAsync();
         }
+
+        public String GetRoleName(int Id)
+        {
+            return _context.Roles.Find(Id).Name;
+        }
     }
 }

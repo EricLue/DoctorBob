@@ -28,5 +28,20 @@ namespace DoctorBob.UI.Pages.PatientManager
                 .Include(p => p.Room)
                 .Include(p => p.Therapy).ToListAsync();
         }
+
+        public String GetGenderName(int Id)
+        {
+            return _context.Genders.Find(Id).Name;
+        }
+
+        public String GetRoomName(int Id)
+        {
+            return _context.Rooms.Find(Id).Name;
+        }
+
+        public String GetTherapyName(int Id)
+        {
+            return _context.Therapies.Find(Id).Name;
+        }
     }
 }

@@ -21,8 +21,9 @@ namespace DoctorBob.UI.Pages.PatientManager
 
         public IActionResult OnGet()
         {
-        ViewData["RoomId"] = new SelectList(_context.Set<Room>(), "Id", "Id");
-        ViewData["TherapyId"] = new SelectList(_context.Therapies, "Id", "Id");
+        ViewData["Gender"] = new SelectList(_context.Genders, "Id", "Name");
+        ViewData["Room"] = new SelectList(_context.Rooms, "Id", "Name");
+        ViewData["Therapy"] = new SelectList(_context.Therapies, "Id", "Name");
             return Page();
         }
 
@@ -36,6 +37,16 @@ namespace DoctorBob.UI.Pages.PatientManager
             {
                 return Page();
             }
+
+            Patient.LeavingDate = new DateTime(1, 1, 1, 0, 0, 0);
+
+            // Anpassen auf CurrentUser
+            Patient.CreatedBy = "eluechinger";
+            Patient.CreatedAt = DateTimeOffset.UtcNow;
+
+            // Anpassen auf CurrentUser
+            Patient.ModifiedBy = "eluechinger";
+            Patient.ModifiedAt = DateTimeOffset.UtcNow;
 
             _context.Patients.Add(Patient);
             await _context.SaveChangesAsync();

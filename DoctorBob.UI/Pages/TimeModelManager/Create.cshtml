@@ -5,43 +5,30 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>Erstellen</h1>
 
-<h4>TimeModel</h4>
+<h4>Zeitmodell</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="TimeModel.CreatedBy" class="control-label"></label>
-                <input asp-for="TimeModel.CreatedBy" class="form-control" />
-                <span asp-validation-for="TimeModel.CreatedBy" class="text-danger"></span>
+                <label asp-for="TimeModel.Time" class="control-label">Zeit</label>
+                <input asp-for="TimeModel.Time" class="form-control" />
+                <span asp-validation-for="TimeModel.Time" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TimeModel.ModifiedBy" class="control-label"></label>
-                <input asp-for="TimeModel.ModifiedBy" class="form-control" />
-                <span asp-validation-for="TimeModel.ModifiedBy" class="text-danger"></span>
+                <label asp-for="TimeModel.DailyNumber" class="control-label">Tägliche Anzahl</label>
+                <input asp-for="TimeModel.DailyNumber" class="form-control" />
+                <span asp-validation-for="TimeModel.DailyNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TimeModel.CreatedAt" class="control-label"></label>
-                <input asp-for="TimeModel.CreatedAt" class="form-control" />
-                <span asp-validation-for="TimeModel.CreatedAt" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TimeModel.ModifiedAt" class="control-label"></label>
-                <input asp-for="TimeModel.ModifiedAt" class="form-control" />
-                <span asp-validation-for="TimeModel.ModifiedAt" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Erstellen" class="btn btn-primary" />
+                <a type="submit" class="btn btn-primary" asp-page="Index">Zurück zu Liste</a>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-page="Index">Back to List</a>
 </div>
 
 @section Scripts {

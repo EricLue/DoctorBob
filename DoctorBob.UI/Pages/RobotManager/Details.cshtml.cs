@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using DoctorBob.Core.Common.Infrastructure.Context;
-using DoctorBob.Core.RoboManagement.Domain;
+using DoctorBob.Core.RobotManagement.Domain;
 
 namespace DoctorBob.UI.Pages.RobotManager
 {

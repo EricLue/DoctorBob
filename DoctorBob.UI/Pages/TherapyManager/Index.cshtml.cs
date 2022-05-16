@@ -29,5 +29,17 @@ namespace DoctorBob.UI.Pages.TherapyManager
                 .Include(t => t.Drug)
                 .Include(t => t.TimeModel).ToListAsync();
         }
+
+        public String GetDrugName(int Id)
+        {
+            return _context.Drugs.Find(Id).Name;
+        }
+
+        public String GetStaffName(int Id)
+        {
+            string Firstname = _context.StaffMembers.Find(Id).FirstName;
+            string Lastname = _context.StaffMembers.Find(Id).LastName;
+            return Firstname + " " + Lastname;
+        }
     }
 }

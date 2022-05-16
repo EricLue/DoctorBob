@@ -25,7 +25,7 @@
                 @Html.DisplayName("Medikament")
             </th>
             <th>
-                @Html.DisplayName("Betreuung")
+                @Html.DisplayName("Verordnet durch")
             </th>
             <th>
                 @Html.DisplayName("Zeitmodell")
@@ -44,10 +44,10 @@
                     @Html.DisplayFor(modelItem => item.QuantityOfDrug)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Drug.Id)
+                    @Html.DisplayName(Model.GetDrugName(item.DrugId))
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.CaringStaff.Id)
+                    @Html.DisplayName(Model.GetStaffName(item.CaringStaffId))
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.TimeModel.Id)

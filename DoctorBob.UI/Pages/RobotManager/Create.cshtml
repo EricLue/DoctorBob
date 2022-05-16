@@ -5,62 +5,25 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>Erstellen</h1>
 
-<h4>Robot</h4>
+<h4>Roboter</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Robot.LastRoomId" class="control-label"></label>
-                <select asp-for="Robot.LastRoomId" class ="form-control" asp-items="ViewBag.LastRoomId"></select>
+                <label asp-for="Robot.Name" class="control-label"></label>
+                <input asp-for="Robot.Name" class="form-control" />
+                <span asp-validation-for="Robot.Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Robot.CurrentLocation" class="control-label"></label>
-                <select asp-for="Robot.CurrentLocation" class="form-control"></select>
-                <span asp-validation-for="Robot.CurrentLocation" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Robot.Power" class="control-label"></label>
-                <input asp-for="Robot.Power" class="form-control" />
-                <span asp-validation-for="Robot.Power" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Robot.Activity" class="control-label"></label>
-                <select asp-for="Robot.Activity" class="form-control"></select>
-                <span asp-validation-for="Robot.Activity" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Robot.CreatedBy" class="control-label"></label>
-                <input asp-for="Robot.CreatedBy" class="form-control" />
-                <span asp-validation-for="Robot.CreatedBy" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Robot.ModifiedBy" class="control-label"></label>
-                <input asp-for="Robot.ModifiedBy" class="form-control" />
-                <span asp-validation-for="Robot.ModifiedBy" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Robot.CreatedAt" class="control-label"></label>
-                <input asp-for="Robot.CreatedAt" class="form-control" />
-                <span asp-validation-for="Robot.CreatedAt" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Robot.ModifiedAt" class="control-label"></label>
-                <input asp-for="Robot.ModifiedAt" class="form-control" />
-                <span asp-validation-for="Robot.ModifiedAt" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Erstellen" class="btn btn-primary" /> |
+                <a type="submit" class="btn btn-primary" asp-page="Index">Zurück zu Liste</a>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-page="Index">Back to List</a>
 </div>
 
 @section Scripts {

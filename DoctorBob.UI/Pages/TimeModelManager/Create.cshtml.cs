@@ -35,6 +35,14 @@ namespace DoctorBob.UI.Pages.TimeModelManager
                 return Page();
             }
 
+            // Anpassen auf CurrentUser
+            TimeModel.CreatedBy = "eluechinger";
+            TimeModel.CreatedAt = DateTimeOffset.UtcNow;
+
+            // Anpassen auf CurrentUser
+            TimeModel.ModifiedBy = "eluechinger";
+            TimeModel.ModifiedAt = DateTimeOffset.UtcNow;
+
             _context.TimeModels.Add(TimeModel);
             await _context.SaveChangesAsync();
 

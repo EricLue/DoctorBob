@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using DoctorBob.Core.Common.Domain;
 using DoctorBob.Core.PatientManagement.Domain;
 
-namespace DoctorBob.Core.RoboManagement.Domain
+namespace DoctorBob.Core.RobotManagement.Domain
 {
     public class Robot : AuditableEntity
     {
@@ -16,39 +16,13 @@ namespace DoctorBob.Core.RoboManagement.Domain
         public string Name { get; set; }
         public int LastRoomId { get; set; }
         public Room LastRoom { get; set; }
+        public int CurrentLocationId { get; set; }
         public CurrentLocation CurrentLocation { get; set; }
         public int Power { get; set; }
+        public int ActivityId { get; set; }
         public Activity Activity { get; set; }
 
         // Warenkorb aka Auftrag verschiedene Patienten
 
-    }
-
-    public enum CurrentLocation
-    {
-        Home,
-        DrugStore,
-        WayToRoom1,
-        Room1,
-        WayToRoom2,
-        Room2,
-        WayToRoom3,
-        Room3,
-        WayToRoom4,
-        Room4,
-        WayToHome
-    }
-    
-    public enum Activity
-    {
-        Standby,
-        Charging,
-        GettingDrugs,
-        LoadedDrugs,
-        OnWayToRoom,
-        DeliverDrugs,
-        DeliverySuccessfull,
-        LeavingRoom,
-        ReturningHome
     }
 }

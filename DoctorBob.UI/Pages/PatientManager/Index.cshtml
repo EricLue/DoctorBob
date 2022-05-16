@@ -40,6 +40,7 @@
         </tr>
     </thead>
     <tbody>
+        
 @foreach (var item in Model.Patient) {
         <tr>
             <td>
@@ -49,19 +50,25 @@
                 @Html.DisplayFor(modelItem => item.LastName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Gender)
+                @Html.DisplayName(Model.GetGenderName(item.GenderId))
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Room.Id)
+                @Html.DisplayName(Model.GetRoomName(item.RoomId))
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Therapy.Id)
+                @Html.DisplayName(Model.GetTherapyName(item.TherapyId))
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.EntryDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.LeavingDate)
+                @if (item.LeavingDate == new DateTime(1, 1, 1, 0, 0, 0))
+                {
+                    @Html.DisplayName("");
+                }
+                else {
+                @Html.DisplayFor(modelItem => item.LeavingDate);
+                }
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">

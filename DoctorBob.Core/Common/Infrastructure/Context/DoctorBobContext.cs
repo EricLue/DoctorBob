@@ -8,7 +8,8 @@ using DoctorBob.Core.DrugManagement.Domain;
 using DoctorBob.Core.PatientManagement.Domain;
 using DoctorBob.Core.TherapyManagement.Domain;
 using DoctorBob.Core.StaffManagement.Domain;
-using DoctorBob.Core.RoboManagement.Domain;
+using DoctorBob.Core.RobotManagement.Domain;
+using DoctorBob.Core.OrderManagement.Domain;
 using DoctorBob.Core.Common.Domain;
 using System.Threading;
 
@@ -18,12 +19,18 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
     {
         #region Domains
         public DbSet<Drug> Drugs { get; set; }
+        public DbSet<Gender> Genders { get; set; }
         public DbSet<Patient> Patients { get; set; }
         public DbSet<TimeModel> TimeModels { get; set; }
         public DbSet<Therapy> Therapies { get; set; }
         public DbSet<Room> Rooms { get; set; }
+        public DbSet<Role> Roles { get; set; }
         public DbSet<Staff> StaffMembers { get; set; }
+        public DbSet<CurrentLocation> CurrentLocations { get; set; }
+        public DbSet<Activity> Activities { get; set; }
         public DbSet<Robot> Robots { get; set; }
+        //public DbSet<State> States { get; set; }
+        //public DbSet<Order> Orders { get; set; }
         #endregion
 
         public DoctorBobContext()
@@ -79,12 +86,31 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                 entity.Property(e => e.Time).IsRequired();
             });
 
+            modelBuilder.Entity<Gender>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.Name).IsRequired();
+            });
+
             modelBuilder.Entity<Patient>(entity =>
             {
                 entity.HasKey(e => e.Id);
                 entity.Property(e => e.LastName).IsRequired();
+                entity.HasOne(e => e.Gender);
                 entity.HasOne(e => e.Therapy);
                 entity.HasOne(e => e.Room);
+            });
+
+            modelBuilder.Entity<CurrentLocation>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.Name).IsRequired();
+            });
+
+            modelBuilder.Entity<Activity>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.Name).IsRequired();
             });
 
             modelBuilder.Entity<Robot>(entity =>
@@ -92,7 +118,16 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                 entity.HasKey(e => e.Id);
                 entity.Property(e => e.Name).IsRequired();
                 entity.HasOne(e => e.LastRoom);
+                entity.HasOne(e => e.CurrentLocation);
+                entity.HasOne(e => e.Activity);
             });
+
+            //modelBuilder.Entity<Order>(entity =>
+            //{
+            //    entity.HasKey(e => e.Id);
+            //    entity.HasOne(e => e.Robot);
+            //    entity.HasOne(e => e.Patients);
+            //});
 
             //modelBuilder.HasSequence<int>("StaffNr")
             //    .StartsAt(100);
@@ -153,6 +188,42 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
             //modelBuilder.Entity<Robot>()
             //    .HasOne(p => p.LastRoom);
 
+            #region List of Roles
+            var roles = new List<Role>
+            {
+                new Role
+                {
+                    Id = 1,
+                    Name = "Pflegefachperson"
+                },
+                new Role
+                {
+                    Id = 2,
+                    Name = "Arzt"
+                },
+                new Role
+                {
+                    Id = 3,
+                    Name = "Chefarzt"
+                },
+                new Role
+                {
+                    Id = 4,
+                    Name = "Anästhesie"
+                },
+                new Role
+                {
+                    Id = 5,
+                    Name = "Technik"
+                },
+                new Role
+                {
+                    Id = 6,
+                    Name = "Administration"
+                }
+            };
+            #endregion
+
             #region List of Staff
             var staffMembers = new List<Staff>
             {
@@ -161,7 +232,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     Id = 100,
                     FirstName = "Angela",
                     LastName = "Schmitter",
-                    Role = Role.ChiefDoctor,
+                    RoleId = 3,
                     Username = "aschmitter",
                     Password = "bobby123",
                     CreatedBy = "admin",
@@ -174,7 +245,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     Id = 101,
                     FirstName = "Rudolf",
                     LastName = "Sahli",
-                    Role = Role.Doctor,
+                    RoleId = 2,
                     Username = "rsahli",
                     Password = "goku99",
                     CreatedBy = "admin",
@@ -187,7 +258,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     Id = 102,
                     FirstName = "Ibrahim",
                     LastName = "Kesay",
-                    Role = Role.Doctor,
+                    RoleId = 2,
                     Username = "ikesay",
                     Password = "jacky91",
                     CreatedBy = "admin",
@@ -200,7 +271,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     Id = 120,
                     FirstName = "Selina",
                     LastName = "Kluser",
-                    Role = Role.Nurse,
+                    RoleId = 1,
                     Username = "skluser",
                     Password = "sloth17",
                     CreatedBy = "admin",
@@ -213,7 +284,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     Id = 121,
                     FirstName = "Jacqueline",
                     LastName = "Seitz",
-                    Role = Role.Nurse,
+                    RoleId = 1,
                     Username = "sseitz",
                     Password = "uiop98",
                     CreatedBy = "admin",
@@ -226,7 +297,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     Id = 122,
                     FirstName = "Roland",
                     LastName = "Agger",
-                    Role = Role.Nurse,
+                    RoleId = 1,
                     Username = "ragger",
                     Password = "65lolapola",
                     CreatedBy = "admin",
@@ -239,7 +310,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     Id = 123,
                     FirstName = "Sybille",
                     LastName = "Fernandez",
-                    Role = Role.Nurse,
+                    RoleId = 1,
                     Username = "sfernandez",
                     Password = "esel15",
                     CreatedBy = "admin",
@@ -252,7 +323,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     Id = 130,
                     FirstName = "Walter",
                     LastName = "Seger",
-                    Role = Role.Anesthetist,
+                    RoleId = 4,
                     Username = "wseger",
                     Password = "losangeles20",
                     CreatedBy = "admin",
@@ -265,7 +336,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     Id = 140,
                     FirstName = "Katherina",
                     LastName = "Popp",
-                    Role = Role.Administration,
+                    RoleId = 6,
                     Username = "kpopp",
                     Password = "gandalf9!",
                     CreatedBy = "admin",
@@ -278,7 +349,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     Id = 160,
                     FirstName = "Fredi",
                     LastName = "Holenstein",
-                    Role = Role.Technician,
+                    RoleId = 5,
                     Username = "fholenstein",
                     Password = "santaclause11",
                     CreatedBy = "admin",
@@ -429,6 +500,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                 {
                     Id = 1000,
                     Time = "08.30 / 11.00",
+                    DailyNumber = 2,
                     CreatedBy = "admin",
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
@@ -438,6 +510,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                 {
                     Id = 1001,
                     Time = "11.00",
+                    DailyNumber = 1,
                     CreatedBy = "admin",
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
@@ -447,6 +520,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                 {
                     Id = 1002,
                     Time = "08.00 / 14.30 / 18.30",
+                    DailyNumber = 3,
                     CreatedBy = "admin",
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
@@ -456,6 +530,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                 {
                     Id = 1003,
                     Time = "18.00",
+                    DailyNumber = 1,
                     CreatedBy = "admin",
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
@@ -471,7 +546,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                 new Therapy
                 {
                     Id = 100,
-                    Name = "AAA 1x täglich, 50mg",
+                    Name = "Bisoprolol 1x täglich, 5 mg",
                     QuantityOfDrug = 1,
                     DrugId = 1000,
                     CaringStaffId = 120,
@@ -484,7 +559,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                 new Therapy
                 {
                     Id = 101,
-                    Name = "BBB 3x täglich, 250mg",
+                    Name = "Metformin 3x täglich, total 2550 mg",
                     QuantityOfDrug = 3,
                     DrugId = 1001,
                     CaringStaffId = 121,
@@ -497,7 +572,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                 new Therapy
                 {
                     Id = 102,
-                    Name = "CCC 1x täglich, 75mg",
+                    Name = "Novalgin 1x täglich, 500 mg",
                     QuantityOfDrug = 1,
                     DrugId = 1002,
                     CaringStaffId = 123,
@@ -510,7 +585,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                 new Therapy
                 {
                     Id = 103,
-                    Name = "DDD 2x täglich, 115mg",
+                    Name = "Amlodipin 2x täglich, total 10 mg",
                     QuantityOfDrug = 2,
                     DrugId = 1003,
                     CaringStaffId = 122,
@@ -523,41 +598,40 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
             };
             #endregion
 
+            #region List of Genders
+            var genders = new List<Gender>
+            {
+                new Gender
+                {
+                    Id = 1,
+                    Name = "Mann"
+                },
+                new Gender
+                {
+                    Id = 2,
+                    Name = "Frau"
+                },
+                new Gender
+                {
+                    Id = 3,
+                    Name = "Divers"
+                }
+            };
+            #endregion
+
             #region List of Patients
             var patients = new List<Patient>
             {
-                //new Patient
-                //{
-                //    Id = 10000,
-                //    FirstName = "Marco",
-                //    LastName = "Inverardi",
-                //    Gender = Gender.Male,
-                //    TherapyId = 103,
-                //    MedicalHistory = "Operation Blinddarum im Jahre 2018",
-                //    EntryDate = new DateTime(2022,06,20),
-                //    LeavingDate = new DateTime(2022,06,22)
-                //},
-                //new Patient
-                //{
-                //    Id = 10001,
-                //    FirstName = "Heidi",
-                //    LastName = "Geissbühler",
-                //    Gender = Gender.Female,
-                //    TherapyId = 102,
-                //    MedicalHistory = "Hüftoperation 01.2017",
-                //    EntryDate = new DateTime(2022,06,20),
-                //    LeavingDate = new DateTime(2022,06,21)
-                //},
                 new Patient
                 {
                     Id = 10002,
                     FirstName = "Antonio",
                     LastName = "Eichholzer",
-                    Gender = Gender.Male,
+                    GenderId = 1,
                     RoomId = 101,
                     TherapyId = 103,
                     MedicalHistory = "",
-                    EntryDate = new DateTime(2022,06,20),
+                    EntryDate = new DateTime(2022,06,20,10,15,03),
                     CreatedBy = "sfernandez",
                     CreatedAt = new DateTime(2022,06,20,10,15,03),
                     ModifiedBy = "sfernandez",
@@ -568,11 +642,11 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     Id = 10003,
                     FirstName = "Martha",
                     LastName = "Watson",
-                    Gender = Gender.Female,
+                    GenderId = 2,
                     RoomId = 102,
                     TherapyId = 100,
                     MedicalHistory = "Schlaganfall im Juli 2015, diverse tägliche Medikamentenzunahme",
-                    EntryDate = new DateTime(2022,06,25),
+                    EntryDate = new DateTime(2022,06,25,09,38,57),
                     CreatedBy = "skluser",
                     CreatedAt = new DateTime(2022,06,25,09,38,57),
                     ModifiedBy = "skluser",
@@ -583,11 +657,11 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     Id = 10004,
                     FirstName = "Flavio",
                     LastName = "Frei",
-                    Gender = Gender.Male,
+                    GenderId = 1,
                     RoomId = 103,
                     TherapyId = 102,
                     MedicalHistory = "",
-                    EntryDate = new DateTime(2022,06,26),
+                    EntryDate = new DateTime(2022,06,26,20,42,03),
                     CreatedBy = "skluser",
                     CreatedAt = new DateTime(2022,06,26,20,42,03),
                     ModifiedBy = "skluser",
@@ -598,15 +672,132 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     Id = 10005,
                     FirstName = "Lisa",
                     LastName = "Zellweger",
-                    Gender = Gender.Female,
+                    GenderId = 2,
                     RoomId = 104,
                     TherapyId = 101,
                     MedicalHistory = "Herzstillstand 05.2011 mit anschliessender Reanimation",
-                    EntryDate = new DateTime(2022,06,24),
+                    EntryDate = new DateTime(2022,06,24,05,18,22),
                     CreatedBy = "ragger",
                     CreatedAt = new DateTime(2022,06,24,05,18,22),
                     ModifiedBy = "ragger",
                     ModifiedAt = new DateTime(2022,06,24,05,18,22)
+                },
+            };
+            #endregion
+
+            #region List of current Locations
+            var currentlocations = new List<CurrentLocation>
+            {
+                new CurrentLocation
+                {
+                    Id = 999,
+                    Name = "HomeBase"
+                },
+                new CurrentLocation
+                {
+                    Id = 900,
+                    Name = "Spital-Apotheke"
+                },
+                new CurrentLocation
+                {
+                    Id = 1,
+                    Name = "Auf Weg zu Raum 101"
+                },
+                new CurrentLocation
+                {
+                    Id = 101,
+                    Name = "Raum 101"
+                },
+                new CurrentLocation
+                {
+                    Id = 2,
+                    Name = "Auf Weg zu Raum 102"
+                },
+                new CurrentLocation
+                {
+                    Id = 102,
+                    Name = "Raum 102"
+                },
+                new CurrentLocation
+                {
+                    Id = 3,
+                    Name = "Auf Weg zu Raum 103"
+                },
+                new CurrentLocation
+                {
+                    Id = 103,
+                    Name = "Raum 103"
+                },
+                new CurrentLocation
+                {
+                    Id = 4,
+                    Name = "Auf Weg zu Raum 104"
+                },
+                new CurrentLocation
+                {
+                    Id = 104,
+                    Name = "Raum 104"
+                },
+                new CurrentLocation
+                {
+                    Id = 998,
+                    Name = "Auf Weg zu HomeBase"
+                }
+            };
+            #endregion
+
+            #region List of Activities
+            var activities = new List<Activity>
+            {
+                new Activity
+                {
+                    Id = 1,
+                    Name = "StandBy"
+                },
+                new Activity
+                {
+                    Id = 2,
+                    Name = "Wird geladen"
+                },
+                new Activity
+                {
+                    Id = 3,
+                    Name = "Lade Medikamente"
+                },
+                new Activity
+                {
+                    Id = 4,
+                    Name = "Medikamente geladen"
+                },
+                new Activity
+                {
+                    Id = 5,
+                    Name = "Unterwegs"
+                },
+                new Activity
+                {
+                    Id = 6,
+                    Name = "Lade Medikamente ab"
+                },
+                new Activity
+                {
+                    Id = 7,
+                    Name = "Medikamente abgeladen"
+                },
+                new Activity
+                {
+                    Id = 8,
+                    Name = "Verlasse Raum"
+                },
+                new Activity
+                {
+                    Id = 9,
+                    Name = "Auf Weg zurück"
+                },
+                new Activity
+                {
+                    Id = 10,
+                    Name = "Fehler - Brauche Hilfe"
                 },
             };
             #endregion
@@ -619,9 +810,9 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     Id = 1,
                     Name = "DoctorBob 1.0",
                     LastRoomId = 999,
-                    CurrentLocation = CurrentLocation.Home,
+                    CurrentLocationId = 999,
                     Power = 100,
-                    Activity = Activity.Standby,
+                    ActivityId = 1,
                     CreatedBy = "admin",
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
@@ -630,14 +821,59 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
             };
             #endregion
 
+            //#region List of States
+            //var states = new List<State>
+            //{
+            //    new State
+            //    {
+            //        Id = 1,
+            //        Name = "Boarding"
+            //    },
+            //    new State
+            //    {
+            //        Id = 1,
+            //        Name = "Bestätigt"
+            //    },
+            //    new State
+            //    {
+            //        Id = 1,
+            //        Name = "Wird ausgeführt"
+            //    },
+            //    new State
+            //    {
+            //        Id = 1,
+            //        Name = "Abgeschlossen"
+            //    },
+            //};
+            //#endregion
+
+            //#region List of Orders
+            //var orders = new List<Order>
+            //{
+            //    new Order
+            //    {
+            //        Id = 2356,
+            //        RobotId = 1,
+            //        //Patients = new List<Patient>,
+            //        State = State.Completed
+            //    },
+            //};
+            //#endregion
+
             #region Preload Data
+            roles.ForEach(r => modelBuilder.Entity<Role>().HasData(r));
             staffMembers.ForEach(s => modelBuilder.Entity<Staff>().HasData(s));
             drugs.ForEach(d => modelBuilder.Entity<Drug>().HasData(d));
             rooms.ForEach(r => modelBuilder.Entity<Room>().HasData(r));
             timeModels.ForEach(t => modelBuilder.Entity<TimeModel>().HasData(t));
             therapies.ForEach(t => modelBuilder.Entity<Therapy>().HasData(t));
+            genders.ForEach(g => modelBuilder.Entity<Gender>().HasData(g));
             patients.ForEach(p => modelBuilder.Entity<Patient>().HasData(p));
+            currentlocations.ForEach(c => modelBuilder.Entity<CurrentLocation>().HasData(c));
+            activities.ForEach(a => modelBuilder.Entity<Activity>().HasData(a));
             robot.ForEach(r => modelBuilder.Entity<Robot>().HasData(r));
+            //states.ForEach(s => modelBuilder.Entity<State>().HasData(s));
+            //orders.ForEach(o => modelBuilder.Entity<Order>().HasData(o));
             #endregion
         }
 

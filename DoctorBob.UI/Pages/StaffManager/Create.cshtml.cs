@@ -21,6 +21,7 @@ namespace DoctorBob.UI.Pages.StaffManager
 
         public IActionResult OnGet()
         {
+            ViewData["Role"] = new SelectList(_context.Roles, "Id", "Name");
             return Page();
         }
 
@@ -34,6 +35,14 @@ namespace DoctorBob.UI.Pages.StaffManager
             {
                 return Page();
             }
+
+            // Anpassen auf CurrentUser
+            Staff.CreatedBy = "eluechinger";
+            Staff.CreatedAt = DateTimeOffset.UtcNow;
+
+            // Anpassen auf CurrentUser
+            Staff.ModifiedBy = "eluechinger";
+            Staff.ModifiedAt = DateTimeOffset.UtcNow;
 
             _context.StaffMembers.Add(Staff);
             await _context.SaveChangesAsync();

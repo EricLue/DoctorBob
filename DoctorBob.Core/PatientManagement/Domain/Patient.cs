@@ -15,6 +15,7 @@ namespace DoctorBob.Core.PatientManagement.Domain
         //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public int GenderId { get; set; }
         public Gender Gender { get; set; }
         public int RoomId { get; set; }
         public Room Room { get; set; }
@@ -23,11 +24,5 @@ namespace DoctorBob.Core.PatientManagement.Domain
         public string MedicalHistory { get; set; }
         public DateTime EntryDate { get; set; }
         public DateTime LeavingDate { get; set; }
-    }
-
-    public enum Gender
-    {
-        Male,
-        Female
     }
 }

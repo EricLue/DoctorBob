@@ -13,5 +13,6 @@ namespace DoctorBob.Core.TherapyManagement.Domain
         public int Id { get; set; }
         //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string Time { get; set; }
+        public int DailyNumber { get; set; }
     }
 }
