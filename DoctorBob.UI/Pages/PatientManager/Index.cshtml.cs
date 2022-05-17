@@ -25,6 +25,7 @@ namespace DoctorBob.UI.Pages.PatientManager
         public async Task OnGetAsync()
         {
             Patient = await _context.Patients
+                .Include(p => p.Gender)
                 .Include(p => p.Room)
                 .Include(p => p.Therapy).ToListAsync();
         }

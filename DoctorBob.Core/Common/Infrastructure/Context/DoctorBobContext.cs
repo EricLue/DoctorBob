@@ -29,8 +29,8 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
         public DbSet<CurrentLocation> CurrentLocations { get; set; }
         public DbSet<Activity> Activities { get; set; }
         public DbSet<Robot> Robots { get; set; }
-        //public DbSet<State> States { get; set; }
-        //public DbSet<Order> Orders { get; set; }
+        public DbSet<State> States { get; set; }
+        public DbSet<Order> Orders { get; set; }
         #endregion
 
         public DoctorBobContext()
@@ -122,71 +122,19 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                 entity.HasOne(e => e.Activity);
             });
 
-            //modelBuilder.Entity<Order>(entity =>
-            //{
-            //    entity.HasKey(e => e.Id);
-            //    entity.HasOne(e => e.Robot);
-            //    entity.HasOne(e => e.Patients);
-            //});
+            modelBuilder.Entity<State>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.Name).IsRequired();
+            });
 
-            //modelBuilder.HasSequence<int>("StaffNr")
-            //    .StartsAt(100);
+            modelBuilder.Entity<Order>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.HasOne(e => e.Robot);
+                entity.HasOne(e => e.State);
+            });
 
-            //modelBuilder.HasSequence<int>("TherapyNr")
-            //    .StartsAt(100);
-
-            //modelBuilder.HasSequence<int>("RoomNr")
-            //    .StartsAt(100);
-
-            //modelBuilder.HasSequence<int>("DrugNr")
-            //    .StartsAt(1_000);
-
-            //modelBuilder.HasSequence<int>("TimeModelNr")
-            //    .StartsAt(1_000);
-
-            //modelBuilder.HasSequence<int>("PatientNr")
-            //    .StartsAt(10_000);
-
-            //modelBuilder.HasSequence<int>("RobotNr")
-            //    .StartsAt(1);
-
-            //modelBuilder.Entity<Robot>()
-            //    .Property(r => r.Id)
-            //    .HasDefaultValueSql("NEXT VALUE FOR shared.Id");
-
-            //modelBuilder.Entity<Staff>()
-            //    .Property(s => s.Id)
-            //    .HasDefaultValueSql("NEXT VALUE FOR shared.Id");
-
-            //modelBuilder.Entity<Therapy>()
-            //    .Property(t => t.Id)
-            //    .HasDefaultValueSql("NEXT VALUE FOR shared.Id");
-
-            //modelBuilder.Entity<Drug>()
-            //    .Property(d => d.Id)
-            //    .HasDefaultValueSql("NEXT VALUE FOR shared.Id");
-
-            //modelBuilder.Entity<Patient>()
-            //    .Property(d => d.Id)
-            //    .HasDefaultValueSql("NEXT VALUE FOR shared.Id");
-
-            //modelBuilder.Entity<Therapy>()
-            //      .HasOne(t => t.Drug);
-
-            //modelBuilder.Entity<Therapy>()
-            //    .HasOne(t => t.CaringStaff);
-
-            //modelBuilder.Entity<Therapy>()
-            //    .HasOne(t => t.TimeModel);
-
-            //modelBuilder.Entity<Patient>()
-            //    .HasOne(p => p.Therapy);
-
-            //modelBuilder.Entity<Patient>()
-            //    .HasOne(p => p.Room);
-
-            //modelBuilder.Entity<Robot>()
-            //    .HasOne(p => p.LastRoom);
 
             #region List of Roles
             var roles = new List<Role>
@@ -802,7 +750,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
             };
             #endregion
 
-            #region Robot
+            #region List of Robots
             var robot = new List<Robot>
             {
                 new Robot
@@ -821,31 +769,31 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
             };
             #endregion
 
-            //#region List of States
-            //var states = new List<State>
-            //{
-            //    new State
-            //    {
-            //        Id = 1,
-            //        Name = "Boarding"
-            //    },
-            //    new State
-            //    {
-            //        Id = 1,
-            //        Name = "Bestätigt"
-            //    },
-            //    new State
-            //    {
-            //        Id = 1,
-            //        Name = "Wird ausgeführt"
-            //    },
-            //    new State
-            //    {
-            //        Id = 1,
-            //        Name = "Abgeschlossen"
-            //    },
-            //};
-            //#endregion
+            #region List of States
+            var states = new List<State>
+            {
+                new State
+                {
+                    Id = 1,
+                    Name = "Boarding"
+                },
+                new State
+                {
+                    Id = 2,
+                    Name = "Bestätigt"
+                },
+                new State
+                {
+                    Id = 3,
+                    Name = "Wird ausgeführt"
+                },
+                new State
+                {
+                    Id = 4,
+                    Name = "Abgeschlossen"
+                },
+            };
+            #endregion
 
             //#region List of Orders
             //var orders = new List<Order>
@@ -872,7 +820,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
             currentlocations.ForEach(c => modelBuilder.Entity<CurrentLocation>().HasData(c));
             activities.ForEach(a => modelBuilder.Entity<Activity>().HasData(a));
             robot.ForEach(r => modelBuilder.Entity<Robot>().HasData(r));
-            //states.ForEach(s => modelBuilder.Entity<State>().HasData(s));
+            states.ForEach(s => modelBuilder.Entity<State>().HasData(s));
             //orders.ForEach(o => modelBuilder.Entity<Order>().HasData(o));
             #endregion
         }
