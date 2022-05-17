@@ -700,12 +700,12 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                 new Activity
                 {
                     Id = 1,
-                    Name = "StandBy"
+                    Name = "Bereit"
                 },
                 new Activity
                 {
                     Id = 2,
-                    Name = "Wird geladen"
+                    Name = "Lade Akku"
                 },
                 new Activity
                 {
@@ -725,7 +725,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                 new Activity
                 {
                     Id = 6,
-                    Name = "Lade Medikamente ab"
+                    Name = "Lade Medikament ab"
                 },
                 new Activity
                 {
