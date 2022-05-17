@@ -756,11 +756,37 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                 new Robot
                 {
                     Id = 1,
-                    Name = "DoctorBob 1.0",
+                    Name = "DoctorBob R2D2",
                     LastRoomId = 999,
                     CurrentLocationId = 999,
                     Power = 100,
                     ActivityId = 1,
+                    CreatedBy = "admin",
+                    CreatedAt = new DateTime(2022,01,10,16,44,21),
+                    ModifiedBy = "admin",
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
+                },
+                new Robot
+                {
+                    Id = 2,
+                    Name = "DoctorBob Prime 1",
+                    LastRoomId = 900,
+                    CurrentLocationId = 900,
+                    Power = 35,
+                    ActivityId = 2,
+                    CreatedBy = "admin",
+                    CreatedAt = new DateTime(2022,01,10,16,44,21),
+                    ModifiedBy = "admin",
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
+                },
+                new Robot
+                {
+                    Id = 3,
+                    Name = "DoctorBob McBobby 99",
+                    LastRoomId = 900,
+                    CurrentLocationId = 900,
+                    Power = 5,
+                    ActivityId = 2,
                     CreatedBy = "admin",
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",

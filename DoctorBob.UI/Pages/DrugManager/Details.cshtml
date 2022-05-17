@@ -5,10 +5,11 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
-
 <div>
-    <h4>Medikament</h4>
+    <div class="row">
+        <div class="column"><img border="0" alt="drug" width="40" height="40" src="/images/drug.png" /></div>
+        <div class="column"><h2>@Html.DisplayFor(model => model.Drug.Name)</h2></div>
+    </div>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -29,6 +30,9 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Drug.Description)
         </dd>
+    </dl>
+    <hr />
+    <dl class="row">
         <dt class="col-sm-2">
             @Html.DisplayName("Erstellt von")
         </dt>
@@ -39,7 +43,7 @@
             @Html.DisplayName("Erstellt am")
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Drug.CreatedAt)
+            @Html.DisplayFor(model => model.Drug.CreatedAt.DateTime)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayName("Bearbeitet von")
@@ -51,11 +55,12 @@
             @Html.DisplayName("Bearbeitet am")
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Drug.ModifiedAt)
+            @Html.DisplayFor(model => model.Drug.ModifiedAt.DateTime)
         </dd>
     </dl>
+    <hr />
 </div>
 <div>
-    <a type="submit" class="btn btn-primary" asp-page="./Edit" asp-route-id="@Model.Drug.Id">Bearbeiten</a> |
+    <a type="submit" class="btn btn-primary" asp-page="./Edit" asp-route-id="@Model.Drug.Id">Bearbeiten</a> 
     <a type="submit" class="btn btn-primary" asp-page="./Index">Zurück zu Liste</a>
 </div>

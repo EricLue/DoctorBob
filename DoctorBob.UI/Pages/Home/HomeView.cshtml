@@ -23,13 +23,10 @@
                         @Html.DisplayName("Name")
                     </th>
                     <th>
-                        @Html.DisplayName("Letzter Raum")
-                    </th>
-                    <th>
                         @Html.DisplayName("Location")
                     </th>
                     <th>
-                        @Html.DisplayName("Power")
+                        @Html.DisplayName("Power in %")
                     </th>
                     <th>
                         @Html.DisplayName("Aktivität")
@@ -42,9 +39,6 @@
                     <tr>
                         <td>
                             @Html.DisplayFor(modelItem => item.Name)
-                        </td>
-                        <td>
-                            @Html.DisplayName(Model.GetLastRoomName(item.LastRoomId))
                         </td>
                         <td>
                             @Html.DisplayName(Model.GetCurrentLocationName(item.CurrentLocationId))
@@ -63,15 +57,13 @@
     <div class="container border" style="padding:20px">
         <a type="submit" class="btn btn-primary" asp-area="" asp-page="/RobotManager/Index">Roboter-Dashboard</a>
         <a type="submit" class="btn btn-primary" asp-area="" asp-page="/PatientManager/Index">Patienten-Dashboard</a>
+        <a type="submit" class="btn btn-dark" asp-area="" asp-page="/OrderManager/Index">Aufträge</a>
     </div>
     <div class="container border" style="padding:20px">
         <a type="submit" class="btn btn-secondary" asp-area="" asp-page="/StaffManager/Index">Personal</a>
         <a type="submit" class="btn btn-secondary" asp-area="" asp-page="/DrugManager/Index">Medikamente</a>
         <a type="submit" class="btn btn-secondary" asp-area="" asp-page="/TherapyManager/Index">Therapien</a>
         <a type="submit" class="btn btn-secondary" asp-area="" asp-page="/RoomManager/Index">Raumverwaltung</a>
-    </div>
-    <div class="container border" style="padding:20px">
-        <a type="submit" class="btn btn-dark" asp-area="" asp-page="/OrderManager/Index">Aufträge</a>
     </div>
 </body>
 </html>
