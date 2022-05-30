@@ -15,7 +15,7 @@ namespace DoctorBob.Core.OrderManagement.Domain
         public int Id { get; set; }
         public int RobotId { get; set; }
         public Robot Robot { get; set; }
-        public List<Patient> Patients { get; set; }
+        public ICollection<OrderPatient> OrderPatients { get; set; }
         public int StateId { get; set; }
         public State State { get; set; }
     }

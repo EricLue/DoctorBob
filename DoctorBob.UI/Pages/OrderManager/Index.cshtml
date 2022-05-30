@@ -27,6 +27,9 @@
             <th>
                 @Html.DisplayName("Status")
             </th>
+            <th>
+                @Html.DisplayName("Erfassungsdatum")
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -41,10 +44,18 @@
                 @Html.DisplayName(Model.GetRobotName(item.RobotId))
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Patients)
+                @foreach (var orderPatient in item.OrderPatients)
+                {
+                    @Html.DisplayName(Model.GetPatient(orderPatient.Patient.Id));
+                    <br />
+                }
+
             </td>
             <td>
                 @Html.DisplayName(Model.GetStateName(item.StateId))
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedAt.DateTime)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">

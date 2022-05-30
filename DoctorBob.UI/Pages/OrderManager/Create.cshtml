@@ -18,6 +18,14 @@
                 <select asp-for="Order.RobotId" class="form-control" asp-items="ViewBag.Robot"></select>
                 <span asp-validation-for="Order.Robot" class="text-danger"></span>
             </div>
+            <br />
+            <select id="SelectedPatients" multiple="multiple" name="SelectedPatients">
+                @foreach (var patient in Model.GetList())
+                {
+                    <option value="@Html.DisplayName(Model.GetPatientId(patient.Id))">@Html.DisplayName(Model.GetPatient(patient.Id))</option>
+                }
+            </select>
+            <br />
             <div class="form-group">
                 <input type="submit" value="Erstellen" class="btn btn-primary" />
                 <a type="submit" class="btn btn-primary" asp-page="Index">Zurück zu Liste</a>

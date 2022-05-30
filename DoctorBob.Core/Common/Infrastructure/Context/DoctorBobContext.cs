@@ -821,19 +821,6 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
             };
             #endregion
 
-            //#region List of Orders
-            //var orders = new List<Order>
-            //{
-            //    new Order
-            //    {
-            //        Id = 2356,
-            //        RobotId = 1,
-            //        //Patients = new List<Patient>,
-            //        State = State.Completed
-            //    },
-            //};
-            //#endregion
-
             #region Preload Data
             roles.ForEach(r => modelBuilder.Entity<Role>().HasData(r));
             staffMembers.ForEach(s => modelBuilder.Entity<Staff>().HasData(s));

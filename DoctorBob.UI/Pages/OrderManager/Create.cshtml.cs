@@ -7,16 +7,35 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using DoctorBob.Core.Common.Infrastructure.Context;
 using DoctorBob.Core.OrderManagement.Domain;
+using DoctorBob.Core.PatientManagement.Domain;
 
 namespace DoctorBob.UI.Pages.OrderManager
 {
     public class CreateModel : PageModel
     {
         private readonly DoctorBob.Core.Common.Infrastructure.Context.DoctorBobContext _context;
+        ICollection<Patient> patientList;
 
         public CreateModel(DoctorBob.Core.Common.Infrastructure.Context.DoctorBobContext context)
         {
             _context = context;
+        }
+
+        public void BindList() {
+            patientList = _context.Patients.ToList();
+        }
+
+        public ICollection<Patient> GetList()
+        {
+            BindList();
+            if (patientList.Count<=0)
+            {
+                return null;
+            }
+            else
+            {
+                return patientList;
+            }
         }
 
         public IActionResult OnGet()
@@ -47,10 +66,49 @@ namespace DoctorBob.UI.Pages.OrderManager
             Order.ModifiedBy = "eluechinger";
             Order.ModifiedAt = DateTimeOffset.UtcNow;
 
+            Order.OrderPatients = new List<OrderPatient>
+            {
+                new OrderPatient
+                {
+                    OrderId = Order.Id,
+                    PatientId = 10002
+                },
+                new OrderPatient
+                {
+                    OrderId = Order.Id,
+                    PatientId = 10003
+                },
+                new OrderPatient
+                {
+                    OrderId = Order.Id,
+                    PatientId = 10004
+                },
+                new OrderPatient
+                {
+                    OrderId = Order.Id,
+                    PatientId = 10005
+                }
+            };
+
             _context.Orders.Add(Order);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
+        }
+
+        public String GetPatient(int Id)
+        {
+            String patientInfo = _context.Patients.Find(Id).Id.ToString();
+            patientInfo += " - ";
+            patientInfo += _context.Patients.Find(Id).FirstName;
+            patientInfo += " ";
+            patientInfo += _context.Patients.Find(Id).LastName;
+            return patientInfo;
+        }
+
+        public String GetPatientId(int Id)
+        {
+            return _context.Patients.Find(Id).Id.ToString();
         }
     }
 }

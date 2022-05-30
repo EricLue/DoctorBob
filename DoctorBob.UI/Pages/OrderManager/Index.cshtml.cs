@@ -17,7 +17,7 @@ namespace DoctorBob.UI.Pages.OrderManager
         public IndexModel(DoctorBob.Core.Common.Infrastructure.Context.DoctorBobContext context)
         {
             _context = context;
-            Order = _context.Orders.ToList();
+            Order = _context.Orders.Include(x => x.OrderPatients).ThenInclude(x => x.Patient).ToList();
         }
 
         public IList<Order> Order { get;set; }
@@ -37,6 +37,16 @@ namespace DoctorBob.UI.Pages.OrderManager
         public String GetStateName(int Id)
         {
             return _context.States.Find(Id).Name;
+        }
+
+        public String GetPatient(int Id)
+        {
+            String patientInfo = _context.Patients.Find(Id).Id.ToString();
+            patientInfo += " - ";
+            patientInfo += _context.Patients.Find(Id).FirstName;
+            patientInfo += " ";
+            patientInfo += _context.Patients.Find(Id).LastName;
+            return patientInfo;
         }
     }
 }
