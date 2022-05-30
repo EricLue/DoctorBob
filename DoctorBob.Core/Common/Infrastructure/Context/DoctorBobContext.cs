@@ -770,9 +770,9 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                 {
                     Id = 1,
                     Name = "DoctorBob R2D2",
-                    LastRoomId = 999,
-                    CurrentLocationId = 999,
-                    Power = 100,
+                    LastRoomId = 900,
+                    CurrentLocationId = 900,
+                    Power = 85,
                     ActivityId = 1,
                     CreatedBy = "admin",
                     CreatedAt = new DateTime(2022,01,10,16,44,21),

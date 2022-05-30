@@ -48,5 +48,16 @@ namespace DoctorBob.UI.Pages.OrderManager
             patientInfo += _context.Patients.Find(Id).LastName;
             return patientInfo;
         }
+
+        public void RunRobot(int Id)
+        {
+            _context.Orders.Find(Id).StateId = 2;
+            Refresh();
+        }
+
+        public IActionResult Refresh()
+        {
+            return new RedirectToPageResult("/OrderManager/Index");
+        }
     }
 }
