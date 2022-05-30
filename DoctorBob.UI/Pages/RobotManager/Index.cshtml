@@ -19,9 +19,6 @@
                 @Html.DisplayName("Name")
             </th>
             <th>
-                @Html.DisplayName("Letzter Raum")
-            </th>
-            <th>
                 @Html.DisplayName("Location")
             </th>
             <th>
@@ -38,9 +35,6 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayName(Model.GetLastRoomName(item.LastRoomId))
             </td>
             <td>
                 @Html.DisplayName(Model.GetCurrentLocationName(item.CurrentLocationId))
