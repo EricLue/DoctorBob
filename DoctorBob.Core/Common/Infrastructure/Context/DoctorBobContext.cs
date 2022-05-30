@@ -30,6 +30,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
         public DbSet<Activity> Activities { get; set; }
         public DbSet<Robot> Robots { get; set; }
         public DbSet<State> States { get; set; }
+        public DbSet<OrderPatient> OrderPatients { get; set; }
         public DbSet<Order> Orders { get; set; }
         #endregion
 
@@ -128,10 +129,22 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                 entity.Property(e => e.Name).IsRequired();
             });
 
+            modelBuilder.Entity<OrderPatient>()
+                    .HasKey(op => new { op.OrderId, op.PatientId });
+            modelBuilder.Entity<OrderPatient>()
+                .HasOne(op => op.Order)
+                .WithMany(p => p.OrderPatients)
+                .HasForeignKey(op => op.OrderId);
+            modelBuilder.Entity<OrderPatient>()
+                .HasOne(op => op.Patient)
+                .WithMany(p => p.OrderPatients)
+                .HasForeignKey(op => op.PatientId);
+
             modelBuilder.Entity<Order>(entity =>
             {
                 entity.HasKey(e => e.Id);
                 entity.HasOne(e => e.Robot);
+             
                 entity.HasOne(e => e.State);
             });
 
@@ -765,32 +778,6 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
                     ModifiedAt = new DateTime(2022,01,10,16,44,21)
-                },
-                new Robot
-                {
-                    Id = 2,
-                    Name = "DoctorBob Prime 1",
-                    LastRoomId = 900,
-                    CurrentLocationId = 900,
-                    Power = 35,
-                    ActivityId = 2,
-                    CreatedBy = "admin",
-                    CreatedAt = new DateTime(2022,01,10,16,44,21),
-                    ModifiedBy = "admin",
-                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
-                },
-                new Robot
-                {
-                    Id = 3,
-                    Name = "DoctorBob McBobby 99",
-                    LastRoomId = 900,
-                    CurrentLocationId = 900,
-                    Power = 5,
-                    ActivityId = 2,
-                    CreatedBy = "admin",
-                    CreatedAt = new DateTime(2022,01,10,16,44,21),
-                    ModifiedBy = "admin",
-                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
                 }
             };
             #endregion
@@ -806,18 +793,55 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                 new State
                 {
                     Id = 2,
-                    Name = "Bestätigt"
-                },
-                new State
-                {
-                    Id = 3,
                     Name = "Wird ausgeführt"
                 },
                 new State
                 {
-                    Id = 4,
+                    Id = 3,
                     Name = "Abgeschlossen"
                 },
+            };
+            #endregion
+
+            #region List of OrderPatients
+            var orderPatients = new List<OrderPatient>
+            {
+                new OrderPatient
+                {
+                    OrderId = 1,
+                    PatientId = 10002
+                },
+                new OrderPatient
+                {
+                    OrderId = 1,
+                    PatientId = 10003
+                },
+                new OrderPatient
+                {
+                    OrderId = 1,
+                    PatientId = 10004
+                },
+                new OrderPatient
+                {
+                    OrderId = 1,
+                    PatientId = 10005
+                }
+            };
+            #endregion
+
+            #region List of Orders
+            var orders = new List<Order>
+            {
+                new Order
+                {
+                    Id = 1,
+                    RobotId = 1,
+                    StateId = 3,
+                    CreatedBy = "eluechinger",
+                    CreatedAt = new DateTime(2022,06,27,16,44,21),
+                    ModifiedBy = "eluechinger",
+                    ModifiedAt = new DateTime(2022,06,27,16,44,21)
+                }
             };
             #endregion
 
@@ -834,7 +858,8 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
             activities.ForEach(a => modelBuilder.Entity<Activity>().HasData(a));
             robot.ForEach(r => modelBuilder.Entity<Robot>().HasData(r));
             states.ForEach(s => modelBuilder.Entity<State>().HasData(s));
-            //orders.ForEach(o => modelBuilder.Entity<Order>().HasData(o));
+            orders.ForEach(o => modelBuilder.Entity<Order>().HasData(o));
+            orderPatients.ForEach(o => modelBuilder.Entity<OrderPatient>().HasData(o));
             #endregion
         }
 
