@@ -326,7 +326,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
             {
                 new Drug
                 {
-                    Id = 1000,
+                    Id = 1,
                     DoseInMg = 5,
                     Name = "Bisoprolol",
                     Description = "Senkung Puls",
@@ -337,7 +337,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                 },
                 new Drug
                 {
-                    Id = 1001,
+                    Id = 2,
                     DoseInMg = 850,
                     Name = "Metformin",
                     Description = "Regulation Blutzucker",
@@ -348,7 +348,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                 },
                 new Drug
                 {
-                    Id = 1002,
+                    Id = 3,
                     DoseInMg = 500,
                     Name = "Novalgin",
                     Description = "Schmerzmittel",
@@ -359,7 +359,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                 },
                 new Drug
                 {
-                    Id = 1003,
+                    Id = 4,
                     DoseInMg = 5,
                     Name = "Amlodipin",
                     Description = "Senkung Blutdruck",
@@ -370,7 +370,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                 },
                 new Drug
                 {
-                    Id = 1004,
+                    Id = 5,
                     DoseInMg = 33,
                     Name = "Aspirin",
                     Description = "Kopfschmerzen",
@@ -381,7 +381,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                 },
                 new Drug
                 {
-                    Id = 1005,
+                    Id = 6,
                     DoseInMg = 450,
                     Name = "Tafalgan",
                     Description = "Schmerzmittel",
@@ -506,10 +506,10 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
             {
                 new Therapy
                 {
-                    Id = 100,
+                    Id = 101,
                     Name = "Bisoprolol 1x täglich, 5 mg",
                     QuantityOfDrug = 1,
-                    DrugId = 1000,
+                    DrugId = 1,
                     CaringStaffId = 120,
                     TimeModelId = 1001,
                     CreatedBy = "admin",
@@ -519,10 +519,10 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                 },
                 new Therapy
                 {
-                    Id = 101,
+                    Id = 102,
                     Name = "Metformin 3x täglich, total 2550 mg",
                     QuantityOfDrug = 3,
-                    DrugId = 1001,
+                    DrugId = 2,
                     CaringStaffId = 121,
                     TimeModelId = 1002,
                     CreatedBy = "admin",
@@ -532,10 +532,10 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                 },
                 new Therapy
                 {
-                    Id = 102,
+                    Id = 103,
                     Name = "Novalgin 1x täglich, 500 mg",
                     QuantityOfDrug = 1,
-                    DrugId = 1002,
+                    DrugId = 3,
                     CaringStaffId = 123,
                     TimeModelId = 1003,
                     CreatedBy = "admin",
@@ -545,10 +545,10 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                 },
                 new Therapy
                 {
-                    Id = 103,
+                    Id = 104,
                     Name = "Amlodipin 2x täglich, total 10 mg",
                     QuantityOfDrug = 2,
-                    DrugId = 1003,
+                    DrugId = 4,
                     CaringStaffId = 122,
                     TimeModelId = 1000,
                     CreatedBy = "admin",
@@ -585,13 +585,13 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
             {
                 new Patient
                 {
-                    Id = 10002,
+                    Id = 1001,
                     FirstName = "Antonio",
                     LastName = "Eichholzer",
                     GenderId = 1,
                     RoomId = 101,
-                    TherapyId = 103,
-                    MedicalHistory = "",
+                    TherapyId = 101,
+                    MedicalHistory = "Blinddarm-OP 20.06.2022",
                     EntryDate = new DateTime(2022,06,20,10,15,03),
                     CreatedBy = "sfernandez",
                     CreatedAt = new DateTime(2022,06,20,10,15,03),
@@ -600,13 +600,13 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                 },
                 new Patient
                 {
-                    Id = 10003,
+                    Id = 1002,
                     FirstName = "Martha",
                     LastName = "Watson",
                     GenderId = 2,
                     RoomId = 102,
-                    TherapyId = 100,
-                    MedicalHistory = "Schlaganfall im Juli 2015, diverse tägliche Medikamentenzunahme",
+                    TherapyId = 104,
+                    MedicalHistory = "Hüftoperation 25.06.2022, Schlaganfall im Juli 2015",
                     EntryDate = new DateTime(2022,06,25,09,38,57),
                     CreatedBy = "skluser",
                     CreatedAt = new DateTime(2022,06,25,09,38,57),
@@ -615,13 +615,13 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                 },
                 new Patient
                 {
-                    Id = 10004,
-                    FirstName = "Flavio",
-                    LastName = "Frei",
+                    Id = 1003,
+                    FirstName = "Corsin",
+                    LastName = "Castellazzi",
                     GenderId = 1,
                     RoomId = 103,
-                    TherapyId = 102,
-                    MedicalHistory = "",
+                    TherapyId = 101,
+                    MedicalHistory = "Beinbruch 26.06.2022",
                     EntryDate = new DateTime(2022,06,26,20,42,03),
                     CreatedBy = "skluser",
                     CreatedAt = new DateTime(2022,06,26,20,42,03),
@@ -630,13 +630,13 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                 },
                 new Patient
                 {
-                    Id = 10005,
+                    Id = 1004,
                     FirstName = "Lisa",
                     LastName = "Zellweger",
                     GenderId = 2,
                     RoomId = 104,
-                    TherapyId = 101,
-                    MedicalHistory = "Herzstillstand 05.2011 mit anschliessender Reanimation",
+                    TherapyId = 104,
+                    MedicalHistory = "Ellbogen-Bruch 24.06.2022, Herzstillstand 05.2011 mit anschliessender Reanimation",
                     EntryDate = new DateTime(2022,06,24,05,18,22),
                     CreatedBy = "ragger",
                     CreatedAt = new DateTime(2022,06,24,05,18,22),
@@ -809,22 +809,22 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                 new OrderPatient
                 {
                     OrderId = 1,
-                    PatientId = 10002
+                    PatientId = 1001
                 },
                 new OrderPatient
                 {
                     OrderId = 1,
-                    PatientId = 10003
+                    PatientId = 1002
                 },
                 new OrderPatient
                 {
                     OrderId = 1,
-                    PatientId = 10004
+                    PatientId = 1003
                 },
                 new OrderPatient
                 {
                     OrderId = 1,
-                    PatientId = 10005
+                    PatientId = 1004
                 }
             };
             #endregion
