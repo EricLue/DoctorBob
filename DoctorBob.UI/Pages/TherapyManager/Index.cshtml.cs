@@ -29,10 +29,10 @@ namespace DoctorBob.UI.Pages.TherapyManager
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                entity = entity.Where(e => e.FirstName.Contains(searchString) || e.LastName.Contains(searchString));
+                entity = entity.Where(e => e.Name.Contains(searchString) || e.Drug.Name.Contains(searchString));
             }
 
-            Therapy = await _context.Therapies
+            Therapy = await entity
                 .Include(t => t.CaringStaff)
                 .Include(t => t.Drug)
                 .Include(t => t.TimeModel).ToListAsync();
