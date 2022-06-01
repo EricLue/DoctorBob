@@ -22,8 +22,16 @@ namespace DoctorBob.UI.Pages.TherapyManager
 
         public IList<Therapy> Therapy { get;set; }
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string searchString)
         {
+            var entity = from e in _context.Therapies
+                         select e;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                entity = entity.Where(e => e.FirstName.Contains(searchString) || e.LastName.Contains(searchString));
+            }
+
             Therapy = await _context.Therapies
                 .Include(t => t.CaringStaff)
                 .Include(t => t.Drug)

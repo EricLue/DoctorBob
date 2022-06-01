@@ -22,9 +22,27 @@ namespace DoctorBob.UI.Pages.StaffManager
 
         public IList<Staff> Staff { get; set; }
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string searchString)
         {
-            Staff = await _context.StaffMembers.ToListAsync();
+            var entity = from e in _context.StaffMembers
+                         select e;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                entity = entity.Where(e => e.FirstName.Contains(searchString) || e.LastName.Contains(searchString)
+                || e.Username.Contains(searchString));
+            }
+
+            Staff = await entity
+                .ToListAsync();
+        }
+
+        public String GetStaffName(int Id)
+        {
+            string Name = _context.StaffMembers.Find(Id).FirstName;
+            Name += " ";
+            Name += _context.StaffMembers.Find(Id).LastName;
+            return Name;
         }
 
         public String GetRoleName(int Id)

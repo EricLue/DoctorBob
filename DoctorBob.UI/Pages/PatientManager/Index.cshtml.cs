@@ -22,22 +22,28 @@ namespace DoctorBob.UI.Pages.PatientManager
 
         public IList<Patient> Patient { get;set; }
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string searchString)
         {
-            Patient = await _context.Patients
+            var entity = from e in _context.Patients
+                         select e;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                entity = entity.Where(e => e.FirstName.Contains(searchString) || e.LastName.Contains(searchString));
+            }
+
+            Patient = await entity
                 .Include(p => p.Gender)
                 .Include(p => p.Room)
                 .Include(p => p.Therapy).ToListAsync();
         }
 
-        public String GetGenderName(int Id)
+        public String GetPatientName(int Id)
         {
-            return _context.Genders.Find(Id).Name;
-        }
-
-        public String GetRoomName(int Id)
-        {
-            return _context.Rooms.Find(Id).Name;
+            string Name = _context.Patients.Find(Id).FirstName;
+            Name += " ";
+            Name += _context.Patients.Find(Id).LastName;
+            return Name;
         }
 
         public String GetTherapyName(int Id)

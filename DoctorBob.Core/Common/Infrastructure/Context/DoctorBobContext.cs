@@ -246,7 +246,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     FirstName = "Jacqueline",
                     LastName = "Seitz",
                     RoleId = 1,
-                    Username = "sseitz",
+                    Username = "jseitz",
                     Password = "uiop98",
                     CreatedBy = "admin",
                     CreatedAt = new DateTime(2022,01,10,16,44,21),

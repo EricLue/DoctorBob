@@ -5,62 +5,74 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Roboter Verwaltung</h1>
+<div class="container border" style="display: flex; justify-content: space-between; padding: 20px ">
+    <h4>Roboter Verwaltung</h4>
+    <div style="display: flex; justify-content: space-between">
+        <a type="submit" class="btn btn-light" asp-page="Create">
+            <img border="0" alt="new" width="30" height="30" src="/images/new.png" title="Hinzufügen" />
+        </a>
+        <form style="margin-top:10px">
+            <p>
+                <input type="text" name="SearchString">
+                <input type="submit" value="Filter" />
+            </p>
+        </form>
+    </div>
+</div>
 
-<p>
-    <a type="submit" class="btn btn-light" asp-page="Create">
-        <img border="0" alt="new" width="40" height="40" src="/images/new.png" title="Hinzufügen" />
-    </a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayName("Name")
-            </th>
-            <th>
-                @Html.DisplayName("Location")
-            </th>
-            <th>
-                @Html.DisplayName("Power in %")
-            </th>
-            <th>
-                @Html.DisplayName("Aktivität")
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Robot) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayName(Model.GetCurrentLocationName(item.CurrentLocationId))
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Power)
-            </td>
-            <td>
-                @Html.DisplayName(Model.GetActivityName(item.ActivityId))
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">
-                    <img border="0" alt="edit" width="20" height="20" src="/images/edit.png" title="Bearbeiten" />
-                </a>
-                <a asp-page="./Details" asp-route-id="@item.Id">
-                    <img border="0" alt="view" width="20" height="20" src="/images/details.png" title="Details anzeigen" />
-                </a>
-                <a asp-page="./Delete" asp-route-id="@item.Id">
-                    <img border="0" alt="delete" width="20" height="20" src="/images/delete.png" title="Löschen" />
-                </a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
-<div class="form-group row">
+<div class="container border" style="padding:20px">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayName("Name")
+                </th>
+                <th>
+                    @Html.DisplayName("Location")
+                </th>
+                <th>
+                    @Html.DisplayName("Power in %")
+                </th>
+                <th>
+                    @Html.DisplayName("Aktivität")
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Robot)
+            {
+                <tr>
+                    <td>
+                        <img border="0" alt="robot" width="30" height="30" src="/images/robot.png" />
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayName(Model.GetCurrentLocationName(item.CurrentLocationId))
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Power)
+                    </td>
+                    <td>
+                        @Html.DisplayName(Model.GetActivityName(item.ActivityId))
+                    </td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.Id">
+                            <img border="0" alt="edit" width="20" height="20" src="/images/edit.png" title="Bearbeiten" />
+                        </a>
+                        <a asp-page="./Details" asp-route-id="@item.Id">
+                            <img border="0" alt="view" width="20" height="20" src="/images/details.png" title="Details anzeigen" />
+                        </a>
+                        <a asp-page="./Delete" asp-route-id="@item.Id">
+                            <img border="0" alt="delete" width="20" height="20" src="/images/delete.png" title="Löschen" />
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div class="container border" style="padding:20px">
     <div class="col-2">
         <a type="submit" class="btn btn-primary" value="Zurück zu Liste" asp-area="" asp-page="/Home/HomeView">Home</a>
     </div>

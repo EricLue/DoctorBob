@@ -22,9 +22,17 @@ namespace DoctorBob.UI.Pages.DrugManager
 
         public IList<Drug> Drug { get;set; }
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string searchString)
         {
-            Drug = await _context.Drugs.ToListAsync();
+            var entity = from e in _context.Drugs
+                         select e;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                entity = entity.Where(e => e.Name.Contains(searchString));
+            }
+
+            Drug = await entity.ToListAsync();
         }
     }
 }

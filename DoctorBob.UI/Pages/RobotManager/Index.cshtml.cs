@@ -22,9 +22,17 @@ namespace DoctorBob.UI.Pages.RobotManager
 
         public IList<Robot> Robot { get;set; }
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string searchString)
         {
-            Robot = await _context.Robots
+            var entity = from e in _context.Robots
+                         select e;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                entity = entity.Where(e => e.Name.Contains(searchString));
+            }
+
+            Robot = await entity
                 .Include(r => r.LastRoom).ToListAsync();
         }
 

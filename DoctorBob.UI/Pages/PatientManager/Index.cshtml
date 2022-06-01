@@ -5,91 +5,107 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Patienten Verwaltung</h1>
+<div class="container border" style="display: flex; justify-content: space-between; padding: 20px ">
+    <h4>Patienten Verwaltung</h4>
+    <div style="display: flex; justify-content: space-between">
+        <a type="submit" class="btn btn-light" asp-page="Create">
+            <img border="0" alt="new" width="30" height="30" src="/images/new.png" title="Hinzufügen" />
+        </a>
+        <form style="margin-top:10px">
+            <p>
+                <input type="text" name="SearchString">
+                <input type="submit" value="Filter" />
+            </p>
+        </form>
+    </div>
+</div>
 
-<p>
-    <a type="submit" class="btn btn-light" asp-page="Create">
-        <img border="0" alt="new" width="40" height="40" src="/images/new.png" title="Hinzufügen" />
-    </a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayName("Id")
-            </th>
-            <th>
-                @Html.DisplayName("Vorname")
-            </th>
-            <th>
-                @Html.DisplayName("Nachname")
-            </th>
-            <th>
-                @Html.DisplayName("Geschlecht")
-            </th>
-            <th>
-                @Html.DisplayName("Raum")
-            </th>
-            <th>
-                @Html.DisplayName("Therapie")
-            </th>
-            <th>
-                @Html.DisplayName("Eintritt")
-            </th>
-            <th>
-                @Html.DisplayName("Austritt")
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        
-@foreach (var item in Model.Patient) {
-        <tr>
-            <th>
-                @Html.DisplayFor(modelItem => item.Id)
-            </th>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
-            </td>
-            <td>
-                @Html.DisplayName(Model.GetGenderName(item.GenderId))
-            </td>
-            <td>
-                @Html.DisplayName(Model.GetRoomName(item.RoomId))
-            </td>
-            <td>
-                @Html.DisplayName(Model.GetTherapyName(item.TherapyId))
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EntryDate)
-            </td>
-            <td>
-                @if (item.LeavingDate == new DateTime(1, 1, 1, 0, 0, 0))
-                {
-                    @Html.DisplayName("");
-                }
-                else {
-                @Html.DisplayFor(modelItem => item.LeavingDate);
-                }
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">
-                    <img border="0" alt="edit" width="20" height="20" src="/images/edit.png" title="Bearbeiten" />
-                </a>
-                <a asp-page="./Details" asp-route-id="@item.Id">
-                    <img border="0" alt="view" width="20" height="20" src="/images/details.png" title="Details anzeigen" />
-                </a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
-<div class="form-group row">
+<div class="container border" style="padding:20px">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayName("Nr")
+                </th>
+                <th>
+                </th>
+                <th>
+                    @Html.DisplayName("Geschlecht")
+                </th>
+                <th>
+                    @Html.DisplayName("Raum")
+                </th>
+                <th>
+                    @Html.DisplayName("Therapie")
+                </th>
+                <th>
+                    @Html.DisplayName("Eintritt")
+                </th>
+                <th>
+                    @Html.DisplayName("Austritt")
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model.Patient)
+            {
+            <tr>
+                <th>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </th>
+                <td>
+                    @if (item.GenderId == 1)
+                    {
+                        <img border="0" alt="männlich" width="30" height="30" src="/images/male.png" />
+                    }
+                    @if (item.GenderId == 2)
+                    {
+                        <img border="0" alt="weiblich" width="30" height="30" src="/images/female.png" />
+                    }
+                    @if (item.GenderId == 3)
+                    {
+                        <img border="0" alt="divers" width="30" height="30" src="/images/divers.png" />
+                    }
+                </td>
+                <td>
+                    @Html.DisplayName(Model.GetPatientName(item.Id))
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoomId)
+                </td>
+                <td>
+                    @Html.DisplayName(Model.GetTherapyName(item.TherapyId))
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EntryDate)
+                </td>
+                <td>
+                    @if (item.LeavingDate == new DateTime(1, 1, 1, 0, 0, 0))
+                    {
+                        @Html.DisplayName("");
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.LeavingDate);
+                    }
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">
+                        <img border="0" alt="edit" width="20" height="20" src="/images/edit.png" title="Bearbeiten" />
+                    </a>
+                    <a asp-page="./Details" asp-route-id="@item.Id">
+                        <img border="0" alt="view" width="20" height="20" src="/images/details.png" title="Details anzeigen" />
+                    </a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div class="container border" style="padding:20px">
     <div class="col-2">
-        <a type="submit" class="btn btn-primary" value="Zurück zu Liste" asp-area="" asp-page="/Home/HomeView">Home</a>
+            <a type="submit" class="btn btn-primary" value="Zurück zu Liste" asp-area="" asp-page="/Home/HomeView">Home</a>
     </div>
 </div>
