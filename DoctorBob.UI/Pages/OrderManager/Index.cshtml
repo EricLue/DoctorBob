@@ -5,86 +5,91 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Auftrags-Verwaltung</h1>
+<div class="container border" style="display: flex; justify-content: space-between; padding: 20px ">
+    <h4>Auftragsverwaltung</h4>
+    <div style="display: flex; justify-content: space-between">
+        <a type="submit" class="btn btn-light" asp-page="Create">
+            <img border="0" alt="new" width="30" height="30" src="/images/new.png" title="Hinzufügen" />
+        </a>
+    </div>
+</div>
 
-<p>
-    <a type="submit" class="btn btn-light" asp-page="Create">
-        <img border="0" alt="new" width="40" height="40" src="/images/new.png" title="Hinzufügen" />
-    </a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayName("Nummer")
-            </th>
-            <th>
-                @Html.DisplayName("Roboter")
-            </th>
-            <th>
-                @Html.DisplayName("Liste Patienten")
-            </th>
-            <th>
-                @Html.DisplayName("Status")
-            </th>
-            <th>
-                @Html.DisplayName("Erfassungsdatum")
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        
-@foreach (var item in Model.Order) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayName(Model.GetRobotName(item.RobotId))
-            </td>
-            <td>
-                @foreach (var orderPatient in item.OrderPatients)
-                {
-                    @Html.DisplayName(Model.GetPatient(orderPatient.Patient.Id));
-                    <br />
-                }
+<div class="container border" style="padding:20px">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayName("Nummer")
+                </th>
+                <th>
+                    @Html.DisplayName("Roboter")
+                </th>
+                <th>
+                    @Html.DisplayName("Liste Patienten")
+                </th>
+                <th>
+                    @Html.DisplayName("Status")
+                </th>
+                <th>
+                    @Html.DisplayName("Erfassungsdatum")
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
 
-            </td>
-            <td>
-                @Html.DisplayName(Model.GetStateName(item.StateId))
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedAt.DateTime)
-            </td>
-            <td>
-                @if (item.StateId == 1)
-                {
-                    <a asp-page="./Edit" asp-route-id="@item.Id">
-                        <img border="0" alt="edit" width="20" height="20" src="/images/edit.png" title="Bearbeiten" />
-                    </a>
-                    <a asp-page="./Details" asp-route-id="@item.Id">
-                        <img border="0" alt="view" width="20" height="20" src="/images/details.png" title="Details anzeigen" />
-                    </a>
-                    <a asp-page="./Delete" asp-route-id="@item.Id">
-                        <img border="0" alt="delete" width="20" height="20" src="/images/delete.png" title="Löschen" />
-                    </a>
-                    <a asp-route="RunRobot" asp-route-id="@item.Id">
-                        <img border="0" alt="run" width="40" height="40" src="/images/run.png" title="Ausführen" onclick="@DoctorBob.Core.API.MQTTClient.Main()"/>
-                    </a>
-                }
-                @if (item.StateId == 2 || item.StateId == 3)
-                {
-                    <a asp-page="./Details" asp-route-id="@item.Id">
-                        <img border="0" alt="view" width="20" height="20" src="/images/details.png" title="Details anzeigen" />
-                    </a>
-                }
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
-<div class="form-group row">
+            @foreach (var item in Model.Order)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayName(Model.GetRobotName(item.RobotId))
+                    </td>
+                    <td>
+                        @foreach (var orderPatient in item.OrderPatients)
+                        {
+                            @Html.DisplayName(Model.GetPatient(orderPatient.Patient.Id));
+                            <br />
+                        }
+
+                    </td>
+                    <td>
+                        @Html.DisplayName(Model.GetStateName(item.StateId))
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedAt.DateTime)
+                    </td>
+                    <td>
+                        @if (item.StateId == 1)
+                        {
+                            <a asp-page="./Edit" asp-route-id="@item.Id">
+                                <img border="0" alt="edit" width="20" height="20" src="/images/edit.png" title="Bearbeiten" />
+                            </a>
+                            <a asp-page="./Details" asp-route-id="@item.Id">
+                                <img border="0" alt="view" width="20" height="20" src="/images/details.png" title="Details anzeigen" />
+                            </a>
+                            <a asp-page="./Delete" asp-route-id="@item.Id">
+                                <img border="0" alt="delete" width="20" height="20" src="/images/delete.png" title="Löschen" />
+                            </a>
+                            <a asp-route="RunRobot" asp-route-id="@item.Id">
+                                <img border="0" alt="run" width="40" height="40" src="/images/run.png" title="Ausführen" onclick="@DoctorBob.Core.API.MQTTClient.Main()" />
+                            </a>
+                        }
+                        @if (item.StateId == 2 || item.StateId == 3)
+                        {
+                            <a asp-page="./Details" asp-route-id="@item.Id">
+                                <img border="0" alt="view" width="20" height="20" src="/images/details.png" title="Details anzeigen" />
+                            </a>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div class="container border" style="padding:20px">
     <div class="col-2">
         <a type="submit" class="btn btn-primary" value="Zurück zu Liste" asp-area="" asp-page="/Home/HomeView">Home</a>
     </div>

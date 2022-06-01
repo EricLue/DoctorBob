@@ -5,65 +5,83 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Therapie Verwaltung</h1>
+<div class="container border" style="display: flex; justify-content: space-between; padding: 20px ">
+    <h4>Therapie Verwaltung</h4>
+    <div style="display: flex; justify-content: space-between">
+        <a type="submit" class="btn btn-light" asp-page="Create">
+            <img border="0" alt="new" width="30" height="30" src="/images/new.png" title="Hinzufügen" />
+        </a>
+        <form style="margin-top:10px">
+            <p>
+                <input type="text" name="SearchString">
+                <input type="submit" value="Filter" />
+            </p>
+        </form>
+    </div>
+</div>
 
-<p>
-    <a type="submit" class="btn btn-light" asp-page="Create">
-        <img border="0" alt="new" width="40" height="40" src="/images/new.png" title="Hinzufügen" />
-    </a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Therapy[0].Name)
-            </th>
-            <th>
-                @Html.DisplayName("Anz")
-            </th>
-            <th>
-                @Html.DisplayName("Medikament")
-            </th>
-            <th>
-                @Html.DisplayName("Zeitmodell")
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Therapy)
-        {
+<div class="container border" style="padding:20px">
+    <table class="table">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.QuantityOfDrug)
-                </td>
-                <td>
-                    @Html.DisplayName(Model.GetDrugName(item.DrugId))
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TimeModel.Id)
-                </td>
-                <td>
-                    <a asp-page="./Edit" asp-route-id="@item.Id">
-                        <img border="0" alt="edit" width="20" height="20" src="/images/edit.png" title="Bearbeiten" />
-                    </a>
-                    <a asp-page="./Details" asp-route-id="@item.Id">
-                        <img border="0" alt="view" width="20" height="20" src="/images/details.png" title="Details anzeigen" />
-                    </a>
-                    <a asp-page="./Delete" asp-route-id="@item.Id">
-                        <img border="0" alt="delete" width="20" height="20" src="/images/delete.png" title="Löschen" />
-                    </a>
-                </td>
+                <th>
+                    @Html.DisplayName("Nr")
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Therapy[0].Name)
+                </th>
+                <th>
+                    @Html.DisplayName("Anz")
+                </th>
+                <th>
+                    @Html.DisplayName("Medikament")
+                </th>
+                <th>
+                    @Html.DisplayName("Zeitmodell")
+                </th>
+                <th></th>
             </tr>
-        }
-    </tbody>
-</table>
-<div class="form-group row">
-    <form method="post">
-        <a type="submit" class="btn btn-secondary" asp-area="" asp-page="/TimeModelManager/Index">Zeitmodelle</a>
-        <a type="submit" class="btn btn-primary" value="Zurück zu Liste" asp-area="" asp-page="/Home/HomeView">Home</a>
-    </form>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Therapy)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.QuantityOfDrug)
+                    </td>
+                    <td>
+                        <a asp-area="" asp-page="/DrugManager/Details" asp-route-id="@item.DrugId">
+                            <img border="0" alt="view" width="20" height="20" src="/images/details.png" title="Details anzeigen" />
+                        </a>
+                        @Html.DisplayName(Model.GetDrugName(item.DrugId))
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TimeModel.Id)
+                    </td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.Id">
+                            <img border="0" alt="edit" width="20" height="20" src="/images/edit.png" title="Bearbeiten" />
+                        </a>
+                        <a asp-page="./Details" asp-route-id="@item.Id">
+                            <img border="0" alt="view" width="20" height="20" src="/images/details.png" title="Details anzeigen" />
+                        </a>
+                        <a asp-page="./Delete" asp-route-id="@item.Id">
+                            <img border="0" alt="delete" width="20" height="20" src="/images/delete.png" title="Löschen" />
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div class="container border" style="padding:20px">
+    <div class="form-group row">
+        <form method="post">
+            <a type="submit" class="btn btn-secondary" asp-area="" asp-page="/TimeModelManager/Index">Zeitmodelle</a>
+            <a type="submit" class="btn btn-primary" value="Zurück zu Liste" asp-area="" asp-page="/Home/HomeView">Home</a>
+        </form>
+    </div>
 </div>

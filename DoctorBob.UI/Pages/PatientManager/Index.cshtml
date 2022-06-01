@@ -79,6 +79,9 @@
                     @Html.DisplayFor(modelItem => item.RoomId)
                 </td>
                 <td>
+                    <a asp-area="" asp-page="/TherapyManager/Details" asp-route-id="@item.TherapyId">
+                        <img border="0" alt="view" width="20" height="20" src="/images/details.png" title="Details anzeigen" />
+                    </a>
                     @Html.DisplayName(Model.GetTherapyName(item.TherapyId))
                 </td>
                 <td>

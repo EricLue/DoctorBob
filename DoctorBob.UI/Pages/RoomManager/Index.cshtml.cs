@@ -22,9 +22,16 @@ namespace DoctorBob.UI.Pages.RoomManager
 
         public IList<Room> Room { get;set; }
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string searchString)
         {
-            Room = await _context.Rooms.ToListAsync();
+            var entity = from e in _context.Rooms
+                         select e;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                entity = entity.Where(e => e.Name.Contains(searchString));
+            }
+            Room = await entity.ToListAsync();
         }
     }
 }

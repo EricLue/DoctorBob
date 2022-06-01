@@ -22,9 +22,17 @@ namespace DoctorBob.UI.Pages.TimeModelManager
 
         public IList<TimeModel> TimeModel { get;set; }
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string searchString)
         {
-            TimeModel = await _context.TimeModels.ToListAsync();
+            var entity = from e in _context.TimeModels
+                         select e;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                entity = entity.Where(e => e.Time.Contains(searchString));
+            }
+
+            TimeModel = await entity.ToListAsync();
         }
     }
 }
