@@ -25,9 +25,6 @@
                 @Html.DisplayName("Medikament")
             </th>
             <th>
-                @Html.DisplayName("Verordnet durch")
-            </th>
-            <th>
                 @Html.DisplayName("Zeitmodell")
             </th>
             <th></th>
@@ -45,9 +42,6 @@
                 </td>
                 <td>
                     @Html.DisplayName(Model.GetDrugName(item.DrugId))
-                </td>
-                <td>
-                    @Html.DisplayName(Model.GetStaffName(item.CaringStaffId))
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.TimeModel.Id)

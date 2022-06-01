@@ -21,7 +21,6 @@ namespace DoctorBob.UI.Pages.TherapyManager
 
         public IActionResult OnGet()
         {
-        ViewData["CaringStaff"] = new SelectList(_context.StaffMembers, "Id", "FirstName", "LastName");
         ViewData["Drug"] = new SelectList(_context.Drugs, "Id", "Name");
         ViewData["TimeModel"] = new SelectList(_context.TimeModels, "Id", "Time");
             return Page();

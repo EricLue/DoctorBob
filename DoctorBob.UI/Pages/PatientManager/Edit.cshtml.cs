@@ -32,7 +32,8 @@ namespace DoctorBob.UI.Pages.PatientManager
 
             Patient = await _context.Patients
                 .Include(p => p.Room)
-                .Include(p => p.Therapy).FirstOrDefaultAsync(m => m.Id == id);
+                .Include(p => p.Therapy)
+                .Include(p => p.CaringStaff).FirstOrDefaultAsync(m => m.Id == id);
 
             if (Patient == null)
             {
@@ -40,6 +41,7 @@ namespace DoctorBob.UI.Pages.PatientManager
             }
            ViewData["RoomId"] = new SelectList(_context.Set<Room>(), "Id", "Id");
            ViewData["TherapyId"] = new SelectList(_context.Therapies, "Id", "Id");
+            ViewData["CaringStaffId"] = new SelectList(_context.StaffMembers, "Id", "Id");
             return Page();
         }
 

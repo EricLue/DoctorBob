@@ -18,8 +18,8 @@ namespace DoctorBob.Core.TherapyManagement.Domain
         public int QuantityOfDrug { get; set; }
         public int DrugId { get; set; }
         public Drug Drug { get; set; }
-        public int CaringStaffId { get; set; }
-        public Staff CaringStaff { get; set; }
+        //public int CaringStaffId { get; set; }
+        //public Staff CaringStaff { get; set; }
         public int TimeModelId { get; set; }
         public TimeModel TimeModel { get; set; }
     }

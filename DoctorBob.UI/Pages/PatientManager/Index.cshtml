@@ -39,6 +39,9 @@
                     @Html.DisplayName("Therapie")
                 </th>
                 <th>
+                    @Html.DisplayName("Verordnung")
+                </th>
+                <th>
                     @Html.DisplayName("Eintritt")
                 </th>
                 <th>
@@ -77,6 +80,9 @@
                 </td>
                 <td>
                     @Html.DisplayName(Model.GetTherapyName(item.TherapyId))
+                </td>
+                <td>
+                    @Html.DisplayName(Model.GetStaffName(item.CaringStaffId))
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.EntryDate)

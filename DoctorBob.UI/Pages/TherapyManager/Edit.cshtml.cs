@@ -31,7 +31,6 @@ namespace DoctorBob.UI.Pages.TherapyManager
             }
 
             Therapy = await _context.Therapies
-                .Include(t => t.CaringStaff)
                 .Include(t => t.Drug)
                 .Include(t => t.TimeModel).FirstOrDefaultAsync(m => m.Id == id);
 
@@ -39,7 +38,6 @@ namespace DoctorBob.UI.Pages.TherapyManager
             {
                 return NotFound();
             }
-           ViewData["CaringStaffId"] = new SelectList(_context.StaffMembers, "Id", "Id");
            ViewData["DrugId"] = new SelectList(_context.Drugs, "Id", "Id");
            ViewData["TimeModelId"] = new SelectList(_context.TimeModels, "Id", "Id");
             return Page();

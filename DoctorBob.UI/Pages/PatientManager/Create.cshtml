@@ -37,8 +37,12 @@
                 <select asp-for="Patient.TherapyId" class="form-control" asp-items="ViewBag.Therapy"></select>
             </div>
             <div class="form-group">
+                <label asp-for="Patient.CaringStaffId" class="control-label">Verordnet durch</label>
+                <select asp-for="Patient.CaringStaffId" class="form-control" asp-items="ViewBag.CaringStaff"></select>
+            </div>
+            <div class="form-group">
                 <label asp-for="Patient.MedicalHistory" class="control-label">Anamnese</label>
-                <input asp-for="Patient.MedicalHistory" class="form-control"/>
+                <input asp-for="Patient.MedicalHistory" class="form-control" />
                 <span asp-validation-for="Patient.MedicalHistory" class="text-danger"></span>
             </div>
             <div class="form-group">

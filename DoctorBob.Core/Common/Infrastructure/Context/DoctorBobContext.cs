@@ -65,7 +65,6 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                 entity.HasKey(e => e.Id);
                 entity.Property(e => e.Name).IsRequired();
                 entity.HasOne(e => e.Drug);
-                entity.HasOne(e => e.CaringStaff);
                 entity.HasOne(e => e.TimeModel);
             });
 
@@ -99,6 +98,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                 entity.Property(e => e.LastName).IsRequired();
                 entity.HasOne(e => e.Gender);
                 entity.HasOne(e => e.Therapy);
+                entity.HasOne(e => e.CaringStaff);
                 entity.HasOne(e => e.Room);
             });
 
@@ -510,7 +510,6 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     Name = "Bisoprolol 1x täglich, 5 mg",
                     QuantityOfDrug = 1,
                     DrugId = 1,
-                    CaringStaffId = 120,
                     TimeModelId = 1001,
                     CreatedBy = "admin",
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
@@ -523,7 +522,6 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     Name = "Metformin 3x täglich, total 2550 mg",
                     QuantityOfDrug = 3,
                     DrugId = 2,
-                    CaringStaffId = 121,
                     TimeModelId = 1002,
                     CreatedBy = "admin",
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
@@ -536,7 +534,6 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     Name = "Novalgin 1x täglich, 500 mg",
                     QuantityOfDrug = 1,
                     DrugId = 3,
-                    CaringStaffId = 123,
                     TimeModelId = 1003,
                     CreatedBy = "admin",
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
@@ -549,7 +546,6 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     Name = "Amlodipin 2x täglich, total 10 mg",
                     QuantityOfDrug = 2,
                     DrugId = 4,
-                    CaringStaffId = 122,
                     TimeModelId = 1000,
                     CreatedBy = "admin",
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
@@ -591,6 +587,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     GenderId = 1,
                     RoomId = 101,
                     TherapyId = 101,
+                    CaringStaffId = 100,
                     MedicalHistory = "Blinddarm-OP 20.06.2022",
                     EntryDate = new DateTime(2022,06,20,10,15,03),
                     CreatedBy = "sfernandez",
@@ -606,6 +603,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     GenderId = 2,
                     RoomId = 102,
                     TherapyId = 104,
+                    CaringStaffId = 120,
                     MedicalHistory = "Hüftoperation 25.06.2022, Schlaganfall im Juli 2015",
                     EntryDate = new DateTime(2022,06,25,09,38,57),
                     CreatedBy = "skluser",
@@ -621,6 +619,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     GenderId = 1,
                     RoomId = 103,
                     TherapyId = 101,
+                    CaringStaffId = 121,
                     MedicalHistory = "Beinbruch 26.06.2022",
                     EntryDate = new DateTime(2022,06,26,20,42,03),
                     CreatedBy = "skluser",
@@ -636,6 +635,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     GenderId = 2,
                     RoomId = 104,
                     TherapyId = 104,
+                    CaringStaffId = 123,
                     MedicalHistory = "Ellbogen-Bruch 24.06.2022, Herzstillstand 05.2011 mit anschliessender Reanimation",
                     EntryDate = new DateTime(2022,06,24,05,18,22),
                     CreatedBy = "ragger",

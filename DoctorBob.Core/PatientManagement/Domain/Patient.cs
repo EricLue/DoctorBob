@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using DoctorBob.Core.TherapyManagement.Domain;
 using DoctorBob.Core.Common.Domain;
 using DoctorBob.Core.OrderManagement.Domain;
+using DoctorBob.Core.StaffManagement.Domain;
 
 namespace DoctorBob.Core.PatientManagement.Domain
 {
@@ -23,6 +24,8 @@ namespace DoctorBob.Core.PatientManagement.Domain
         public int TherapyId { get; set; }
         public Therapy Therapy { get; set; }
         public string MedicalHistory { get; set; }
+        public int CaringStaffId { get; set; }
+        public Staff CaringStaff { get; set; }
         public DateTime EntryDate { get; set; }
         public DateTime LeavingDate { get; set; }
         public ICollection<OrderPatient> OrderPatients { get; set; }

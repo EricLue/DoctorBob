@@ -35,7 +35,8 @@ namespace DoctorBob.UI.Pages.PatientManager
             Patient = await entity
                 .Include(p => p.Gender)
                 .Include(p => p.Room)
-                .Include(p => p.Therapy).ToListAsync();
+                .Include(p => p.Therapy)
+                .Include(p => p.CaringStaff).ToListAsync();
         }
 
         public String GetPatientName(int Id)
@@ -49,6 +50,14 @@ namespace DoctorBob.UI.Pages.PatientManager
         public String GetTherapyName(int Id)
         {
             return _context.Therapies.Find(Id).Name;
+        }
+
+        public String GetStaffName(int Id)
+        {
+            string Name = _context.StaffMembers.Find(Id).FirstName.Substring(0,2);
+            Name += ". ";
+            Name += _context.StaffMembers.Find(Id).LastName;
+            return Name;
         }
     }
 }

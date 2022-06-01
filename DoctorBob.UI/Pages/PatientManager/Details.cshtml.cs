@@ -30,7 +30,8 @@ namespace DoctorBob.UI.Pages.PatientManager
 
             Patient = await _context.Patients
                 .Include(p => p.Room)
-                .Include(p => p.Therapy).FirstOrDefaultAsync(m => m.Id == id);
+                .Include(p => p.Therapy)
+                .Include(p => p.CaringStaff).FirstOrDefaultAsync(m => m.Id == id);
 
             if (Patient == null)
             {

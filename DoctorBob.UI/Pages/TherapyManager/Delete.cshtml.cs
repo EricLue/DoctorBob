@@ -30,7 +30,6 @@ namespace DoctorBob.UI.Pages.TherapyManager
             }
 
             Therapy = await _context.Therapies
-                .Include(t => t.CaringStaff)
                 .Include(t => t.Drug)
                 .Include(t => t.TimeModel).FirstOrDefaultAsync(m => m.Id == id);
 

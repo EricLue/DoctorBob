@@ -33,7 +33,6 @@ namespace DoctorBob.UI.Pages.TherapyManager
             }
 
             Therapy = await entity
-                .Include(t => t.CaringStaff)
                 .Include(t => t.Drug)
                 .Include(t => t.TimeModel).ToListAsync();
         }
@@ -41,13 +40,6 @@ namespace DoctorBob.UI.Pages.TherapyManager
         public String GetDrugName(int Id)
         {
             return _context.Drugs.Find(Id).Name;
-        }
-
-        public String GetStaffName(int Id)
-        {
-            string Firstname = _context.StaffMembers.Find(Id).FirstName;
-            string Lastname = _context.StaffMembers.Find(Id).LastName;
-            return Firstname + " " + Lastname;
         }
     }
 }
