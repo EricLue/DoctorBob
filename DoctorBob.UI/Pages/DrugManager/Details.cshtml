@@ -5,10 +5,33 @@
     ViewData["Title"] = "Details";
 }
 
-<div>
-    <div class="row">
-        <div class="column"><img border="0" alt="drug" width="40" height="40" src="/images/drug.png" /></div>
-        <div class="column"><h2>@Html.DisplayFor(model => model.Drug.Name)</h2></div>
+<div class="container border" style="padding: 20px">
+    <div class="row" style="padding: 10px">
+        @if (Model.Drug.Id == 1)
+        {
+            <img border="0" width="40" height="40" src="/images/drug1.png" />
+        }
+        @if (Model.Drug.Id == 2)
+        {
+            <img border="0" width="40" height="40" src="/images/drug2.png" />
+        }
+        @if (Model.Drug.Id == 3)
+        {
+            <img border="0" width="40" height="40" src="/images/drug3.png" />
+        }
+        @if (Model.Drug.Id == 4)
+        {
+            <img border="0" width="40" height="40" src="/images/drug4.png" />
+        }
+        @if (Model.Drug.Id == 5)
+        {
+            <img border="0" width="40" height="40" src="/images/drug5.png" />
+        }
+        @if (Model.Drug.Id == 6)
+        {
+            <img border="0" width="40" height="40" src="/images/drug6.png" />
+        }
+        <div class="column" style="padding-left: 10px"><h3>@Html.DisplayFor(model => model.Drug.Name)</h3></div>
     </div>
     <hr />
     <dl class="row">
@@ -25,7 +48,7 @@
             @Html.DisplayFor(model => model.Drug.DoseInMg)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayName("Verwendung / Zweck")
+            @Html.DisplayName("Zweck")
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Drug.Description)
@@ -58,9 +81,8 @@
             @Html.DisplayFor(model => model.Drug.ModifiedAt.DateTime)
         </dd>
     </dl>
-    <hr />
 </div>
-<div>
-    <a type="submit" class="btn btn-primary" asp-page="./Edit" asp-route-id="@Model.Drug.Id">Bearbeiten</a> 
+<div class="container border" style="padding: 20px">
+    <a type="submit" class="btn btn-primary" asp-page="./Edit" asp-route-id="@Model.Drug.Id">Bearbeiten</a>
     <a type="submit" class="btn btn-primary" asp-page="./Index">Zurück zu Liste</a>
 </div>
