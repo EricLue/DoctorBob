@@ -24,7 +24,7 @@ namespace DoctorBob.UI.Pages.PatientManager
         ViewData["Gender"] = new SelectList(_context.Genders, "Id", "Name");
         ViewData["Room"] = new SelectList(_context.Rooms, "Id", "Name");
         ViewData["Therapy"] = new SelectList(_context.Therapies, "Id", "Name");
-        ViewData["CaringStaff"] = new SelectList(_context.StaffMembers, "Id", "FirstName", "LastName");
+        ViewData["CaringStaff"] = new SelectList(_context.StaffMembers, "Id", "Username");
             return Page();
         }
 
