@@ -22,9 +22,16 @@ namespace DoctorBob.UI.Pages.OrderManager
 
         public IList<Order> Order { get;set; }
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string searchString)
         {
-            Order = await _context.Orders
+            var entity = from e in _context.Orders
+                         select e;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                entity = entity.Where(e => e.CreatedAt.ToString().Contains(searchString));
+            }
+            Order = await entity
                 .Include(o => o.Robot)
                 .Include(o => o.State).ToListAsync();
         }

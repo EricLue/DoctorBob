@@ -41,5 +41,10 @@ namespace DoctorBob.UI.Pages.TherapyManager
         {
             return _context.Drugs.Find(Id).Name;
         }
+
+        //public String GetTimeModelName(int Id)
+        //{
+        //    return _context.TimeModels.Find(Id).Time;
+        //}
     }
 }

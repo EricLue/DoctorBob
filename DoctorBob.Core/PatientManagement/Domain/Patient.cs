@@ -26,8 +26,8 @@ namespace DoctorBob.Core.PatientManagement.Domain
         public string MedicalHistory { get; set; }
         public int CaringStaffId { get; set; }
         public Staff CaringStaff { get; set; }
+        public ICollection<OrderPatient> OrderPatients { get; set; }
         public DateTime EntryDate { get; set; }
         public DateTime LeavingDate { get; set; }
-        public ICollection<OrderPatient> OrderPatients { get; set; }
     }
 }

@@ -32,9 +32,6 @@
                     @Html.DisplayNameFor(model => model.Therapy[0].Name)
                 </th>
                 <th>
-                    @Html.DisplayName("Anz")
-                </th>
-                <th>
                     @Html.DisplayName("Medikament")
                 </th>
                 <th>
@@ -46,34 +43,37 @@
         <tbody>
             @foreach (var item in Model.Therapy)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.QuantityOfDrug)
-                    </td>
-                    <td>
-                        <a asp-area="" asp-page="/DrugManager/Details" asp-route-id="@item.DrugId">
-                            <img border="0" alt="view" width="20" height="20" src="/images/details.png" title="Details anzeigen" />
-                        </a>
-                        @Html.DisplayName(Model.GetDrugName(item.DrugId))
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.TimeModel.Id)
-                    </td>
-                    <td>
-                        <a asp-page="./Edit" asp-route-id="@item.Id">
-                            <img border="0" alt="edit" width="20" height="20" src="/images/edit.png" title="Bearbeiten" />
-                        </a>
-                        <a asp-page="./Details" asp-route-id="@item.Id">
-                            <img border="0" alt="view" width="20" height="20" src="/images/details.png" title="Details anzeigen" />
-                        </a>
-                        <a asp-page="./Delete" asp-route-id="@item.Id">
-                            <img border="0" alt="delete" width="20" height="20" src="/images/delete.png" title="Löschen" />
-                        </a>
-                    </td>
-                </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    <a asp-area="" asp-page="/DrugManager/Details" asp-route-id="@item.DrugId">
+                        <img border="0" alt="view" width="20" height="20" src="/images/details.png" title="Details anzeigen" />
+                    </a>
+                    @Html.DisplayName(Model.GetDrugName(item.DrugId))
+                </td>
+                <td>
+                    <a asp-area="" asp-page="/TimeModelManager/Details" asp-route-id="@item.TimeModelId">
+                        <img border="0" alt="view" width="20" height="20" src="/images/details.png" title="Details anzeigen" />
+                    </a>
+                    @Html.DisplayFor(modelItem => item.TimeModelId)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">
+                        <img border="0" alt="edit" width="20" height="20" src="/images/edit.png" title="Bearbeiten" />
+                    </a>
+                    <a asp-page="./Details" asp-route-id="@item.Id">
+                        <img border="0" alt="view" width="20" height="20" src="/images/details.png" title="Details anzeigen" />
+                    </a>
+                    <a asp-page="./Delete" asp-route-id="@item.Id">
+                        <img border="0" alt="delete" width="20" height="20" src="/images/delete.png" title="Löschen" />
+                    </a>
+                </td>
+            </tr>
             }
         </tbody>
     </table>

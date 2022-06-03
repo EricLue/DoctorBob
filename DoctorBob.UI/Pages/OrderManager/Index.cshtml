@@ -11,6 +11,13 @@
         <a type="submit" class="btn btn-light" asp-page="Create">
             <img border="0" alt="new" width="35" height="35" src="/images/new.png" title="Hinzufügen" />
         </a>
+        <div style="padding: 5px"></div>
+        <form style="margin-top:10px">
+            <p>
+                <input type="text" name="SearchString">
+                <input type="submit" value="Heute" />
+            </p>
+        </form>
     </div>
 </div>
 
@@ -73,9 +80,9 @@
                             <a asp-page="./Delete" asp-route-id="@item.Id">
                                 <img border="0" alt="delete" width="20" height="20" src="/images/delete.png" title="Löschen" />
                             </a>
-                            <a asp-route="RunRobot" asp-route-id="@item.Id">
+                            @*<a asp-route="RunRobot" asp-route-id="@item.Id">
                                 <img border="0" alt="run" width="40" height="40" src="/images/run.png" title="Ausführen" onclick="@DoctorBob.Core.API.MQTTClient.Main()" />
-                            </a>
+                            </a>*@
                         }
                         @if (item.StateId == 2 || item.StateId == 3)
                         {
