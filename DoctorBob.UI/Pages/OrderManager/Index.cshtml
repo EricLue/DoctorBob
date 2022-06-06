@@ -21,7 +21,7 @@
     </div>
 </div>
 
-<div class="container border" style="padding:20px">
+<div class="container border" style="overflow: auto; height: 400px; padding: 20px">
     <table class="table">
         <thead>
             <tr>
@@ -81,8 +81,8 @@
                                 <img border="0" alt="delete" width="20" height="20" src="/images/delete.png" title="Löschen" />
                             </a>
                             @*<a asp-route="RunRobot" asp-route-id="@item.Id">
-                                <img border="0" alt="run" width="40" height="40" src="/images/run.png" title="Ausführen" onclick="@DoctorBob.Core.API.MQTTClient.Main()" />
-                            </a>*@
+                                    <img border="0" alt="run" width="40" height="40" src="/images/run.png" title="Ausführen" onclick="@DoctorBob.Core.API.MQTTClient.Main()" />
+                                </a>*@
                         }
                         @if (item.StateId == 2 || item.StateId == 3)
                         {

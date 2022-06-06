@@ -308,11 +308,11 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                 new Staff
                 {
                     Id = 160,
-                    FirstName = "Fredi",
-                    LastName = "Holenstein",
+                    FirstName = "Eric",
+                    LastName = "Luechinger",
                     RoleId = 5,
-                    Username = "fholenstein",
-                    Password = "santaclause11",
+                    Username = "eluechinger",
+                    Password = "DoctorBob2022!",
                     CreatedBy = "admin",
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",

@@ -21,7 +21,7 @@
     </div>
 </div>
 
-<div class="container border" style="padding:20px">
+<div class="container border" style="overflow: auto; height: 400px; padding: 20px">
     <table class="table">
         <thead>
             <tr>
@@ -55,61 +55,61 @@
 
             @foreach (var item in Model.Patient)
             {
-            <tr>
-                <th>
-                    @Html.DisplayFor(modelItem => item.Id)
-                </th>
-                <td>
-                    @if (item.GenderId == 1)
-                    {
-                        <img border="0" alt="männlich" width="30" height="30" src="/images/male.png" />
-                    }
-                    @if (item.GenderId == 2)
-                    {
-                        <img border="0" alt="weiblich" width="30" height="30" src="/images/female.png" />
-                    }
-                    @if (item.GenderId == 3)
-                    {
-                        <img border="0" alt="divers" width="30" height="30" src="/images/divers.png" />
-                    }
-                </td>
-                <td>
-                    @Html.DisplayName(Model.GetPatientName(item.Id))
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.RoomId)
-                </td>
-                <td>
-                    <a asp-area="" asp-page="/TherapyManager/Details" asp-route-id="@item.TherapyId">
-                        <img border="0" alt="view" width="20" height="20" src="/images/details.png" title="Details anzeigen" />
-                    </a>
-                    @Html.DisplayName(Model.GetTherapyName(item.TherapyId))
-                </td>
-                <td>
-                    @Html.DisplayName(Model.GetStaffName(item.CaringStaffId))
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.EntryDate)
-                </td>
-                <td>
-                    @if (item.LeavingDate == new DateTime(1, 1, 1, 0, 0, 0))
-                    {
-                        @Html.DisplayName("");
-                    }
-                    else
-                    {
-                        @Html.DisplayFor(modelItem => item.LeavingDate);
-                    }
-                </td>
-                <td>
-                    <a asp-page="./Edit" asp-route-id="@item.Id">
-                        <img border="0" alt="edit" width="20" height="20" src="/images/edit.png" title="Bearbeiten" />
-                    </a>
-                    <a asp-page="./Details" asp-route-id="@item.Id">
-                        <img border="0" alt="view" width="20" height="20" src="/images/details.png" title="Details anzeigen" />
-                    </a>
-                </td>
-            </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </th>
+                    <td>
+                        @if (item.GenderId == 1)
+                        {
+                            <img border="0" alt="männlich" width="30" height="30" src="/images/male.png" />
+                        }
+                        @if (item.GenderId == 2)
+                        {
+                            <img border="0" alt="weiblich" width="30" height="30" src="/images/female.png" />
+                        }
+                        @if (item.GenderId == 3)
+                        {
+                            <img border="0" alt="divers" width="30" height="30" src="/images/divers.png" />
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayName(Model.GetPatientName(item.Id))
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RoomId)
+                    </td>
+                    <td>
+                        <a asp-area="" asp-page="/TherapyManager/Details" asp-route-id="@item.TherapyId">
+                            <img border="0" alt="view" width="20" height="20" src="/images/details.png" title="Details anzeigen" />
+                        </a>
+                        @Html.DisplayName(Model.GetTherapyName(item.TherapyId))
+                    </td>
+                    <td>
+                        @Html.DisplayName(Model.GetStaffName(item.CaringStaffId))
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EntryDate)
+                    </td>
+                    <td>
+                        @if (item.LeavingDate == new DateTime(1, 1, 1, 0, 0, 0))
+                        {
+                            @Html.DisplayName("");
+                        }
+                        else
+                        {
+                            @Html.DisplayFor(modelItem => item.LeavingDate);
+                        }
+                    </td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.Id">
+                            <img border="0" alt="edit" width="20" height="20" src="/images/edit.png" title="Bearbeiten" />
+                        </a>
+                        <a asp-page="./Details" asp-route-id="@item.Id">
+                            <img border="0" alt="view" width="20" height="20" src="/images/details.png" title="Details anzeigen" />
+                        </a>
+                    </td>
+                </tr>
             }
         </tbody>
     </table>
