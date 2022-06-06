@@ -12,5 +12,7 @@ namespace DoctorBob.Core.Common.Domain
         public string? ModifiedBy { get; set; }
         public DateTimeOffset CreatedAt { get; set; }
         public DateTimeOffset ModifiedAt { get; set; }
+        public Boolean Active { get; set; }
+        public String History { get; set; }
     }
 }

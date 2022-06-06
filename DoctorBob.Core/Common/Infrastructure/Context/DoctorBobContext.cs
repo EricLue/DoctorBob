@@ -199,7 +199,8 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedBy = "admin",
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
-                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21),
+                    Active = true
                 },
                 new Staff
                 {
@@ -212,7 +213,8 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedBy = "admin",
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
-                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21),
+                    Active = true
                 },
                 new Staff
                 {
@@ -225,7 +227,8 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedBy = "admin",
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
-                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21),
+                    Active = true
                 },
                 new Staff
                 {
@@ -238,7 +241,8 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedBy = "admin",
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
-                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21),
+                    Active = true
                 },
                 new Staff
                 {
@@ -251,7 +255,8 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedBy = "admin",
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
-                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21),
+                    Active = true
                 },
                 new Staff
                 {
@@ -264,7 +269,8 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedBy = "admin",
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
-                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21),
+                    Active = true
                 },
                 new Staff
                 {
@@ -277,7 +283,8 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedBy = "admin",
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
-                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21),
+                    Active = true
                 },
                 new Staff
                 {
@@ -290,7 +297,8 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedBy = "admin",
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
-                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21),
+                    Active = true
                 },
                 new Staff
                 {
@@ -303,7 +311,8 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedBy = "admin",
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
-                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21),
+                    Active = true
                 },
                 new Staff
                 {
@@ -316,7 +325,21 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedBy = "admin",
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
-                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21),
+                    Active = true
+                },
+                new Staff
+                {
+                    Id = 161,
+                    FirstName = "Admin",
+                    RoleId = 5,
+                    Username = "admin",
+                    Password = "DoctorBob2022!",
+                    CreatedBy = "admin",
+                    CreatedAt = new DateTime(2022,01,10,16,44,21),
+                    ModifiedBy = "admin",
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21),
+                    Active = true
                 }
             };
             #endregion
@@ -333,7 +356,8 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedBy = "admin",
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
-                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21),
+                    Active = true
                 },
                 new Drug
                 {
@@ -344,7 +368,8 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedBy = "admin",
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
-                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21),
+                    Active = true
                 },
                 new Drug
                 {
@@ -355,7 +380,8 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedBy = "admin",
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
-                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21),
+                    Active = true
                 },
                 new Drug
                 {
@@ -366,7 +392,8 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedBy = "admin",
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
-                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21),
+                    Active = true
                 },
                 new Drug
                 {
@@ -377,7 +404,8 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedBy = "admin",
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
-                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21),
+                    Active = true
                 },
                 new Drug
                 {
@@ -388,7 +416,8 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedBy = "admin",
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
-                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21),
+                    Active = true
                 }
             };
             #endregion
@@ -403,7 +432,8 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedBy = "admin",
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
-                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21),
+                    Active = true
                 },
                 new Room
                 {
@@ -412,7 +442,8 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedBy = "admin",
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
-                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21),
+                    Active = true
                 },
                 new Room
                 {
@@ -421,7 +452,8 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedBy = "admin",
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
-                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21),
+                    Active = true
                 },
                 new Room
                 {
@@ -430,7 +462,8 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedBy = "admin",
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
-                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21),
+                    Active = true
                 },
                 new Room
                 {
@@ -439,7 +472,8 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedBy = "admin",
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
-                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21),
+                    Active = true
                 },
                 new Room
                 {
@@ -448,7 +482,8 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedBy = "admin",
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
-                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21),
+                    Active = true
                 }
 
             };
@@ -465,7 +500,8 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedBy = "admin",
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
-                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21),
+                    Active = true
                 },
                 new TimeModel
                 {
@@ -475,7 +511,8 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedBy = "admin",
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
-                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21),
+                    Active = true
                 },
                 new TimeModel
                 {
@@ -485,7 +522,8 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedBy = "admin",
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
-                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21),
+                    Active = true
                 },
                 new TimeModel
                 {
@@ -495,7 +533,8 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedBy = "admin",
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
-                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21),
+                    Active = true
                 }
 
             };
@@ -514,7 +553,8 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedBy = "admin",
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
-                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21),
+                    Active = true
                 },
                 new Therapy
                 {
@@ -526,7 +566,8 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedBy = "admin",
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
-                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21),
+                    Active = true
                 },
                 new Therapy
                 {
@@ -538,7 +579,8 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedBy = "admin",
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
-                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21),
+                    Active = true
                 },
                 new Therapy
                 {
@@ -550,7 +592,8 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedBy = "admin",
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
-                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21),
+                    Active = true
                 }
             };
             #endregion
@@ -593,7 +636,8 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedBy = "sfernandez",
                     CreatedAt = new DateTime(2022,06,20,10,15,03),
                     ModifiedBy = "sfernandez",
-                    ModifiedAt = new DateTime(2022,06,20,10,15,03)
+                    ModifiedAt = new DateTime(2022,06,20,10,15,03),
+                    Active = true
                 },
                 new Patient
                 {
@@ -609,7 +653,8 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedBy = "skluser",
                     CreatedAt = new DateTime(2022,06,25,09,38,57),
                     ModifiedBy = "skluser",
-                    ModifiedAt = new DateTime(2022,06,25,09,38,57)
+                    ModifiedAt = new DateTime(2022,06,25,09,38,57),
+                    Active = true
                 },
                 new Patient
                 {
@@ -625,7 +670,8 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedBy = "skluser",
                     CreatedAt = new DateTime(2022,06,26,20,42,03),
                     ModifiedBy = "skluser",
-                    ModifiedAt = new DateTime(2022,06,26,20,42,03)
+                    ModifiedAt = new DateTime(2022,06,26,20,42,03),
+                    Active = true
                 },
                 new Patient
                 {
@@ -641,7 +687,8 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedBy = "ragger",
                     CreatedAt = new DateTime(2022,06,24,05,18,22),
                     ModifiedBy = "ragger",
-                    ModifiedAt = new DateTime(2022,06,24,05,18,22)
+                    ModifiedAt = new DateTime(2022,06,24,05,18,22),
+                    Active = true
                 },
             };
             #endregion
@@ -777,7 +824,8 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedBy = "admin",
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
-                    ModifiedAt = new DateTime(2022,01,10,16,44,21)
+                    ModifiedAt = new DateTime(2022,01,10,16,44,21),
+                    Active = true
                 }
             };
             #endregion
@@ -840,7 +888,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedBy = "eluechinger",
                     CreatedAt = new DateTime(2022,06,27,16,44,21),
                     ModifiedBy = "eluechinger",
-                    ModifiedAt = new DateTime(2022,06,27,16,44,21)
+                    ModifiedAt = new DateTime(2022,06,27,16,44,21),
                 }
             };
             #endregion
