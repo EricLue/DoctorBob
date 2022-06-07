@@ -31,73 +31,64 @@
         {
             <img border="0" width="40" height="40" src="/images/drug6.png" />
         }
-        <div class="column" style="padding-left: 10px"><h3>@Html.DisplayFor(model => model.Drug.Name)</h3></div>
+        <div class="column" style="padding-left: 10px">
+            <h3>@Html.DisplayFor(model => model.Drug.Id)</h3>
+        </div>
+        <div class="column" style="padding-left: 10px">
+            <h3>- @Html.DisplayFor(model => model.Drug.Name)</h3>
+        </div>
+    </div>
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayName("Dosis in mg")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Zweck")
+                    </th>
+                    <th>
+                    </th>
+                    <th>
+                        @Html.DisplayName("Zuletzt bearbeitet")
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(model => model.Drug.DoseInMg)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => model.Drug.Description)
+                        </td>
+                        <td>
+                            @if (Model.Drug.Active)
+                            {
+                                <img border="0" width="55" height="30" src="/images/active.png" />
+                            }
+                            @if (!Model.Drug.Active)
+                            {
+                                <img border="0" width="55" height="30" src="/images/inactive.png" />
+                            }
+                        </td>
+                        <td>
+                            @Html.DisplayName(Model.GetModifyInfo(Model.Drug.Id))
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
     </div>
     <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Drug.Name)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Drug.Name)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayName("Dosis in Milligramm")
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Drug.DoseInMg)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayName("Zweck")
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Drug.Description)
-        </dd>
-    </dl>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayName("Erstellt von")
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Drug.CreatedBy)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayName("Erstellt am")
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Drug.CreatedAt.DateTime)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayName("Bearbeitet von")
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Drug.ModifiedBy)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayName("Bearbeitet am")
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Drug.ModifiedAt.DateTime)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayName("Änderungsverlauf")
-        </dt>
-        <dd class="col-sm-10">
-            <textarea rows="5" cols="120" name="description" readonly>
+    <div>
+        <h4>Änderungsverlauf</h4>
+        <textarea rows="5" cols="142" name="description" readonly>
 @Html.DisplayFor(model => model.Drug.History)
-         </textarea><br>
-
-        </dd>
-        <dd class="col-sm-10">
-            <textarea rows="5" cols="120" name="description" readonly>
-@Html.DisplayFor(model => model.Drug.HistoryTemp)
-         </textarea><br>
-
-        </dd>
-    </dl>
-</div>
-<div class="container border" style="padding: 20px">
-    <a type="submit" class="btn btn-primary" asp-page="./Edit" asp-route-id="@Model.Drug.Id">Bearbeiten</a>
-    <a type="submit" class="btn btn-primary" asp-page="./Index">Zurück zu Liste</a>
+         </textarea>
+    </div>
+    <div style="padding: 20px">
+        <a type="submit" class="btn btn-primary" asp-page="./Edit" asp-route-id="@Model.Drug.Id">Bearbeiten</a>
+        <a type="submit" class="btn btn-primary" asp-page="./Index">Zurück zu Liste</a>
+    </div>
 </div>

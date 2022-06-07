@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using DoctorBob.Core.Common.Infrastructure.Context;
 using DoctorBob.Core.DrugManagement.Domain;
 using DoctorBob.UI.Pages.Account;
+using System.IO;
 
 namespace DoctorBob.UI.Pages.DrugManager
 {
@@ -38,7 +39,54 @@ namespace DoctorBob.UI.Pages.DrugManager
             {
                 return NotFound();
             }
+            historyTemp = Drug.History;
+
+            if (!String.IsNullOrEmpty(historyTemp))
+            {
+                WriteHistory();
+
+            }
+
             return Page();
+        }
+
+        public void WriteHistory()
+        {
+            // Set a variable to the Documents path.
+            string docPath = @"C:\visual\DoctorBob\DoctorBob.Core\Common\Domain";
+
+            // Write the string array to a new file named "WriteLines.txt".
+            using (StreamWriter outputFile = new StreamWriter(Path.Combine(docPath, "History.txt")))
+            {
+                outputFile.WriteLine(historyTemp);
+            }
+        }
+
+        public String ReadHistory()
+        {
+            string readedHistory;
+            // Set a variable to the Documents path.
+            string docPath = @"C:\visual\DoctorBob\DoctorBob.Core\Common\Domain";
+
+            // Write the string array to a new file named "WriteLines.txt".
+            using (StreamReader inputFile = new StreamReader(Path.Combine(docPath, "History.txt")))
+            {
+                readedHistory = inputFile.ReadToEnd();
+            }
+            return readedHistory;
+        }
+
+        public void DeleteContent()
+        {
+            // Set a variable to the Documents path.
+            string docPath = @"C:\visual\DoctorBob\DoctorBob.Core\Common\Domain";
+
+            // Write the string array to a new file named "WriteLines.txt".
+            using (StreamWriter outputFile = new StreamWriter(Path.Combine(docPath, "History.txt")))
+            {
+                outputFile.WriteLine("");
+            }
+
         }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to.
@@ -51,15 +99,24 @@ namespace DoctorBob.UI.Pages.DrugManager
             }
 
             DateTimeOffset modifyDateTime = DateTimeOffset.Now;
-            Drug.HistoryTemp += "\r\n" +
-                modifyDateTime.DateTime + " - " + "eluechinger" + " / Name: " + Drug.Name +
-                " / Dosis in Milligramm: " + Drug.DoseInMg +
-                " / Zweck: " + Drug.Description;
+            Drug.Active = true;
+            Drug.HistoryTemp = modifyDateTime.DateTime + " - " + "eluechinger" + " / " + Drug.Name +
+                " / " + Drug.DoseInMg +
+                " / " + Drug.Description;
+            if (Drug.Active)
+            {
+                Drug.HistoryTemp += " - AKTIV";
+            }
+            else
+            {
+                Drug.HistoryTemp += " - INAKTIV";
+            }
+            Drug.HistoryTempInternal = ReadHistory();
+            DeleteContent();
 
             // Anpassen auf CurrentUser
             Drug.ModifiedBy = "eluechinger";
             Drug.ModifiedAt = modifyDateTime.DateTime;
-            Drug.Active = true;
 
             _context.Attach(Drug).State = EntityState.Modified;
 

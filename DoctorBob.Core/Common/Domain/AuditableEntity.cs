@@ -15,5 +15,6 @@ namespace DoctorBob.Core.Common.Domain
         public Boolean Active { get; set; }
         public string History { get; set; }
         public string HistoryTemp { get; set; }
+        public string HistoryTempInternal { get; set; }
     }
 }

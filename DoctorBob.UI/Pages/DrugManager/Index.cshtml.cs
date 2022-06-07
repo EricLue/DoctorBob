@@ -30,7 +30,7 @@ namespace DoctorBob.UI.Pages.DrugManager
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                if (searchString.Contains("Aktiv"))
+                if (searchString.Contains("Aktiv") || searchString.Contains("aktiv"))
                 {
                     entity = entity.Where(e => e.Active);
                 }

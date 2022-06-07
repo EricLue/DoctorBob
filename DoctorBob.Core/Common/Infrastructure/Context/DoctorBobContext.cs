@@ -358,9 +358,9 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
                     ModifiedAt = new DateTime(2022,01,10,16,44,21),
-                    History = "10.01.2022 15:44 - " + "eluechinger" + " / Name: Bisoprolol" +
-                " / Dosis in Milligramm: 5 " +
-                " / Zweck: Senkung Puls",
+                    History = "10.01.2022 15:44:21 - " + "admin" + " / Bisoprolol" +
+                " / 5 " +
+                " / Senkung Puls - AKTIV",
             Active = true
                 },
                 new Drug
@@ -945,6 +945,14 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     Entry((AuditableEntity)entityEntry.Entity).Property(p => p.CreatedAt).IsModified = false;
                     Entry((AuditableEntity)entityEntry.Entity).Property(p => p.CreatedBy).IsModified = false;
                     Entry((AuditableEntity)entityEntry.Entity).Property(p => p.History).IsModified = false;
+
+                    if (!String.IsNullOrEmpty(((AuditableEntity)entityEntry.Entity).HistoryTemp))
+                    {
+                        string oldHistory = ((AuditableEntity)entityEntry.Entity).HistoryTempInternal;
+                        string newHistory = ((AuditableEntity)entityEntry.Entity).HistoryTemp;
+                        ((AuditableEntity)entityEntry.Entity).History = newHistory + "\r\n" + oldHistory;
+                        ((AuditableEntity)entityEntry.Entity).HistoryTemp = null;
+                    }
                 }
 
 
