@@ -84,7 +84,16 @@
             @Html.DisplayName("Änderungsverlauf")
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Drug.History)
+            <textarea rows="5" cols="120" name="description" readonly>
+@Html.DisplayFor(model => model.Drug.History)
+         </textarea><br>
+
+        </dd>
+        <dd class="col-sm-10">
+            <textarea rows="5" cols="120" name="description" readonly>
+@Html.DisplayFor(model => model.Drug.HistoryTemp)
+         </textarea><br>
+
         </dd>
     </dl>
 </div>

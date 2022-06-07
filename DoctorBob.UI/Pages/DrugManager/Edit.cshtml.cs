@@ -15,6 +15,7 @@ namespace DoctorBob.UI.Pages.DrugManager
     public class EditModel : PageModel
     {
         private readonly DoctorBob.Core.Common.Infrastructure.Context.DoctorBobContext _context;
+        string historyTemp;
 
         public EditModel(DoctorBob.Core.Common.Infrastructure.Context.DoctorBobContext context)
         {
@@ -48,13 +49,13 @@ namespace DoctorBob.UI.Pages.DrugManager
             {
                 return Page();
             }
-          
+
             DateTimeOffset modifyDateTime = DateTimeOffset.Now;
-            Drug.History += "\r\n" +
+            Drug.HistoryTemp += "\r\n" +
                 modifyDateTime.DateTime + " - " + "eluechinger" + " / Name: " + Drug.Name +
                 " / Dosis in Milligramm: " + Drug.DoseInMg +
                 " / Zweck: " + Drug.Description;
-            
+
             // Anpassen auf CurrentUser
             Drug.ModifiedBy = "eluechinger";
             Drug.ModifiedAt = modifyDateTime.DateTime;

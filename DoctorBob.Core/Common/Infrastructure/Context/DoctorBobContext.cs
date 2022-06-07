@@ -944,6 +944,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     // so we set their state as IsModified to false
                     Entry((AuditableEntity)entityEntry.Entity).Property(p => p.CreatedAt).IsModified = false;
                     Entry((AuditableEntity)entityEntry.Entity).Property(p => p.CreatedBy).IsModified = false;
+                    Entry((AuditableEntity)entityEntry.Entity).Property(p => p.History).IsModified = false;
                 }
 
 
