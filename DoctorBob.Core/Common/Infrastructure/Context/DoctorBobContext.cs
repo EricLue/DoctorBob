@@ -686,12 +686,12 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     RoomId = 104,
                     TherapyId = 104,
                     CaringStaffId = 123,
-                    MedicalHistory = "Ellbogen-Bruch 24.06.2022, Herzstillstand 05.2011 mit anschliessender Reanimation",
-                    EntryDate = new DateTime(2022,06,24,05,18,22),
+                    MedicalHistory = "Ellbogen-Bruch 27.06.2022, Herzstillstand 05.2011 mit anschliessender Reanimation",
+                    EntryDate = new DateTime(2022,06,27,05,18,22),
                     CreatedBy = "ragger",
-                    CreatedAt = new DateTime(2022,06,24,05,18,22),
+                    CreatedAt = new DateTime(2022,06,27,05,18,22),
                     ModifiedBy = "ragger",
-                    ModifiedAt = new DateTime(2022,06,24,05,18,22),
+                    ModifiedAt = new DateTime(2022,06,27,05,18,22),
                     Active = true
                 },
             };
@@ -934,7 +934,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                 // the CreatedAt and CreatedBy properties
                 if (entityEntry.State == EntityState.Added)
                 {
-                    ((AuditableEntity)entityEntry.Entity).CreatedAt = DateTime.UtcNow;
+                    ((AuditableEntity)entityEntry.Entity).CreatedAt = DateTimeOffset.Now.AddHours(2);
                     //((AuditableEntity)entityEntry.Entity).CreatedBy = this.httpContextAccessor?.HttpContext?.User?.Identity?.Name ?? "MyApp";
                 }
                 else
@@ -950,7 +950,8 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
 
             // In any case we always want to set the properties
             // ModifiedAt and ModifiedBy
-            ((AuditableEntity)entityEntry.Entity).ModifiedAt = DateTime.UtcNow;
+            ((AuditableEntity)entityEntry.Entity).ModifiedAt = DateTimeOffset.Now.AddHours(2);
+                //((AuditableEntity)entityEntry.Entity).ModifiedAt = DateTimeOffset.Now;
                 //((AuditableEntity)entityEntry.Entity).ModifiedBy = this.httpContextAccessor?.HttpContext?.User?.Identity?.Name ?? "MyApp";
             }
 
