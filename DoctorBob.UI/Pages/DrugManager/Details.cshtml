@@ -80,6 +80,12 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Drug.ModifiedAt.DateTime)
         </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayName("Änderungsverlauf")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Drug.History)
+        </dd>
     </dl>
 </div>
 <div class="container border" style="padding: 20px">

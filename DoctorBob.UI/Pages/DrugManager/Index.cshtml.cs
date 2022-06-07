@@ -13,6 +13,7 @@ namespace DoctorBob.UI.Pages.DrugManager
     public class IndexModel : PageModel
     {
         private readonly DoctorBobContext _context;
+        public bool Active;
 
         public IndexModel(DoctorBobContext context)
         {
@@ -29,9 +30,15 @@ namespace DoctorBob.UI.Pages.DrugManager
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                entity = entity.Where(e => e.Name.Contains(searchString));
+                if (searchString.Contains("Aktiv"))
+                {
+                    entity = entity.Where(e => e.Active);
+                }
+                else
+                {
+                    entity = entity.Where(e => e.Name.Contains(searchString));
+                }
             }
-
             Drug = await entity.ToListAsync();
         }
     }

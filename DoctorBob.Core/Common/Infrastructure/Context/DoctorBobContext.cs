@@ -332,6 +332,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                 {
                     Id = 161,
                     FirstName = "Admin",
+                    LastName = "",
                     RoleId = 5,
                     Username = "admin",
                     Password = "DoctorBob2022!",
@@ -357,7 +358,10 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
                     ModifiedAt = new DateTime(2022,01,10,16,44,21),
-                    Active = true
+                    History = "10.01.2022 15:44 - " + "eluechinger" + " / Name: Bisoprolol" +
+                " / Dosis in Milligramm: 5 " +
+                " / Zweck: Senkung Puls",
+            Active = true
                 },
                 new Drug
                 {
@@ -405,7 +409,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
                     ModifiedAt = new DateTime(2022,01,10,16,44,21),
-                    Active = true
+                    Active = false
                 },
                 new Drug
                 {
@@ -417,7 +421,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
                     ModifiedAt = new DateTime(2022,01,10,16,44,21),
-                    Active = true
+                    Active = false
                 }
             };
             #endregion

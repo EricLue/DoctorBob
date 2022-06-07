@@ -48,10 +48,17 @@ namespace DoctorBob.UI.Pages.DrugManager
             {
                 return Page();
             }
+          
+            DateTimeOffset modifyDateTime = DateTimeOffset.Now;
+            Drug.History += "\r\n" +
+                modifyDateTime.DateTime + " - " + "eluechinger" + " / Name: " + Drug.Name +
+                " / Dosis in Milligramm: " + Drug.DoseInMg +
+                " / Zweck: " + Drug.Description;
             
             // Anpassen auf CurrentUser
             Drug.ModifiedBy = "eluechinger";
-            Drug.ModifiedAt = DateTimeOffset.UtcNow;
+            Drug.ModifiedAt = modifyDateTime.DateTime;
+            Drug.Active = true;
 
             _context.Attach(Drug).State = EntityState.Modified;
 
