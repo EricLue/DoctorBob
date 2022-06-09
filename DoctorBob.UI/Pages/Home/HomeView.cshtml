@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body style="background-image: url('Logo_Team 1.png')">
-    <div class="container border" style="overflow: auto; height: 400px; padding: 20px">
+    <div class="container border" style="overflow: auto; height: 250px; padding: 20px">
         <h2>Roboter QuickInfo</h2>
         <table class="table">
             <thead>
@@ -23,7 +23,7 @@
                         @Html.DisplayName("Name")
                     </th>
                     <th>
-                        @Html.DisplayName("Location")
+                        @Html.DisplayName("Aktueller Ort")
                     </th>
                     <th>
                         @Html.DisplayName("Power in %")
@@ -55,12 +55,13 @@
             </tbody>
         </table>
     </div>
-    <div class="container border" style="padding:20px">
+    <div class="container border" style="justify-content:center; padding: 20px">
         <a type="submit" class="btn btn-primary" asp-area="" asp-page="/RobotManager/Index">Roboter-Dashboard</a>
         <a type="submit" class="btn btn-primary" asp-area="" asp-page="/PatientManager/Index">Patienten-Dashboard</a>
         <a type="submit" class="btn btn-dark" asp-area="" asp-page="/OrderManager/Index">Aufträge</a>
+        <a type="submit" class="btn btn-danger" asp-area="" asp-page="">Konfliktmanager</a>
     </div>
-    <div class="container border" style="padding:20px">
+    <div class="container border" style="justify-content: center; padding: 20px">
         <a type="submit" class="btn btn-secondary" asp-area="" asp-page="/StaffManager/Index">Personal</a>
         <a type="submit" class="btn btn-secondary" asp-area="" asp-page="/DrugManager/Index">Medikamente</a>
         <a type="submit" class="btn btn-secondary" asp-area="" asp-page="/TherapyManager/Index">Therapien</a>

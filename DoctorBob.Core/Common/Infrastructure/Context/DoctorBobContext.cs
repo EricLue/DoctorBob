@@ -22,6 +22,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
         public DbSet<Gender> Genders { get; set; }
         public DbSet<Patient> Patients { get; set; }
         public DbSet<TimeModel> TimeModels { get; set; }
+        public DbSet<IntakeCategory> IntakeCategories { get; set; }
         public DbSet<Therapy> Therapies { get; set; }
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Role> Roles { get; set; }
@@ -60,12 +61,21 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                 entity.Property(e => e.LastName).IsRequired();
             });
 
+
+            modelBuilder.Entity<IntakeCategory>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.Name).IsRequired();
+            });
+
             modelBuilder.Entity<Therapy>(entity =>
             {
                 entity.HasKey(e => e.Id);
                 entity.Property(e => e.Name).IsRequired();
                 entity.HasOne(e => e.Drug);
                 entity.HasOne(e => e.TimeModel);
+                entity.HasOne(e => e.IntakeCategory);
+                entity.HasOne(e => e.ResponsibleStaff);
             });
 
             modelBuilder.Entity<Room>(entity =>
@@ -544,6 +554,32 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
             };
             #endregion
 
+            #region List of IntakeCategories
+            var intakeCategories = new List<IntakeCategory>
+            {
+                new IntakeCategory
+                {
+                    Id = 1,
+                    Name = "oral"
+                },
+                new IntakeCategory
+                {
+                    Id = 2,
+                    Name = "nasal"
+                },
+                new IntakeCategory
+                {
+                    Id = 3,
+                    Name = "Injektion"
+                },
+                new IntakeCategory
+                {
+                    Id = 4,
+                    Name = "anal"
+                }
+            };
+            #endregion
+
             #region List of Therapies
             var therapies = new List<Therapy>
             {
@@ -558,6 +594,8 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
                     ModifiedAt = new DateTime(2022,01,10,16,44,21),
+                    IntakeCategoryId = 1,
+                    ResponsibleStaffId = 101,
                     Active = true
                 },
                 new Therapy
@@ -571,6 +609,8 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
                     ModifiedAt = new DateTime(2022,01,10,16,44,21),
+                    IntakeCategoryId = 1,
+                    ResponsibleStaffId = 100,
                     Active = true
                 },
                 new Therapy
@@ -584,6 +624,8 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
                     ModifiedAt = new DateTime(2022,01,10,16,44,21),
+                    IntakeCategoryId = 1,
+                    ResponsibleStaffId = 102,
                     Active = true
                 },
                 new Therapy
@@ -597,6 +639,8 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
                     ModifiedAt = new DateTime(2022,01,10,16,44,21),
+                    IntakeCategoryId = 1,
+                    ResponsibleStaffId = 101,
                     Active = true
                 }
             };
@@ -903,6 +947,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
             drugs.ForEach(d => modelBuilder.Entity<Drug>().HasData(d));
             rooms.ForEach(r => modelBuilder.Entity<Room>().HasData(r));
             timeModels.ForEach(t => modelBuilder.Entity<TimeModel>().HasData(t));
+            intakeCategories.ForEach(i => modelBuilder.Entity<IntakeCategory>().HasData(i));
             therapies.ForEach(t => modelBuilder.Entity<Therapy>().HasData(t));
             genders.ForEach(g => modelBuilder.Entity<Gender>().HasData(g));
             patients.ForEach(p => modelBuilder.Entity<Patient>().HasData(p));

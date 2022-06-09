@@ -1,88 +1,170 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="DoctorBob.Core.Common.Domain.AuditableEntity">
-    <Position X="13.25" Y="0.5" Width="1.5" />
+  <Class Name="DoctorBob.Core.API.MQTTClient">
+    <Position X="26.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAACAABAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAIAAAAABAAAAIA=</HashCode>
+      <FileName>API\MQTTClient.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DoctorBob.Core.Common.Domain.AuditableEntity">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAABBAAAAAAAACABAAAAAAAAAAAgAAACAAAAAAE=</HashCode>
       <FileName>Common\Domain\AuditableEntity.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="DoctorBob.Core.DrugManagement.Domain.Drug">
-    <Position X="3.5" Y="4.5" Width="1.5" />
+  <Class Name="DoctorBob.Core.Common.Infrastructure.Context.DoctorBobContext">
+    <Position X="26.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <HashCode>AAEAAAAQCQBAAEAAAAIgAABCFgAAAIAABAAABIAAAAA=</HashCode>
+      <FileName>Common\Infrastructure\Context\DoctorBobContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DoctorBob.Core.DrugManagement.Domain.Drug">
+    <Position X="11.25" Y="4" Width="1.5" />
+    <InheritanceLine Type="DoctorBob.Core.Common.Domain.AuditableEntity" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="12.875" Y="2.95" />
+        <Point X="12.875" Y="3.073" />
+        <Point X="12.875" Y="3.073" />
+        <Point X="12.875" Y="3.325" />
+        <Point X="12" Y="3.325" />
+        <Point X="12" Y="4" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAAAAAAAAQAAAAAAAAAAAAAAAAAACA=</HashCode>
       <FileName>DrugManagement\Domain\Drug.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="DoctorBob.Core.PatientManagement.Domain.Patient">
-    <Position X="9.25" Y="6.75" Width="1.5" />
+  <Class Name="DoctorBob.Core.OrderManagement.Domain.Order">
+    <Position X="15.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAEACAAAAAACAABBIAACAAAAAABAAAAQAAAAAAAg=</HashCode>
+      <HashCode>AAACAAAASAAAAAAAAEAAAAAABAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>OrderManagement\Domain\Order.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DoctorBob.Core.OrderManagement.Domain.OrderPatient">
+    <Position X="16.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAEAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>OrderManagement\Domain\OrderPatient.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DoctorBob.Core.OrderManagement.Domain.State">
+    <Position X="26.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>OrderManagement\Domain\State.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DoctorBob.Core.PatientManagement.Domain.Gender">
+    <Position X="11.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PatientManagement\Domain\Gender.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DoctorBob.Core.PatientManagement.Domain.Patient">
+    <Position X="13.25" Y="3.75" Width="1.5" />
+    <InheritanceLine Type="DoctorBob.Core.Common.Domain.AuditableEntity" ManuallyRouted="true">
+      <Path>
+        <Point X="13.5" Y="2.95" />
+        <Point X="13.5" Y="3.61" />
+        <Point X="14" Y="3.61" />
+        <Point X="14" Y="3.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAACAEACCAAAQACAABBIAACAAAAAEBAAAARAAAAAAAg=</HashCode>
       <FileName>PatientManagement\Domain\Patient.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DoctorBob.Core.PatientManagement.Domain.Room">
-    <Position X="13.25" Y="6.5" Width="1.5" />
+    <Position X="15.25" Y="3.75" Width="1.5" />
+    <InheritanceLine Type="DoctorBob.Core.Common.Domain.AuditableEntity" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="13.875" Y="2.95" />
+        <Point X="13.875" Y="3.332" />
+        <Point X="16" Y="3.332" />
+        <Point X="16" Y="3.75" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>PatientManagement\Domain\Room.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="DoctorBob.Core.RoboManagement.Domain.Robot">
-    <Position X="15.75" Y="2.75" Width="1.5" />
+  <Class Name="DoctorBob.Core.RobotManagement.Domain.Activity">
+    <Position X="7.5" Y="6.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAAAAAAwAACAAAAABgAAAAEAAAAA=</HashCode>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RobotManagement\Domain\Activity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DoctorBob.Core.RobotManagement.Domain.CurrentLocation">
+    <Position X="9.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RobotManagement\Domain\CurrentLocation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DoctorBob.Core.RobotManagement.Domain.Robot">
+    <Position X="9.5" Y="2.75" Width="1.5" />
+    <InheritanceLine Type="DoctorBob.Core.Common.Domain.AuditableEntity" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="12.75" Y="2.375" />
+        <Point X="10.25" Y="2.375" />
+        <Point X="10.25" Y="2.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAEAAAAAAAAwAACAEAAABgAAAAEAAAAA=</HashCode>
       <FileName>RobotManagement\Domain\Robot.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="DoctorBob.Core.StaffManagement.Domain.Staff">
-    <Position X="6.75" Y="3" Width="1.5" />
+  <Class Name="DoctorBob.Core.StaffManagement.Domain.Role">
+    <Position X="19.5" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAEAAACAAAAAAEQAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>StaffManagement\Domain\Role.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DoctorBob.Core.StaffManagement.Domain.Staff">
+    <Position X="17.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAEIAAAAAAAAAEQAAAAAAAAAAAAACAAAAAAAAAAg=</HashCode>
       <FileName>StaffManagement\Domain\Staff.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="DoctorBob.Core.TherapyManagement.Domain.Therapy">
-    <Position X="5" Y="6.25" Width="1.5" />
+  <Class Name="DoctorBob.Core.TherapyManagement.Domain.IntakeCategory">
+    <Position X="5.75" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAIAQAAAEAAAAAQAAAAAAAAAAABAAAAACAI=</HashCode>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TherapyManagement\Domain\IntakeCategory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DoctorBob.Core.TherapyManagement.Domain.Therapy">
+    <Position X="5.5" Y="2" Width="2" />
+    <InheritanceLine Type="DoctorBob.Core.Common.Domain.AuditableEntity" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="12.75" Y="1.125" />
+        <Point X="6.5" Y="1.125" />
+        <Point X="6.5" Y="2" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAIAAAAAEBAAAAQAAAACAAAAAAAAAQAQCAI=</HashCode>
       <FileName>TherapyManagement\Domain\Therapy.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DoctorBob.Core.TherapyManagement.Domain.TimeModel">
-    <Position X="2" Y="7.25" Width="1.5" />
+    <Position X="7.75" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <HashCode>AAACAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
       <FileName>TherapyManagement\Domain\TimeModel.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Enum Name="DoctorBob.Core.PatientManagement.Domain.Gender">
-    <Position X="11" Y="8.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
-      <FileName>PatientManagement\Domain\Patient.cs</FileName>
-    </TypeIdentifier>
-  </Enum>
-  <Enum Name="DoctorBob.Core.RoboManagement.Domain.CurrentLocation">
-    <Position X="19.25" Y="3.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>ggIAAAAAAQAA0AIAAAAAAAAAAAQAAAAAAAIEAAAAAAA=</HashCode>
-      <FileName>RobotManagement\Domain\Robot.cs</FileName>
-    </TypeIdentifier>
-  </Enum>
-  <Enum Name="DoctorBob.Core.RoboManagement.Domain.Activity">
-    <Position X="17.5" Y="3.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>IAAAAAAAAAAAEAAAAAQACQAAEAAAAAQAIAAAAAAEAAA=</HashCode>
-      <FileName>RobotManagement\Domain\Robot.cs</FileName>
-    </TypeIdentifier>
-  </Enum>
-  <Enum Name="DoctorBob.Core.StaffManagement.Domain.Role">
-    <Position X="11.5" Y="3.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAACAEAAAAAAAIAAAAAQAIAAAAAACAAA=</HashCode>
-      <FileName>StaffManagement\Domain\Staff.cs</FileName>
-    </TypeIdentifier>
-  </Enum>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

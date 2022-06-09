@@ -37,6 +37,12 @@
                 <th>
                     @Html.DisplayName("Zeitmodell")
                 </th>
+                <th>
+                    @Html.DisplayName("Verabreichung")
+                </th>
+                <th>
+                    @Html.DisplayName("Verantwortung")
+                </th>
                 <th></th>
             </tr>
         </thead>
@@ -61,6 +67,12 @@
                             <img border="0" alt="view" width="20" height="20" src="/images/details.png" title="Details anzeigen" />
                         </a>
                         @Html.DisplayFor(modelItem => item.TimeModelId)
+                    </td>
+                    <td>
+                        @Html.DisplayName(Model.GetIntakeCategoryName(item.IntakeCategoryId))
+                    </td>
+                    <td>
+                        @Html.DisplayName(Model.GetStaffName(item.ResponsibleStaffId))
                     </td>
                     <td>
                         <a asp-page="./Edit" asp-route-id="@item.Id">

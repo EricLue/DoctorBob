@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using DoctorBob.Core.StaffManagement.Infrastructure;
+//using DoctorBob.Core.StaffManagement.Infrastructure;
 using DoctorBob.Core.Common.Infrastructure.Context;
 
 namespace DoctorBob.UI
@@ -25,7 +25,6 @@ namespace DoctorBob.UI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<IStaffRepository, StaffRepository>();
             services.AddDbContext<DoctorBobContext>();
             services.AddControllers();
             services.AddRazorPages();
