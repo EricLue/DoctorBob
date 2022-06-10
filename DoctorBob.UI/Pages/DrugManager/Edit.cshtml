@@ -5,38 +5,38 @@
     ViewData["Title"] = "Edit";
 }
 
-<h3>Bearbeiten</h3>
-
-<h4>Medikament</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Drug.Id" />
-            <div class="form-group">
-                <label asp-for="Drug.Name" class="control-label"></label>
-                <input asp-for="Drug.Name" class="form-control" />
-                <span asp-validation-for="Drug.Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Drug.DoseInMg" class="control-label">Dosis in Milligramm</label>
-                <input asp-for="Drug.DoseInMg" class="form-control" />
-                <span asp-validation-for="Drug.DoseInMg" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Drug.Description" class="control-label">Verwendung / Zweck</label>
-                <input asp-for="Drug.Description" class="form-control" />
-                <span asp-validation-for="Drug.Description" class="text-danger"></span>
-            </div>
-        <div class="form-group">
-            <input type="submit" value="Speichern" class="btn btn-primary"/> 
-            <a type="submit" class="btn btn-primary" asp-page="./Index">Zurück zu Liste</a>
+<div class="container border" style="padding: 20px">
+    <h2>Medikament bearbeiten</h2>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Drug.Id" />
+                <div class="form-group">
+                    <label asp-for="Drug.Name" class="control-label"></label>
+                    <input asp-for="Drug.Name" class="form-control" />
+                    <span asp-validation-for="Drug.Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Drug.DoseInMg" class="control-label">Dosis in Milligramm</label>
+                    <input asp-for="Drug.DoseInMg" class="form-control" />
+                    <span asp-validation-for="Drug.DoseInMg" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Drug.Description" class="control-label">Verwendung / Zweck</label>
+                    <input asp-for="Drug.Description" class="form-control" />
+                    <span asp-validation-for="Drug.Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Speichern" class="btn btn-primary" />
+                    <a type="submit" class="btn btn-primary" asp-page="./Index">Zurück zu Liste</a>
+                </div>
+            </form>
         </div>
-        </form>
     </div>
-</div>
+    </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

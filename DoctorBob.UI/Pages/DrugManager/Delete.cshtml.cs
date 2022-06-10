@@ -49,6 +49,7 @@ namespace DoctorBob.UI.Pages.DrugManager
 
             if (Drug != null)
             {
+                //Drug.Active = false;
                 _context.Drugs.Remove(Drug);
                 await _context.SaveChangesAsync();
             }

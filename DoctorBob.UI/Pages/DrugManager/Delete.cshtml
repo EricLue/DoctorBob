@@ -4,60 +4,35 @@
 @{
     ViewData["Title"] = "Delete";
 }
+<div class="container border" style="padding: 20px">
+    <h3>Sind Sie sicher, dass dieses Medikament inaktiviert werden soll?</h3>
+    <div>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Drug.Name)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Drug.Name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayName("Dosis in Milligramm")
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Drug.DoseInMg)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayName("Zweck")
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Drug.Description)
+            </dd>
+        </dl>
 
-<h1>Löschen</h1>
-
-<h4>Sind Sie sicher, dass dieses Medikament gelöscht werden soll?</h4>
-<div>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Drug.Name)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Drug.Name)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayName("Dosis in Milligramm")
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Drug.DoseInMg)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayName("Verwendung / Zweck")
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Drug.Description)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayName("Erstellt von")
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Drug.CreatedBy)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayName("Erstellt am")
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Drug.CreatedAt)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayName("Bearbeitet von")
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Drug.ModifiedBy)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayName("Bearbeitet am")
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Drug.ModifiedAt)
-        </dd>
-    </dl>
-    
-    <form method="post">
-        <input type="hidden" asp-for="Drug.Id" />
-        <input type="submit" value="Löschen" class="btn btn-danger" /> |
-        <input type="submit" class="btn btn-primary" value="Zurück zu Liste" asp-page="./Index"/>
-    </form>
-</div>
+        <form method="post">
+            <input type="hidden" asp-for="Drug.Id" />
+            <input type="submit" value="Löschen" class="btn btn-danger" />
+            <input type="submit" class="btn btn-primary" value="Zurück zu Liste" asp-page="./Index" />
+        </form>
+    </div>
+    </div>

@@ -32,10 +32,10 @@
             <img border="0" width="40" height="40" src="/images/drug6.png" />
         }
         <div class="column" style="padding-left: 10px">
-            <h3>@Html.DisplayFor(model => model.Drug.Id)</h3>
+            <h2>@Html.DisplayFor(model => model.Drug.Id)</h2>
         </div>
         <div class="column" style="padding-left: 10px">
-            <h3>- @Html.DisplayFor(model => model.Drug.Name)</h3>
+            <h2>- @Html.DisplayFor(model => model.Drug.Name)</h2>
         </div>
     </div>
     <div>
@@ -52,6 +52,9 @@
                     </th>
                     <th>
                         @Html.DisplayName("Zuletzt bearbeitet")
+                    </th>
+                    <th>
+                        @Html.DisplayName("User")
                     </th>
                 </tr>
             </thead>
@@ -74,7 +77,10 @@
                             }
                         </td>
                         <td>
-                            @Html.DisplayName(Model.GetModifyInfo(Model.Drug.Id))
+                            @Html.DisplayFor(model => model.Drug.ModifiedAt.DateTime)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => model.Drug.ModifiedBy)
                         </td>
                     </tr>
             </tbody>
@@ -89,6 +95,6 @@
     </div>
     <div style="padding: 20px">
         <a type="submit" class="btn btn-primary" asp-page="./Edit" asp-route-id="@Model.Drug.Id">Bearbeiten</a>
-        <a type="submit" class="btn btn-primary" asp-page="./Index">Zurück zu Liste</a>
+        <a type="submit" class="btn btn-primary" asp-page="./Index">Liste Medikamente</a>
     </div>
 </div>
