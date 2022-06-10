@@ -75,6 +75,10 @@
                         {
                             <img border="0" width="30" height="30" src="/images/drug6.png" />
                         }
+                        @if (item.Id > 6)
+                        {
+                            <img border="0" width="30" height="30" src="/images/drug_random.png" />
+                        }
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Name)
@@ -103,7 +107,7 @@
                             <img border="0" alt="view" width="20" height="20" src="/images/details.png" title="Details anzeigen" />
                         </a>
                         <a asp-page="./Delete" asp-route-id="@item.Id">
-                            <img border="0" alt="delete" width="20" height="20" src="/images/delete.png" title="Löschen" />
+                            <img border="0" alt="delete" width="20" height="20" src="/images/delete.png" title="Inaktivieren" />
                         </a>
                     </td>
                 </tr>

@@ -42,7 +42,7 @@ namespace DoctorBob.UI.Pages.DrugManager
             // Anpassen auf CurrentUser
             Drug.ModifiedBy = "eluechinger";
             Drug.ModifiedAt = DateTimeOffset.UtcNow;
-
+            Drug.Active = true;
             _context.Drugs.Add(Drug);
             await _context.SaveChangesAsync();
 

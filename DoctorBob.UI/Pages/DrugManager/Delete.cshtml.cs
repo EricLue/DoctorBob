@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using DoctorBob.Core.Common.Infrastructure.Context;
 using DoctorBob.Core.DrugManagement.Domain;
+using DoctorBob.Core.TherapyManagement.Domain;
 
 namespace DoctorBob.UI.Pages.DrugManager
 {
@@ -49,9 +50,22 @@ namespace DoctorBob.UI.Pages.DrugManager
 
             if (Drug != null)
             {
-                //Drug.Active = false;
-                _context.Drugs.Remove(Drug);
-                await _context.SaveChangesAsync();
+                bool used = false;
+                List<Therapy> list = _context.Therapies.ToList<Therapy>();
+                foreach (var entity in list)
+                {
+                    if (entity.DrugId == Drug.Id)
+                    {
+                        used = true;
+                        break;
+                    }
+                }
+
+                if (!used)
+                {
+                    Drug.Active = false;
+                    await _context.SaveChangesAsync();
+                }
             }
 
             return RedirectToPage("./Index");
