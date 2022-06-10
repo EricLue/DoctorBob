@@ -43,6 +43,11 @@ namespace DoctorBob.UI.Pages.DrugManager
             Drug.ModifiedBy = "eluechinger";
             Drug.ModifiedAt = DateTimeOffset.UtcNow;
             Drug.Active = true;
+
+            Drug.History = Drug.ModifiedAt.DateTime.AddHours(2) +
+                " - eluechinger / " + Drug.Name +
+                " / " + Drug.DoseInMg + " / " +
+                Drug.Description + " - AKTIV";
             _context.Drugs.Add(Drug);
             await _context.SaveChangesAsync();
 

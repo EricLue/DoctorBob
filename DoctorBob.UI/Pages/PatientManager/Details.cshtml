@@ -5,93 +5,103 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
-
-<div>
-    <h4>Patient</h4>
+<div class="container border" style="padding: 20px">
+    <div class="row" style="padding: 10px">
+        @if (Model.Patient.GenderId == 1)
+        {
+            <img border="0" width="40" height="40" src="/images/male.png" />
+        }
+        @if (Model.Patient.GenderId == 2)
+        {
+            <img border="0" width="40" height="40" src="/images/female.png" />
+        }
+        @if (Model.Patient.GenderId == 3)
+        {
+            <img border="0" width="40" height="40" src="/images/divers.png" />
+        }
+        <div class="column" style="padding-left: 10px">
+            <h2>@Html.DisplayFor(model => model.Patient.Id)</h2>
+        </div>
+        <div class="column" style="padding-left: 10px">
+            <h2>- @Html.DisplayFor(model => model.Patient.FirstName)</h2>
+        </div>
+        <div class="column" style="padding-left: 10px">
+            <h2>@Html.DisplayFor(model => model.Patient.LastName)</h2>
+        </div>
+        <div class="column" style="padding-left: 10px">
+            <h2>- Raum @Html.DisplayFor(model => model.Patient.RoomId)</h2>
+        </div>
+    </div>
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayName("Therapie")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Betreuung")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Eintritt")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Austritt")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Bearbeitet")
+                    </th>
+                    <th>
+                        @Html.DisplayName("User")
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        @Html.DisplayName(Model.GetTherapyName(Model.Patient.TherapyId))
+                    </td>
+                    <td>
+                        @Html.DisplayName(Model.GetStaffName(Model.Patient.CaringStaffId))
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Patient.EntryDate)
+                    </td>
+                    <td>
+                        @if (Model.Patient.LeavingDate == new DateTime(1, 1, 1, 0, 0, 0))
+                        {
+                            @Html.DisplayName("");
+                        }
+                        else
+                        {
+                            @Html.DisplayFor(model => model.Patient.LeavingDate);
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Patient.ModifiedAt.DateTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Patient.ModifiedBy)
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Patient.FirstName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Patient.FirstName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Patient.LastName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Patient.LastName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Patient.Gender)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Patient.Gender)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Patient.Room)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Patient.Room.Id)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Patient.Therapy)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Patient.Therapy.Id)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Patient.CaringStaff)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Patient.CaringStaff.Id)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Patient.MedicalHistory)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Patient.MedicalHistory)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Patient.EntryDate)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Patient.EntryDate)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Patient.LeavingDate)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Patient.LeavingDate)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Patient.CreatedBy)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Patient.CreatedBy)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Patient.ModifiedBy)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Patient.ModifiedBy)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Patient.CreatedAt)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Patient.CreatedAt)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Patient.ModifiedAt)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Patient.ModifiedAt)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-page="./Edit" asp-route-id="@Model.Patient.Id">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    <div>
+        <h4>Anamnese</h4>
+        <textarea rows="3" cols="142" name="description" readonly>
+@Html.DisplayFor(model => model.Patient.MedicalHistory)
+         </textarea>
+    </div>
+    <div>
+        <h4>Änderungsverlauf</h4>
+        <textarea rows="5" cols="142" name="description" readonly>
+@Html.DisplayFor(model => model.Patient.History)
+         </textarea>
+    </div>
+    <div style="padding: 20px">
+        <a type="submit" class="btn btn-primary" asp-page="./Edit" asp-route-id="@Model.Patient.Id">Bearbeiten</a>
+        <a type="submit" class="btn btn-primary" asp-page="./Index">Liste Patienten</a>
+    </div>
 </div>

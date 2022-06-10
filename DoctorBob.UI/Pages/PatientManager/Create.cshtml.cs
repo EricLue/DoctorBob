@@ -22,9 +22,9 @@ namespace DoctorBob.UI.Pages.PatientManager
         public IActionResult OnGet()
         {
         ViewData["Gender"] = new SelectList(_context.Genders, "Id", "Name");
-        ViewData["Room"] = new SelectList(_context.Rooms, "Id", "Name");
-        ViewData["Therapy"] = new SelectList(_context.Therapies, "Id", "Name");
-        ViewData["CaringStaff"] = new SelectList(_context.StaffMembers, "Id", "Username");
+        ViewData["Room"] = new SelectList(_context.Rooms.Where(e => e.Active), "Id", "Name");
+        ViewData["Therapy"] = new SelectList(_context.Therapies.Where(e => e.Active), "Id", "Name");
+        ViewData["CaringStaff"] = new SelectList(_context.StaffMembers.Where(e => e.Active), "Id", "Username");
             return Page();
         }
 
@@ -48,6 +48,26 @@ namespace DoctorBob.UI.Pages.PatientManager
             // Anpassen auf CurrentUser
             Patient.ModifiedBy = "eluechinger";
             Patient.ModifiedAt = DateTimeOffset.UtcNow;
+
+            Patient.Active = true;
+            Patient.History = Patient.ModifiedAt.DateTime.AddHours(2) + " - eluechinger / " + Patient.FirstName.Substring(0, 1) + ". " + Patient.LastName +
+                " / ";
+            if (Patient.GenderId == 1)
+            {
+                Patient.History += " M / ";
+            }
+            if (Patient.GenderId == 2)
+            {
+                Patient.History += " F / ";
+            }
+            if (Patient.GenderId == 3)
+            {
+                Patient.History += " D / ";
+            }
+
+            Patient.History += Patient.RoomId + " / " + Patient.TherapyId + " / " +
+                _context.StaffMembers.Find(Patient.CaringStaffId).LastName + " / " + Patient.MedicalHistory +
+                " / IN: " + Patient.EntryDate;
 
             _context.Patients.Add(Patient);
             await _context.SaveChangesAsync();

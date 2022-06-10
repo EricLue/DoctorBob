@@ -5,60 +5,61 @@
     ViewData["Title"] = "Create";
 }
 
-<h3>Patient erfassen</h3>
-
-<hr />
 <div class="container border" style="padding: 20px">
-    <form method="post">
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <div style="display: flex">
-            <div class="form-group" style="padding-right:10px">
-                <label asp-for="Patient.FirstName" class="control-label" style="width: 400px">Vorname</label>
-                <input asp-for="Patient.FirstName" class="form-control" />
-                <span asp-validation-for="Patient.FirstName" class="text-danger"></span>
+    <h2>Patient erfassen</h2>
+
+    <hr />
+    <div class="container border" style="padding: 20px">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div style="display: flex">
+                <div class="form-group" style="padding-right:10px">
+                    <label asp-for="Patient.FirstName" class="control-label" style="width: 400px">Vorname</label>
+                    <input asp-for="Patient.FirstName" class="form-control" />
+                    <span asp-validation-for="Patient.FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group" style="padding-right:10px">
+                    <label asp-for="Patient.LastName" class="control-label" style="width: 400px">Nachname</label>
+                    <input asp-for="Patient.LastName" class="form-control" />
+                    <span asp-validation-for="Patient.LastName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Patient.EntryDate" class="control-label">Eintrittsdatum</label>
+                    <input asp-for="Patient.EntryDate" class="form-control" />
+                    <span asp-validation-for="Patient.EntryDate" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group" style="padding-right:10px">
-                <label asp-for="Patient.LastName" class="control-label" style="width: 400px">Nachname</label>
-                <input asp-for="Patient.LastName" class="form-control" />
-                <span asp-validation-for="Patient.LastName" class="text-danger"></span>
+            <div style="display: flex">
+                <div class="form-group" style="padding-right:10px">
+                    <label asp-for="Patient.Gender" class="control-label" style="width: 190px">Geschlecht</label>
+                    <select asp-for="Patient.GenderId" class="form-control" asp-items="ViewBag.Gender"></select>
+                    <span asp-validation-for="Patient.Gender" class="text-danger"></span>
+                </div>
+                <div class="form-group" style="padding-right:10px">
+                    <label asp-for="Patient.Room" class="control-label" style="width: 200px">Raum</label>
+                    <select asp-for="Patient.RoomId" class="form-control" asp-items="ViewBag.Room"></select>
+                </div>
+                <div class="form-group" style="padding-right:10px">
+                    <label asp-for="Patient.Therapy" class="control-label" style="width: 400px">Therapie</label>
+                    <select asp-for="Patient.TherapyId" class="form-control" asp-items="ViewBag.Therapy"></select>
+                </div>
+                <div class="form-group" style="padding-right:10px">
+                    <label asp-for="Patient.CaringStaffId" class="control-label">Verordnet durch</label>
+                    <select asp-for="Patient.CaringStaffId" class="form-control" asp-items="ViewBag.CaringStaff"></select>
+                </div>
             </div>
             <div class="form-group">
-                <label asp-for="Patient.EntryDate" class="control-label">Eintrittsdatum</label>
-                <input asp-for="Patient.EntryDate" class="form-control" />
-                <span asp-validation-for="Patient.EntryDate" class="text-danger"></span>
+                <label asp-for="Patient.MedicalHistory" class="control-label">Anamnese</label>
+                <input asp-for="Patient.MedicalHistory" class="form-control" />
+                <span asp-validation-for="Patient.MedicalHistory" class="text-danger"></span>
             </div>
-        </div>
-        <div style="display: flex">
-            <div class="form-group" style="padding-right:10px">
-                <label asp-for="Patient.Gender" class="control-label" style="width: 190px">Geschlecht</label>
-                <select asp-for="Patient.GenderId" class="form-control" asp-items="ViewBag.Gender"></select>
-                <span asp-validation-for="Patient.Gender" class="text-danger"></span>
+            <div class="form-group">
+                <input type="submit" value="Erstellen" class="btn btn-primary" />
+                <a type="submit" class="btn btn-primary" asp-page="Index">Zurück zu Liste</a>
             </div>
-            <div class="form-group" style="padding-right:10px">
-                <label asp-for="Patient.Room" class="control-label" style="width: 200px">Raum</label>
-                <select asp-for="Patient.RoomId" class="form-control" asp-items="ViewBag.Room"></select>
-            </div>
-            <div class="form-group" style="padding-right:10px">
-                <label asp-for="Patient.Therapy" class="control-label" style="width: 400px">Therapie</label>
-                <select asp-for="Patient.TherapyId" class="form-control" asp-items="ViewBag.Therapy"></select>
-            </div>
-            <div class="form-group" style="padding-right:10px">
-                <label asp-for="Patient.CaringStaffId" class="control-label">Verordnet durch</label>
-                <select asp-for="Patient.CaringStaffId" class="form-control" asp-items="ViewBag.CaringStaff"></select>
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="Patient.MedicalHistory" class="control-label">Anamnese</label>
-            <input asp-for="Patient.MedicalHistory" class="form-control" />
-            <span asp-validation-for="Patient.MedicalHistory" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <input type="submit" value="Erstellen" class="btn btn-primary" />
-            <a type="submit" class="btn btn-primary" asp-page="Index">Zurück zu Liste</a>
-        </div>
-    </form>
-</div>
+        </form>
+    </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
