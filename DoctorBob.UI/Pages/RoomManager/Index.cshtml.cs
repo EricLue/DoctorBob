@@ -29,7 +29,14 @@ namespace DoctorBob.UI.Pages.RoomManager
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                entity = entity.Where(e => e.Name.Contains(searchString));
+                if (searchString.Contains("Aktiv") || searchString.Contains("aktiv"))
+                {
+                    entity = entity.Where(e => e.Active);
+                }
+                else
+                {
+                    entity = entity.Where(e => e.Name.Contains(searchString));
+                }
             }
             Room = await entity.ToListAsync();
         }

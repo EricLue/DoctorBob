@@ -5,66 +5,53 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<div class="container border" style="padding: 20px">
+    <h2>Therapie bearbeiten</h2>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Therapy.Id" />
+                <div class="form-group">
+                    <label asp-for="Therapy.Name" class="control-label">Name</label>
+                    <input asp-for="Therapy.Name" class="form-control" />
+                    <span asp-validation-for="Therapy.Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Therapy.DrugId" class="control-label"></label>
+                    <select asp-for="Therapy.DrugId" class="form-control" asp-items="ViewBag.Drug"></select>
+                    <span asp-validation-for="Therapy.DrugId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Therapy.QuantityOfDrug" class="control-label">Anzahl</label>
+                    <input asp-for="Therapy.QuantityOfDrug" class="form-control" />
+                    <span asp-validation-for="Therapy.QuantityOfDrug" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Therapy.TimeModelId" class="control-label">Zeitmodell</label>
+                    <select asp-for="Therapy.TimeModelId" class="form-control" asp-items="ViewBag.TimeModel"></select>
+                    <span asp-validation-for="Therapy.TimeModelId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Therapy.IntakeCategoryId" class="control-label">Verabreichung</label>
+                    <select asp-for="Therapy.IntakeCategoryId" class="form-control" asp-items="ViewBag.IntakeCategory"></select>
+                    <span asp-validation-for="Therapy.IntakeCategoryId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Therapy.ResponsibleStaffId" class="control-label">Verantwortung</label>
+                    <select asp-for="Therapy.ResponsibleStaffId" class="form-control" asp-items="ViewBag.ResponsibleStaff"></select>
+                    <span asp-validation-for="Therapy.ResponsibleStaffId" class="text-danger"></span>
+                </div>
 
-<h4>Therapy</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Therapy.Id" />
-            <div class="form-group">
-                <label asp-for="Therapy.Name" class="control-label"></label>
-                <input asp-for="Therapy.Name" class="form-control" />
-                <span asp-validation-for="Therapy.Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Therapy.QuantityOfDrug" class="control-label"></label>
-                <input asp-for="Therapy.QuantityOfDrug" class="form-control" />
-                <span asp-validation-for="Therapy.QuantityOfDrug" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Therapy.DrugId" class="control-label"></label>
-                <select asp-for="Therapy.DrugId" class="form-control" asp-items="ViewBag.DrugId"></select>
-                <span asp-validation-for="Therapy.DrugId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Therapy.TimeModelId" class="control-label"></label>
-                <select asp-for="Therapy.TimeModelId" class="form-control" asp-items="ViewBag.TimeModelId"></select>
-                <span asp-validation-for="Therapy.TimeModelId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Therapy.CreatedBy" class="control-label"></label>
-                <input asp-for="Therapy.CreatedBy" class="form-control" />
-                <span asp-validation-for="Therapy.CreatedBy" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Therapy.ModifiedBy" class="control-label"></label>
-                <input asp-for="Therapy.ModifiedBy" class="form-control" />
-                <span asp-validation-for="Therapy.ModifiedBy" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Therapy.CreatedAt" class="control-label"></label>
-                <input asp-for="Therapy.CreatedAt" class="form-control" />
-                <span asp-validation-for="Therapy.CreatedAt" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Therapy.ModifiedAt" class="control-label"></label>
-                <input asp-for="Therapy.ModifiedAt" class="form-control" />
-                <span asp-validation-for="Therapy.ModifiedAt" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+                <div class="form-group">
+                    <input type="submit" value="Speichern" class="btn btn-primary" />
+                    <a type="submit" class="btn btn-primary" asp-page="./Index">Zurück zu Liste</a>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-page="./Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

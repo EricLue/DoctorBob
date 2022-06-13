@@ -29,7 +29,14 @@ namespace DoctorBob.UI.Pages.TimeModelManager
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                entity = entity.Where(e => e.Time.Contains(searchString));
+                if (searchString.Contains("Aktiv") || searchString.Contains("aktiv"))
+                {
+                    entity = entity.Where(e => e.Active);
+                }
+                else
+                {
+                    entity = entity.Where(e => e.Time.Contains(searchString));
+                }
             }
 
             TimeModel = await entity.ToListAsync();

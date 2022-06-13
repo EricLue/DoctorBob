@@ -34,15 +34,18 @@ namespace DoctorBob.UI.Pages.TherapyManager
 
             Therapy = await _context.Therapies
                 .Include(t => t.Drug)
-                .Include(t => t.TimeModel).FirstOrDefaultAsync(m => m.Id == id);
+                .Include(t => t.TimeModel)
+                .Include(t => t.IntakeCategory)
+                .Include(t => t.ResponsibleStaff).FirstOrDefaultAsync(m => m.Id == id);
 
             if (Therapy == null)
             {
                 return NotFound();
             }
-           ViewData["DrugId"] = new SelectList(_context.Drugs.Where(e => e.Active), "Id", "Id");
-           ViewData["TimeModelId"] = new SelectList(_context.TimeModels.Where(e => e.Active), "Id", "Id");
-
+           ViewData["Drug"] = new SelectList(_context.Drugs.Where(e => e.Active), "Id", "Name");
+           ViewData["TimeModel"] = new SelectList(_context.TimeModels.Where(e => e.Active), "Id", "Time");
+            ViewData["IntakeCategory"] = new SelectList(_context.IntakeCategories, "Id", "Name");
+            ViewData["ResponsibleStaff"] = new SelectList(_context.StaffMembers.Where(e => e.Active), "Id", "LastName");
             historyTemp = Therapy.History;
 
             if (!String.IsNullOrEmpty(historyTemp))
@@ -107,7 +110,7 @@ namespace DoctorBob.UI.Pages.TherapyManager
             Therapy.HistoryTemp = "⊕ " + modifyDateTime.DateTime + " - " + "eluechinger" + " / " + Therapy.Name +
                 " / " + Therapy.QuantityOfDrug + " / " +
                 _context.Drugs.Find(Therapy.DrugId).Name + " / " +
-                Therapy.TimeModelId + " / " + _context.IntakeCategories.Find(Therapy.IntakeCategoryId).Name +
+                Therapy.TimeModelId + " / " + _context.IntakeCategories.Find(Therapy.IntakeCategoryId).Name + " / " + 
                 _context.StaffMembers.Find(Therapy.ResponsibleStaffId).LastName;
             if (Therapy.Active)
             {
