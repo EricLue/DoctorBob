@@ -40,8 +40,8 @@ namespace DoctorBob.UI.Pages.PatientManager
                 return NotFound();
             }
            ViewData["RoomId"] = new SelectList(_context.Set<Room>(), "Id", "Id");
-           ViewData["TherapyId"] = new SelectList(_context.Therapies, "Id", "Id");
-            ViewData["CaringStaffId"] = new SelectList(_context.StaffMembers, "Id", "Id");
+           ViewData["TherapyId"] = new SelectList(_context.Therapies.Where(e => e.Active), "Id", "Id");
+            ViewData["CaringStaffId"] = new SelectList(_context.StaffMembers.Where(e => e.Active), "Id", "Id");
             return Page();
         }
 

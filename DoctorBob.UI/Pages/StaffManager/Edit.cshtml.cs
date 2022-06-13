@@ -36,6 +36,7 @@ namespace DoctorBob.UI.Pages.StaffManager
             {
                 return NotFound();
             }
+            ViewData["Role"] = new SelectList(_context.Roles, "Id", "Name");
             return Page();
         }
 

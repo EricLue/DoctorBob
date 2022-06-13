@@ -38,8 +38,8 @@ namespace DoctorBob.UI.Pages.TherapyManager
             {
                 return NotFound();
             }
-           ViewData["DrugId"] = new SelectList(_context.Drugs, "Id", "Id");
-           ViewData["TimeModelId"] = new SelectList(_context.TimeModels, "Id", "Id");
+           ViewData["DrugId"] = new SelectList(_context.Drugs.Where(e => e.Active), "Id", "Id");
+           ViewData["TimeModelId"] = new SelectList(_context.TimeModels.Where(e => e.Active), "Id", "Id");
             return Page();
         }
 

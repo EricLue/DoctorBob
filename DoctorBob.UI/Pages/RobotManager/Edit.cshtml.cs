@@ -37,7 +37,7 @@ namespace DoctorBob.UI.Pages.RobotManager
             {
                 return NotFound();
             }
-           ViewData["LastRoomId"] = new SelectList(_context.Rooms, "Id", "Id");
+           ViewData["LastRoomId"] = new SelectList(_context.Rooms.Where(e => e.Active), "Id", "Id");
             return Page();
         }
 

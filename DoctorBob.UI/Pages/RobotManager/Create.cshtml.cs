@@ -21,6 +21,7 @@ namespace DoctorBob.UI.Pages.RobotManager
 
         public IActionResult OnGet()
         {
+            ViewData["LastRoomId"] = new SelectList(_context.Rooms.Where(e => e.Active), "Id", "Id");
             return Page();
         }
 
