@@ -5,45 +5,77 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<div class="container border" style="padding: 20px">
+    <div class="row" style="padding: 10px">
+        <div class="column" style="padding-left: 10px">
+            <h2>@Html.DisplayFor(model => model.Room.Id)</h2>
+        </div>
+        <div class="column" style="padding-left: 10px">
+            <h2>- @Html.DisplayFor(model => model.Room.Name)</h2>
+        </div>
+    </div>
 
-<div>
-    <h4>Room</h4>
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayName("Belegung")
+                    </th>
+                    <th>
+                    </th>
+                    <th>
+                        @Html.DisplayName("Bearbeitet")
+                    </th>
+                    <th>
+                        @Html.DisplayName("User")
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        @if (Model.IsFree(Model.Room.Id) == 1)
+                        {
+                            <img border="0" width="55" height="30" src="/images/free.png" />
+                        }
+                        @if (Model.IsFree(Model.Room.Id) == 2)
+                        {
+                            <img border="0" width="55" height="30" src="/images/occupied.png" />
+                        }
+                    </td>
+                    <td>
+                        @if (Model.Room.Active)
+                        {
+                            <img border="0" width="55" height="30" src="/images/active.png" />
+                        }
+                        @if (!Model.Room.Active)
+                        {
+                            <img border="0" width="55" height="30" src="/images/inactive.png" />
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Room.ModifiedAt.DateTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Room.ModifiedBy)
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Room.Name)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Room.Name)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Room.CreatedBy)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Room.CreatedBy)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Room.ModifiedBy)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Room.ModifiedBy)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Room.CreatedAt)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Room.CreatedAt)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Room.ModifiedAt)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Room.ModifiedAt)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-page="./Edit" asp-route-id="@Model.Room.Id">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    <div>
+        <h4>Änderungsverlauf</h4>
+        <textarea rows="5" cols="142" name="description" readonly>
+@Html.DisplayFor(model => model.Room.History)
+         </textarea>
+    </div>
+    <div style="padding: 20px">
+        @if (Model.Room.Active)
+        {
+            <a type="submit" class="btn btn-primary" asp-page="./Edit" asp-route-id="@Model.Room.Id">Bearbeiten</a>
+        }
+        <a type="submit" class="btn btn-primary" asp-page="./Index">Liste Räume</a>
+    </div>
 </div>

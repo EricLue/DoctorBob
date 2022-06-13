@@ -44,6 +44,14 @@ namespace DoctorBob.UI.Pages.TherapyManager
             // Anpassen auf CurrentUser
             Therapy.ModifiedBy = "eluechinger";
             Therapy.ModifiedAt = DateTimeOffset.UtcNow;
+            Therapy.Active = true;
+
+            Therapy.History = "⊕ " + Therapy.ModifiedAt.DateTime.AddHours(2) +
+                " - eluechinger / " + Therapy.Name +
+                " / " + Therapy.QuantityOfDrug + " / " +
+                _context.Drugs.Find(Therapy.DrugId).Name + " / " +
+                Therapy.TimeModelId + " / " + _context.IntakeCategories.Find(Therapy.IntakeCategoryId).Name + 
+                _context.StaffMembers.Find(Therapy.ResponsibleStaffId).LastName + " - AKTIV";
 
             _context.Therapies.Add(Therapy);
             await _context.SaveChangesAsync();

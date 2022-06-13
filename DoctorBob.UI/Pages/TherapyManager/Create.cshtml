@@ -5,37 +5,35 @@
     ViewData["Title"] = "Create";
 }
 
-<h3>Therapie erstellen</h3>
-
-<hr />
 <div class="container border" style="padding: 20px">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Therapy.Name" class="control-label">Name</label>
-                <input asp-for="Therapy.Name" class="form-control" />
-                <span asp-validation-for="Therapy.Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Therapy.QuantityOfDrug" class="control-label">Anzahl</label>
-                <input asp-for="Therapy.QuantityOfDrug" class="form-control" />
-                <span asp-validation-for="Therapy.QuantityOfDrug" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Therapy.DrugId" class="control-label">Medikament</label>
-                <select asp-for="Therapy.DrugId" class="form-control" asp-items="ViewBag.Drug"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="Therapy.TimeModelId" class="control-label">Zeitmodell</label>
-                <select asp-for="Therapy.TimeModelId" class="form-control" asp-items="ViewBag.TimeModel"></select>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Erstellen" class="btn btn-primary" />
-                <a type="submit" class="btn btn-primary" asp-page="Index">Zurück zu Liste</a>
-            </div>
-        </form>
-    </div>
+    <h2>Therapie erfassen</h2>
+
+    <hr />
+    <form method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Therapy.Name" class="control-label">Name</label>
+            <input asp-for="Therapy.Name" class="form-control" />
+            <span asp-validation-for="Therapy.Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Therapy.QuantityOfDrug" class="control-label">Anzahl</label>
+            <input asp-for="Therapy.QuantityOfDrug" class="form-control" />
+            <span asp-validation-for="Therapy.QuantityOfDrug" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Therapy.DrugId" class="control-label">Medikament</label>
+            <select asp-for="Therapy.DrugId" class="form-control" asp-items="ViewBag.Drug"></select>
+        </div>
+        <div class="form-group">
+            <label asp-for="Therapy.TimeModelId" class="control-label">Zeitmodell</label>
+            <select asp-for="Therapy.TimeModelId" class="form-control" asp-items="ViewBag.TimeModel"></select>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Erstellen" class="btn btn-primary" />
+            <a type="submit" class="btn btn-primary" asp-page="Index">Zurück zu Liste</a>
+        </div>
+    </form>
 </div>
 
 @section Scripts {

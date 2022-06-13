@@ -5,63 +5,100 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<div class="container border" style="padding: 20px">
+    <div class="row" style="padding: 10px">
+        <div class="column" style="padding-left: 10px">
+            <h2>@Html.DisplayFor(model => model.Therapy.Id)</h2>
+        </div>
+        <div class="column" style="padding-left: 10px">
+            <h2>- @Html.DisplayFor(model => model.Therapy.Name)</h2>
+        </div>
+    </div>
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayName("Anzahl")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Medikament")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Zeitmodell")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Verabreichung")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Verantwortung")
+                    </th>
+                    <th>
 
-<div>
-    <h4>Therapy</h4>
+                    </th>
+                    <th>
+                        @Html.DisplayName("Bearbeitet")
+                    </th>
+                    <th>
+                        @Html.DisplayName("User")
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => model.Therapy.QuantityOfDrug)
+                    </td>
+                    <td>
+                        <a asp-area="" asp-page="/DrugManager/Details" asp-route-id="@Model.Therapy.DrugId">
+                            <img border="0" alt="view" width="20" height="20" src="/images/details.png" title="Details anzeigen" />
+                        </a>
+                        @Html.DisplayName(Model.GetDrugName(Model.Therapy.DrugId))
+                    </td>
+                    <td>
+                        <a asp-area="" asp-page="/TimeModelManager/Details" asp-route-id="@Model.Therapy.TimeModelId">
+                            <img border="0" alt="view" width="20" height="20" src="/images/details.png" title="Details anzeigen" />
+                        </a>
+                        @Html.DisplayFor(model => model.Therapy.TimeModelId)
+                    </td>
+                    <td>
+                        @Html.DisplayName(Model.GetIntakeCategoryName(Model.Therapy.IntakeCategoryId))
+                    </td>
+                    <td>
+                        @Html.DisplayName(Model.GetStaffName(Model.Therapy.ResponsibleStaffId))
+                    </td>
+                    <td>
+                        @if (Model.Therapy.Active)
+                        {
+                            <img border="0" width="55" height="30" src="/images/active.png" />
+                        }
+                        @if (!Model.Therapy.Active)
+                        {
+                            <img border="0" width="55" height="30" src="/images/inactive.png" />
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Therapy.ModifiedAt.DateTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Therapy.ModifiedBy)
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Therapy.Name)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Therapy.Name)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Therapy.QuantityOfDrug)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Therapy.QuantityOfDrug)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Therapy.Drug)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Therapy.Drug.Id)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Therapy.TimeModel)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Therapy.TimeModel.Id)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Therapy.CreatedBy)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Therapy.CreatedBy)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Therapy.ModifiedBy)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Therapy.ModifiedBy)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Therapy.CreatedAt)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Therapy.CreatedAt)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Therapy.ModifiedAt)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Therapy.ModifiedAt)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-page="./Edit" asp-route-id="@Model.Therapy.Id">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    <div>
+        <h4>Änderungsverlauf</h4>
+        <textarea rows="5" cols="142" name="description" readonly>
+@Html.DisplayFor(model => model.Therapy.History)
+         </textarea>
+    </div>
+    <div style="padding: 20px">
+        @if (Model.Therapy.Active)
+        {
+            <a type="submit" class="btn btn-primary" asp-page="./Edit" asp-route-id="@Model.Therapy.Id">Bearbeiten</a>
+        }
+        <a type="submit" class="btn btn-primary" asp-page="./Index">Liste Therapien</a>
+    </div>
 </div>

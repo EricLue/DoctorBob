@@ -42,6 +42,10 @@ namespace DoctorBob.UI.Pages.RoomManager
             // Anpassen auf CurrentUser
             Room.ModifiedBy = "eluechinger";
             Room.ModifiedAt = DateTimeOffset.UtcNow;
+            Room.Active = true;
+
+            Room.History = "⊕ " + Room.ModifiedAt.DateTime.AddHours(2) +
+                " - eluechinger / " + Room.Name + " - AKTIV";
 
             _context.Rooms.Add(Room);
             await _context.SaveChangesAsync();

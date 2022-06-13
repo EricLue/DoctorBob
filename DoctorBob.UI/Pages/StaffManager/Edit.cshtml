@@ -5,66 +5,43 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
-
-<h4>Staff</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Staff.Id" />
-            <div class="form-group">
-                <label asp-for="Staff.FirstName" class="control-label"></label>
-                <input asp-for="Staff.FirstName" class="form-control" />
-                <span asp-validation-for="Staff.FirstName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Staff.LastName" class="control-label"></label>
-                <input asp-for="Staff.LastName" class="form-control" />
-                <span asp-validation-for="Staff.LastName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Staff.Role" class="control-label"></label>
-                <select asp-for="Staff.Role" class="form-control"></select>
-                <span asp-validation-for="Staff.Role" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Staff.Username" class="control-label"></label>
-                <input asp-for="Staff.Username" class="form-control" />
-                <span asp-validation-for="Staff.Username" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Staff.CreatedBy" class="control-label"></label>
-                <input asp-for="Staff.CreatedBy" class="form-control" />
-                <span asp-validation-for="Staff.CreatedBy" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Staff.ModifiedBy" class="control-label"></label>
-                <input asp-for="Staff.ModifiedBy" class="form-control" />
-                <span asp-validation-for="Staff.ModifiedBy" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Staff.CreatedAt" class="control-label"></label>
-                <input asp-for="Staff.CreatedAt" class="form-control" />
-                <span asp-validation-for="Staff.CreatedAt" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Staff.ModifiedAt" class="control-label"></label>
-                <input asp-for="Staff.ModifiedAt" class="form-control" />
-                <span asp-validation-for="Staff.ModifiedAt" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+<div class="container border" style="padding: 20px">
+    <h2>Personal bearbeiten</h2>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Staff.Id" />
+                <div class="form-group">
+                    <label asp-for="Staff.FirstName" class="control-label">Vorname</label>
+                    <input asp-for="Staff.FirstName" class="form-control" />
+                    <span asp-validation-for="Staff.FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Staff.LastName" class="control-label">Nachname</label>
+                    <input asp-for="Staff.LastName" class="form-control" />
+                    <span asp-validation-for="Staff.LastName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Staff.RoleId" class="control-label">Rolle</label>
+                    <select asp-for="Staff.RoleId" class="form-control" asp-items="ViewBag.Role"></select>
+                    <span asp-validation-for="Staff.RoleId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Staff.Username" class="control-label">Username</label>
+                    <input asp-for="Staff.Username" class="form-control" />
+                    <span asp-validation-for="Staff.Username" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Speichern" class="btn btn-primary" />
+                    <a type="submit" class="btn btn-primary" asp-page="./Index">Zurück zu Liste</a>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
+    </div>
 
-<div>
-    <a asp-page="./Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

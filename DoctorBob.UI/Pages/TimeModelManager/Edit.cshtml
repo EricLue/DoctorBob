@@ -5,51 +5,32 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
-
-<h4>TimeModel</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="TimeModel.Id" />
-            <div class="form-group">
-                <label asp-for="TimeModel.Time" class="control-label"></label>
-                <input asp-for="TimeModel.Time" class="form-control" />
-                <span asp-validation-for="TimeModel.Time" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TimeModel.CreatedBy" class="control-label"></label>
-                <input asp-for="TimeModel.CreatedBy" class="form-control" />
-                <span asp-validation-for="TimeModel.CreatedBy" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TimeModel.ModifiedBy" class="control-label"></label>
-                <input asp-for="TimeModel.ModifiedBy" class="form-control" />
-                <span asp-validation-for="TimeModel.ModifiedBy" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TimeModel.CreatedAt" class="control-label"></label>
-                <input asp-for="TimeModel.CreatedAt" class="form-control" />
-                <span asp-validation-for="TimeModel.CreatedAt" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TimeModel.ModifiedAt" class="control-label"></label>
-                <input asp-for="TimeModel.ModifiedAt" class="form-control" />
-                <span asp-validation-for="TimeModel.ModifiedAt" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+<div class="container border" style="padding: 20px">
+    <h2>Zeitmodell bearbeiten</h2>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="TimeModel.Id" />
+                <div class="form-group">
+                    <label asp-for="TimeModel.Time" class="control-label">Zeit</label>
+                    <input asp-for="TimeModel.Time" class="form-control" />
+                    <span asp-validation-for="TimeModel.Time" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TimeModel.DailyNumber" class="control-label">Anzahl pro Tag</label>
+                    <input asp-for="TimeModel.DailyNumber" class="form-control" />
+                    <span asp-validation-for="TimeModel.DailyNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Speichern" class="btn btn-primary" />
+                    <a type="submit" class="btn btn-primary" asp-page="./Index">Zurück zu Liste</a>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-page="./Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

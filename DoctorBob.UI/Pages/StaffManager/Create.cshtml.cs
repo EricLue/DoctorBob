@@ -43,7 +43,12 @@ namespace DoctorBob.UI.Pages.StaffManager
             // Anpassen auf CurrentUser
             Staff.ModifiedBy = "eluechinger";
             Staff.ModifiedAt = DateTimeOffset.UtcNow;
+            Staff.Active = true;
 
+
+            Staff.History = "⊕ " + Staff.ModifiedAt.DateTime.AddHours(2) +
+                " - eluechinger / " + Staff.FirstName + " " + Staff.LastName + " / " +
+                _context.Roles.Find(Staff.RoleId).Name + " / " + Staff.Username + " / *** - AKTIV";
             _context.StaffMembers.Add(Staff);
             await _context.SaveChangesAsync();
 

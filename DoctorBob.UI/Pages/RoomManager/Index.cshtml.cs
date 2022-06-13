@@ -33,5 +33,39 @@ namespace DoctorBob.UI.Pages.RoomManager
             }
             Room = await entity.ToListAsync();
         }
+
+        public int IsFree(int id)
+        {
+            if (id < 900)
+            {
+                bool found = false;
+                foreach (var entity in _context.Patients.ToList())
+                {
+                    if (entity.Active)
+                    {
+                        if (entity.RoomId == id)
+                        {
+                            found = true;
+                            break;
+                        }
+                    }
+                }
+                if (!found)
+                {
+                    // frei
+                    return 1;
+                }
+                else
+                {
+                    // belegt
+                    return 2;
+                }
+            }
+            else
+            {
+                // kein Patientenraum
+                return 3;
+            }
+        }
     }
 }

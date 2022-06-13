@@ -32,30 +32,52 @@
                     @Html.DisplayNameFor(model => model.Room[0].Name)
                 </th>
                 <th></th>
+                <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model.Room)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Id)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
-                        <a asp-page="./Edit" asp-route-id="@item.Id">
-                            <img border="0" alt="edit" width="20" height="20" src="/images/edit.png" title="Bearbeiten" />
-                        </a>
-                        <a asp-page="./Details" asp-route-id="@item.Id">
-                            <img border="0" alt="view" width="20" height="20" src="/images/details.png" title="Details anzeigen" />
-                        </a>
-                        <a asp-page="./Delete" asp-route-id="@item.Id">
-                            <img border="0" alt="delete" width="20" height="20" src="/images/delete.png" title="Löschen" />
-                        </a>
-                    </td>
-                </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @if (Model.IsFree(item.Id) == 1)
+                    {
+                        <img border="0" width="55" height="30" src="/images/free.png" />
+                    }
+                    @if (Model.IsFree(item.Id) == 2)
+                    {
+                        <img border="0" width="55" height="30" src="/images/occupied.png" />
+                    }
+                </td>
+                <td>
+                    @if (item.Active)
+                    {
+                        <img border="0" width="55" height="30" src="/images/active.png" />
+                    }
+                    @if (!item.Active)
+                    {
+                        <img border="0" width="55" height="30" src="/images/inactive.png" />
+                    }
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">
+                        <img border="0" alt="edit" width="20" height="20" src="/images/edit.png" title="Bearbeiten" />
+                    </a>
+                    <a asp-page="./Details" asp-route-id="@item.Id">
+                        <img border="0" alt="view" width="20" height="20" src="/images/details.png" title="Details anzeigen" />
+                    </a>
+                    <a asp-page="./Delete" asp-route-id="@item.Id">
+                        <img border="0" alt="delete" width="20" height="20" src="/images/delete.png" title="Löschen" />
+                    </a>
+                </td>
+            </tr>
             }
         </tbody>
     </table>

@@ -36,13 +36,5 @@ namespace DoctorBob.UI.Pages.DrugManager
             }
             return Page();
         }
-
-        public String GetModifyInfo(int Id)
-        {
-            DateTime date = _context.Drugs.Find(Id).ModifiedAt.DateTime;
-            string info = date + " ";
-            info += _context.Drugs.Find(Id).ModifiedBy;
-            return info;
-        }
     }
 }

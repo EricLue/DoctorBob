@@ -5,45 +5,72 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
-
-<div>
-    <h4>TimeModel</h4>
+<div class="container border" style="padding: 20px">
+    <div class="row" style="padding: 10px">
+        <div class="column" style="padding-left: 10px">
+            <h2>Zeitmodell Nr. @Html.DisplayFor(model => model.TimeModel.Id)</h2>
+        </div>
+    </div>
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayName("Zeit")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Anzahl pro Tag")
+                    </th>
+                    <th>
+                    </th>
+                    <th>
+                        @Html.DisplayName("Bearbeitet")
+                    </th>
+                    <th>
+                        @Html.DisplayName("User")
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => model.TimeModel.Time)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.TimeModel.DailyNumber)
+                    </td>
+                    <td>
+                        @if (Model.TimeModel.Active)
+                        {
+                            <img border="0" width="55" height="30" src="/images/active.png" />
+                        }
+                        @if (!Model.TimeModel.Active)
+                        {
+                            <img border="0" width="55" height="30" src="/images/inactive.png" />
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.TimeModel.ModifiedAt.DateTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.TimeModel.ModifiedBy)
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TimeModel.Time)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TimeModel.Time)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TimeModel.CreatedBy)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TimeModel.CreatedBy)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TimeModel.ModifiedBy)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TimeModel.ModifiedBy)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TimeModel.CreatedAt)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TimeModel.CreatedAt)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TimeModel.ModifiedAt)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TimeModel.ModifiedAt)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-page="./Edit" asp-route-id="@Model.TimeModel.Id">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    <div>
+        <h4>Änderungsverlauf</h4>
+        <textarea rows="5" cols="142" name="description" readonly>
+@Html.DisplayFor(model => model.TimeModel.History)
+         </textarea>
+    </div>
+    <div style="padding: 20px">
+        @if (Model.TimeModel.Active)
+        {
+            <a type="submit" class="btn btn-primary" asp-page="./Edit" asp-route-id="@Model.TimeModel.Id">Bearbeiten</a>
+        }
+        <a type="submit" class="btn btn-primary" asp-page="./Index">Liste Medikamente</a>
+    </div>
 </div>

@@ -5,49 +5,49 @@
     ViewData["Title"] = "Create";
 }
 
-<h3>Personal erfassen</h3>
-<hr />
 <div class="container border" style="padding: 20px">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div style="display: flex">
-                <div class="form-group" style="padding-right:10px">
-                    <label asp-for="Staff.FirstName" class="control-label" style="width: 400px">Vorname</label>
-                    <input asp-for="Staff.FirstName" class="form-control" />
-                    <span asp-validation-for="Staff.FirstName" class="text-danger"></span>
+    <h2>Personal erfassen</h2>
+    <hr />
+        <div class="col-md-4">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div style="display: flex">
+                    <div class="form-group" style="padding-right:10px">
+                        <label asp-for="Staff.FirstName" class="control-label" style="width: 400px">Vorname</label>
+                        <input asp-for="Staff.FirstName" class="form-control" />
+                        <span asp-validation-for="Staff.FirstName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="padding-right:10px">
+                        <label asp-for="Staff.LastName" class="control-label" style="width: 400px">Nachname</label>
+                        <input asp-for="Staff.LastName" class="form-control" />
+                        <span asp-validation-for="Staff.LastName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="padding-right:10px">
+                        <label asp-for="Staff.Role" class="control-label" style="width: 200px">Rolle</label>
+                        <select asp-for="Staff.RoleId" class="form-control" asp-items="ViewBag.Role"></select>
+                        <span asp-validation-for="Staff.Role" class="text-danger"></span>
+                    </div>
                 </div>
-                <div class="form-group" style="padding-right:10px">
-                    <label asp-for="Staff.LastName" class="control-label" style="width: 400px">Nachname</label>
-                    <input asp-for="Staff.LastName" class="form-control" />
-                    <span asp-validation-for="Staff.LastName" class="text-danger"></span>
+                <div style="display: flex">
+                    <div class="form-group" style="padding-right:10px">
+                        <label asp-for="Staff.Username" class="control-label" style="width: 400px">Benutzername</label>
+                        <input asp-for="Staff.Username" class="form-control" />
+                        <span asp-validation-for="Staff.Username" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="padding-right:10px">
+                        <label asp-for="Staff.Password" class="control-label" style="width: 400px">Passwort</label>
+                        <input asp-for="Staff.Password" class="form-control" />
+                        <span asp-validation-for="Staff.Password" class="text-danger"></span>
+                    </div>
                 </div>
-                <div class="form-group" style="padding-right:10px">
-                    <label asp-for="Staff.Role" class="control-label" style="width: 210px">Rolle</label>
-                    <select asp-for="Staff.RoleId" class="form-control" asp-items="ViewBag.Role"></select>
-                    <span asp-validation-for="Staff.Role" class="text-danger"></span>
+                <div class="form-group">
+                    <input type="submit" value="Erstellen" class="btn btn-primary" />
+                    <a type="submit" class="btn btn-primary" asp-page="Index">Zurück zu Liste</a>
                 </div>
-            </div>
-            <div style="display: flex">
-                <div class="form-group" style="padding-right:10px">
-                    <label asp-for="Staff.Username" class="control-label"  style="width: 400px">Benutzername</label>
-                    <input asp-for="Staff.Username" class="form-control" />
-                    <span asp-validation-for="Staff.Username" class="text-danger"></span>
-                </div>
-                <div class="form-group" style="padding-right:10px">
-                    <label asp-for="Staff.Password" class="control-label" style="width: 400px">Passwort</label>
-                    <input asp-for="Staff.Password" class="form-control" />
-                    <span asp-validation-for="Staff.Password" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Erstellen" class="btn btn-primary" /> 
-                <a type="submit" class="btn btn-primary" asp-page="Index">Zurück zu Liste</a>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
-</div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

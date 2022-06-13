@@ -13,7 +13,6 @@ namespace DoctorBob.UI.Pages.DrugManager
     public class IndexModel : PageModel
     {
         private readonly DoctorBobContext _context;
-        public bool Active;
 
         public IndexModel(DoctorBobContext context)
         {

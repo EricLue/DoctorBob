@@ -103,10 +103,13 @@ namespace DoctorBob.UI.Pages.DrugManager
                 List<Therapy> list = _context.Therapies.ToList<Therapy>();
                 foreach (var entity in list)
                 {
-                    if (entity.DrugId == Drug.Id)
+                    if (entity.Active)
                     {
-                        used = true;
-                        break;
+                        if (entity.DrugId == Drug.Id)
+                        {
+                            used = true;
+                            break;
+                        }
                     }
                 }
 

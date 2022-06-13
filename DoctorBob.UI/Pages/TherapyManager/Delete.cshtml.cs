@@ -7,12 +7,15 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using DoctorBob.Core.Common.Infrastructure.Context;
 using DoctorBob.Core.TherapyManagement.Domain;
+using DoctorBob.Core.PatientManagement.Domain;
+using System.IO;
 
 namespace DoctorBob.UI.Pages.TherapyManager
 {
     public class DeleteModel : PageModel
     {
         private readonly DoctorBob.Core.Common.Infrastructure.Context.DoctorBobContext _context;
+        string historyTemp;
 
         public DeleteModel(DoctorBob.Core.Common.Infrastructure.Context.DoctorBobContext context)
         {
@@ -37,7 +40,55 @@ namespace DoctorBob.UI.Pages.TherapyManager
             {
                 return NotFound();
             }
+
+            historyTemp = Therapy.History;
+
+            if (!String.IsNullOrEmpty(historyTemp))
+            {
+                WriteHistory();
+
+            }
+
             return Page();
+        }
+
+        public void WriteHistory()
+        {
+            // Set a variable to the Documents path.
+            string docPath = @"C:\visual\DoctorBob\DoctorBob.Core\Common\Domain";
+
+            // Write the string array to a new file named "WriteLines.txt".
+            using (StreamWriter outputFile = new StreamWriter(Path.Combine(docPath, "History.txt")))
+            {
+                outputFile.WriteLine(historyTemp);
+            }
+        }
+
+        public String ReadHistory()
+        {
+            string readedHistory;
+            // Set a variable to the Documents path.
+            string docPath = @"C:\visual\DoctorBob\DoctorBob.Core\Common\Domain";
+
+            // Write the string array to a new file named "WriteLines.txt".
+            using (StreamReader inputFile = new StreamReader(Path.Combine(docPath, "History.txt")))
+            {
+                readedHistory = inputFile.ReadToEnd();
+            }
+            return readedHistory;
+        }
+
+        public void DeleteContent()
+        {
+            // Set a variable to the Documents path.
+            string docPath = @"C:\visual\DoctorBob\DoctorBob.Core\Common\Domain";
+
+            // Write the string array to a new file named "WriteLines.txt".
+            using (StreamWriter outputFile = new StreamWriter(Path.Combine(docPath, "History.txt")))
+            {
+                outputFile.WriteLine("");
+            }
+
         }
 
         public async Task<IActionResult> OnPostAsync(int? id)
@@ -51,11 +102,48 @@ namespace DoctorBob.UI.Pages.TherapyManager
 
             if (Therapy != null)
             {
-                _context.Therapies.Remove(Therapy);
-                await _context.SaveChangesAsync();
+                bool used = false;
+                List<Patient> list = _context.Patients.ToList<Patient>();
+                foreach (var entity in list)
+                {
+                    if (entity.Active)
+                    {
+                        if (entity.TherapyId == Therapy.Id)
+                        {
+                            used = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (!used)
+                {
+                    DateTimeOffset modifyDateTime = DateTimeOffset.Now;
+                    Therapy.Active = false;
+
+                    Therapy.HistoryTemp = "⊕ " + modifyDateTime.DateTime + " - " + "eluechinger" + " / " + Therapy.Name +
+                " / " + Therapy.QuantityOfDrug + " / " +
+                _context.Drugs.Find(Therapy.DrugId).Name + " / " +
+                Therapy.TimeModelId + " / " + _context.IntakeCategories.Find(Therapy.IntakeCategoryId).Name +
+                _context.StaffMembers.Find(Therapy.ResponsibleStaffId).LastName + " - INAKTIV";
+
+                    Therapy.HistoryTempInternal = ReadHistory();
+                    DeleteContent();
+
+                    // Anpassen auf CurrentUser
+                    Therapy.ModifiedBy = "eluechinger";
+                    Therapy.ModifiedAt = modifyDateTime.DateTime;
+                    await _context.SaveChangesAsync();
+                }
             }
 
-            return RedirectToPage("./Index");
+                return RedirectToPage("./Index");
+          
+        }
+
+        public String GetDrugName (int id)
+        {
+            return _context.Drugs.Find(id).Name;
         }
     }
 }

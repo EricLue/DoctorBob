@@ -5,30 +5,31 @@
     ViewData["Title"] = "Create";
 }
 
-<h3>Zeitmodell erstellen</h3>
-<hr />
 <div class="container border" style="padding: 20px">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="TimeModel.Time" class="control-label">Zeit</label>
-                <input asp-for="TimeModel.Time" class="form-control" />
-                <span asp-validation-for="TimeModel.Time" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TimeModel.DailyNumber" class="control-label">Tägliche Anzahl</label>
-                <input asp-for="TimeModel.DailyNumber" class="form-control" />
-                <span asp-validation-for="TimeModel.DailyNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Erstellen" class="btn btn-primary" />
-                <a type="submit" class="btn btn-primary" asp-page="Index">Zurück zu Liste</a>
-            </div>
-        </form>
-    </div>
-</div>
+    <h2>Zeitmodell erfassen</h2>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    <hr />
+        <div class="col-md-4">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="TimeModel.Time" class="control-label">Zeit</label>
+                    <input asp-for="TimeModel.Time" class="form-control" />
+                    <span asp-validation-for="TimeModel.Time" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TimeModel.DailyNumber" class="control-label">Tägliche Anzahl</label>
+                    <input asp-for="TimeModel.DailyNumber" class="form-control" />
+                    <span asp-validation-for="TimeModel.DailyNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Erstellen" class="btn btn-primary" />
+                    <a type="submit" class="btn btn-primary" asp-page="Index">Zurück zu Liste</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

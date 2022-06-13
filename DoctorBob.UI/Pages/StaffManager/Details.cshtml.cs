@@ -36,5 +36,10 @@ namespace DoctorBob.UI.Pages.StaffManager
             }
             return Page();
         }
+
+        public String GetRoleName(int id)
+        {
+            return _context.Roles.Find(id).Name;
+        } 
     }
 }

@@ -38,5 +38,23 @@ namespace DoctorBob.UI.Pages.TherapyManager
             }
             return Page();
         }
+
+        public String GetDrugName(int Id)
+        {
+            return _context.Drugs.Find(Id).Name;
+        }
+
+        public String GetIntakeCategoryName(int Id)
+        {
+            return _context.IntakeCategories.Find(Id).Name;
+        }
+
+        public String GetStaffName(int Id)
+        {
+            string Name = _context.StaffMembers.Find(Id).FirstName.Substring(0, 2);
+            Name += ". ";
+            Name += _context.StaffMembers.Find(Id).LastName;
+            return Name;
+        }
     }
 }

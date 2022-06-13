@@ -8,12 +8,14 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DoctorBob.Core.Common.Infrastructure.Context;
 using DoctorBob.Core.StaffManagement.Domain;
+using System.IO;
 
 namespace DoctorBob.UI.Pages.StaffManager
 {
     public class EditModel : PageModel
     {
         private readonly DoctorBob.Core.Common.Infrastructure.Context.DoctorBobContext _context;
+        string historyTemp;
 
         public EditModel(DoctorBob.Core.Common.Infrastructure.Context.DoctorBobContext context)
         {
@@ -37,7 +39,53 @@ namespace DoctorBob.UI.Pages.StaffManager
                 return NotFound();
             }
             ViewData["Role"] = new SelectList(_context.Roles, "Id", "Name");
+            historyTemp = Staff.History;
+
+            if (!String.IsNullOrEmpty(historyTemp))
+            {
+                WriteHistory();
+
+            }
             return Page();
+        }
+
+        public void WriteHistory()
+        {
+            // Set a variable to the Documents path.
+            string docPath = @"C:\visual\DoctorBob\DoctorBob.Core\Common\Domain";
+
+            // Write the string array to a new file named "WriteLines.txt".
+            using (StreamWriter outputFile = new StreamWriter(Path.Combine(docPath, "History.txt")))
+            {
+                outputFile.WriteLine(historyTemp);
+            }
+        }
+
+        public String ReadHistory()
+        {
+            string readedHistory;
+            // Set a variable to the Documents path.
+            string docPath = @"C:\visual\DoctorBob\DoctorBob.Core\Common\Domain";
+
+            // Write the string array to a new file named "WriteLines.txt".
+            using (StreamReader inputFile = new StreamReader(Path.Combine(docPath, "History.txt")))
+            {
+                readedHistory = inputFile.ReadToEnd();
+            }
+            return readedHistory;
+        }
+
+        public void DeleteContent()
+        {
+            // Set a variable to the Documents path.
+            string docPath = @"C:\visual\DoctorBob\DoctorBob.Core\Common\Domain";
+
+            // Write the string array to a new file named "WriteLines.txt".
+            using (StreamWriter outputFile = new StreamWriter(Path.Combine(docPath, "History.txt")))
+            {
+                outputFile.WriteLine("");
+            }
+
         }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to.
@@ -48,6 +96,25 @@ namespace DoctorBob.UI.Pages.StaffManager
             {
                 return Page();
             }
+
+            DateTimeOffset modifyDateTime = DateTimeOffset.Now;
+            Staff.Active = true;
+            Staff.HistoryTemp = "⊕ " + modifyDateTime.DateTime + " - " + "eluechinger" + " / " + Staff.FirstName + " " + Staff.LastName + " / " +
+                _context.Roles.Find(Staff.RoleId).Name + " / " + Staff.Username + " / ***";
+            if (Staff.Active)
+            {
+                Staff.HistoryTemp += " - AKTIV";
+            }
+            else
+            {
+                Staff.HistoryTemp += " - INAKTIV";
+            }
+            Staff.HistoryTempInternal = ReadHistory();
+            DeleteContent();
+
+            // Anpassen auf CurrentUser
+            Staff.ModifiedBy = "eluechinger";
+            Staff.ModifiedAt = modifyDateTime.DateTime;
 
             _context.Attach(Staff).State = EntityState.Modified;
 

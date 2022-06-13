@@ -7,12 +7,14 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using DoctorBob.Core.Common.Infrastructure.Context;
 using DoctorBob.Core.PatientManagement.Domain;
+using System.IO;
 
 namespace DoctorBob.UI.Pages.RoomManager
 {
     public class DeleteModel : PageModel
     {
         private readonly DoctorBob.Core.Common.Infrastructure.Context.DoctorBobContext _context;
+        string historyTemp;
 
         public DeleteModel(DoctorBob.Core.Common.Infrastructure.Context.DoctorBobContext context)
         {
@@ -35,7 +37,55 @@ namespace DoctorBob.UI.Pages.RoomManager
             {
                 return NotFound();
             }
+
+            historyTemp = Room.History;
+
+            if (!String.IsNullOrEmpty(historyTemp))
+            {
+                WriteHistory();
+
+            }
+
             return Page();
+        }
+
+        public void WriteHistory()
+        {
+            // Set a variable to the Documents path.
+            string docPath = @"C:\visual\DoctorBob\DoctorBob.Core\Common\Domain";
+
+            // Write the string array to a new file named "WriteLines.txt".
+            using (StreamWriter outputFile = new StreamWriter(Path.Combine(docPath, "History.txt")))
+            {
+                outputFile.WriteLine(historyTemp);
+            }
+        }
+
+        public String ReadHistory()
+        {
+            string readedHistory;
+            // Set a variable to the Documents path.
+            string docPath = @"C:\visual\DoctorBob\DoctorBob.Core\Common\Domain";
+
+            // Write the string array to a new file named "WriteLines.txt".
+            using (StreamReader inputFile = new StreamReader(Path.Combine(docPath, "History.txt")))
+            {
+                readedHistory = inputFile.ReadToEnd();
+            }
+            return readedHistory;
+        }
+
+        public void DeleteContent()
+        {
+            // Set a variable to the Documents path.
+            string docPath = @"C:\visual\DoctorBob\DoctorBob.Core\Common\Domain";
+
+            // Write the string array to a new file named "WriteLines.txt".
+            using (StreamWriter outputFile = new StreamWriter(Path.Combine(docPath, "History.txt")))
+            {
+                outputFile.WriteLine("");
+            }
+
         }
 
         public async Task<IActionResult> OnPostAsync(int? id)
@@ -49,8 +99,37 @@ namespace DoctorBob.UI.Pages.RoomManager
 
             if (Room != null)
             {
-                _context.Rooms.Remove(Room);
-                await _context.SaveChangesAsync();
+                bool used = false;
+                List<Patient> list = _context.Patients.ToList<Patient>();
+                foreach (var entity in list)
+                {
+                    if (entity.Active)
+                    {
+                        if (entity.RoomId == Room.Id)
+                        {
+                            used = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (!used)
+                {
+                    DateTimeOffset modifyDateTime = DateTimeOffset.Now;
+                    Room.Active = false;
+
+                    Room.HistoryTemp = "⊕ " + modifyDateTime.DateTime + " - " + "eluechinger" + " / " + Room.Name +
+                    " - INAKTIV";
+
+                    Room.HistoryTempInternal = ReadHistory();
+                    DeleteContent();
+
+                    // Anpassen auf CurrentUser
+                    Room.ModifiedBy = "eluechinger";
+                    Room.ModifiedAt = modifyDateTime.DateTime;
+
+                    await _context.SaveChangesAsync();
+                }
             }
 
             return RedirectToPage("./Index");

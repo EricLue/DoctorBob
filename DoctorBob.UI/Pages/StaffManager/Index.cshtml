@@ -40,52 +40,65 @@
                     @Html.DisplayName("Benutzername")
                 </th>
                 <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
 
             @foreach (var item in Model.Staff)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Id)
-                    </td>
-                    <td>
-                        @if (item.RoleId == 1)
-                        {
-                            <img border="0" width="30" height="30" src="/images/nurse.png" />
-                        }
-                        @if (item.RoleId == 2)
-                        {
-                            <img border="0" width="30" height="30" src="/images/doctor.png" />
-                        }
-                        @if (item.RoleId == 3)
-                        {
-                            <img border="0" width="30" height="30" src="/images/chiefdoctor.png" />
-                        }
-                        @if (item.RoleId == 4)
-                        {
-                            <img border="0" width="30" height="30" src="/images/anasthaesic.png" />
-                        }
-                        @if (item.RoleId == 5)
-                        {
-                            <img border="0" width="30" height="30" src="/images/technic.png" />
-                        }
-                        @if (item.RoleId == 6)
-                        {
-                            <img border="0" width="30" height="30" src="/images/admin.png" />
-                        }
-                    </td>
-                    <td>
-                        @Html.DisplayName(Model.GetStaffName(item.Id))
-                    </td>
-                    <td>
-                        @Html.DisplayName(Model.GetRoleName(item.RoleId))
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Username)
-                    </td>
-                    <td>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @if (item.RoleId == 1)
+                    {
+                        <img border="0" width="30" height="30" src="/images/nurse.png" />
+                    }
+                    @if (item.RoleId == 2)
+                    {
+                        <img border="0" width="30" height="30" src="/images/doctor.png" />
+                    }
+                    @if (item.RoleId == 3)
+                    {
+                        <img border="0" width="30" height="30" src="/images/chiefdoctor.png" />
+                    }
+                    @if (item.RoleId == 4)
+                    {
+                        <img border="0" width="30" height="30" src="/images/anasthaesic.png" />
+                    }
+                    @if (item.RoleId == 5)
+                    {
+                        <img border="0" width="30" height="30" src="/images/technic.png" />
+                    }
+                    @if (item.RoleId == 6)
+                    {
+                        <img border="0" width="30" height="30" src="/images/admin.png" />
+                    }
+                </td>
+                <td>
+                    @Html.DisplayName(Model.GetStaffName(item.Id))
+                </td>
+                <td>
+                    @Html.DisplayName(Model.GetRoleName(item.RoleId))
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Username)
+                </td>
+                <td>
+                    @if (item.Active)
+                    {
+                        <img border="0" width="55" height="30" src="/images/active.png" />
+                    }
+                    @if (!item.Active)
+                    {
+                        <img border="0" width="55" height="30" src="/images/inactive.png" />
+                    }
+                </td>
+                <td>
+                    @if (item.Active)
+                    {
                         <a asp-page="./Edit" asp-route-id="@item.Id">
                             <img border="0" alt="edit" width="20" height="20" src="/images/edit.png" title="Bearbeiten" />
                         </a>
@@ -93,10 +106,17 @@
                             <img border="0" alt="view" width="20" height="20" src="/images/details.png" title="Details anzeigen" />
                         </a>
                         <a asp-page="./Delete" asp-route-id="@item.Id">
-                            <img border="0" alt="delete" width="20" height="20" src="/images/delete.png" title="Löschen" />
+                            <img border="0" alt="delete" width="20" height="20" src="/images/delete.png" title="Inaktivieren" />
                         </a>
-                    </td>
-                </tr>
+                    }
+                    @if (!item.Active)
+                    {
+                        <a asp-page="./Details" asp-route-id="@item.Id">
+                            <img border="0" alt="view" width="20" height="20" src="/images/details.png" title="Details anzeigen" />
+                        </a>
+                    }
+                </td>
+            </tr>
             }
         </tbody>
     </table>

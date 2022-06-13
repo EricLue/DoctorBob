@@ -42,6 +42,11 @@ namespace DoctorBob.UI.Pages.TimeModelManager
             // Anpassen auf CurrentUser
             TimeModel.ModifiedBy = "eluechinger";
             TimeModel.ModifiedAt = DateTimeOffset.UtcNow;
+            TimeModel.Active = true;
+
+            TimeModel.History = "⊕ " + TimeModel.ModifiedAt.DateTime.AddHours(2) +
+                " - eluechinger / " + TimeModel.Time +
+                " / " + TimeModel.DailyNumber + " - AKTIV";
 
             _context.TimeModels.Add(TimeModel);
             await _context.SaveChangesAsync();
