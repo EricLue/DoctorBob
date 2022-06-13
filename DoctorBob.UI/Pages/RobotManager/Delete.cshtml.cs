@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using DoctorBob.Core.Common.Infrastructure.Context;
 using DoctorBob.Core.RobotManagement.Domain;
+using DoctorBob.Core.OrderManagement.Domain;
 
 namespace DoctorBob.UI.Pages.RobotManager
 {
@@ -50,8 +51,30 @@ namespace DoctorBob.UI.Pages.RobotManager
 
             if (Robot != null)
             {
-                _context.Robots.Remove(Robot);
-                await _context.SaveChangesAsync();
+                bool used = false;
+                List<Order> list = _context.Orders.ToList<Order>();
+                foreach (var entity in list)
+                {
+                    if (entity.RobotId == Robot.Id)
+                    {
+                        if (entity.StateId != 3)
+                        {
+                            used = true;
+                        }
+                    }
+                }
+
+                if (!used)
+                {
+                    DateTimeOffset modifyDateTime = DateTimeOffset.Now;
+                    Robot.Active = false;
+
+                    // Anpassen auf CurrentUser
+                    Robot.ModifiedBy = "eluechinger";
+                    Robot.ModifiedAt = modifyDateTime.DateTime;
+
+                    await _context.SaveChangesAsync();
+                }
             }
 
             return RedirectToPage("./Index");

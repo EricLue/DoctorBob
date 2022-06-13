@@ -32,6 +32,9 @@
                         @Html.DisplayName("Letzter Raum")
                     </th>
                     <th>
+
+                    </th>
+                    <th>
                         @Html.DisplayName("Bearbeitet")
                     </th>
                     <th>
@@ -54,6 +57,16 @@
                         @Html.DisplayName(Model.GetLastRoomName(Model.Robot.LastRoomId))
                     </td>
                     <td>
+                        @if (Model.Robot.Active)
+                        {
+                            <img border="0" width="55" height="30" src="/images/active.png" />
+                        }
+                        @if (!Model.Robot.Active)
+                        {
+                            <img border="0" width="55" height="30" src="/images/inactive.png" />
+                        }
+                    </td>
+                    <td>
                         @Html.DisplayFor(model => model.Robot.ModifiedAt.DateTime)
                     </td>
                     <td>
@@ -63,18 +76,14 @@
             </tbody>
         </table>
     </div>
-    @*<hr />
-    <div>*@
-        @*<h4>Änderungsverlauf</h4>
+    <hr />
+    @*<div>
+        <h4>Änderungsverlauf</h4>
         <textarea rows="5" cols="142" name="description" readonly>
 @Html.DisplayFor(model => model.Drug.History)
          </textarea>
-    </div>
+    </div>*@
     <div style="padding: 20px">
-        @if (Model.Drug.Active)
-        {
-            <a type="submit" class="btn btn-primary" asp-page="./Edit" asp-route-id="@Model.Drug.Id">Bearbeiten</a>
-        }
-        <a type="submit" class="btn btn-primary" asp-page="./Index">Liste Medikamente</a>*@
+        <a type="submit" class="btn btn-primary" asp-page="./Index">Liste Medikamente</a>
     </div>
 </div>

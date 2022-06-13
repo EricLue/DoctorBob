@@ -40,6 +40,7 @@ namespace DoctorBob.UI.Pages.RobotManager
             Robot.CurrentLocation = _context.CurrentLocations.Find(999);
             Robot.Power = 100;
             Robot.Activity = _context.Activities.Find(1);
+            Robot.Active = true;
 
             // Anpassen auf CurrentUser
             Robot.CreatedBy = "eluechinger";
