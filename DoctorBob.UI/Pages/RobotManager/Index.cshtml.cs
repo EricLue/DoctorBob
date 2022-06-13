@@ -50,5 +50,18 @@ namespace DoctorBob.UI.Pages.RobotManager
         {
             return _context.Activities.Find(Id).Name;
         }
+
+        public String GetNumOfPatients()
+        {
+            int num = 0;
+            foreach (var entity in _context.Patients)
+            {
+                if (entity.Active)
+                {
+                    num++;
+                }
+            }
+            return num.ToString();
+        }
     }
 }

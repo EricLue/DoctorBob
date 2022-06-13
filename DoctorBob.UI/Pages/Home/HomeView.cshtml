@@ -57,7 +57,7 @@
     </div>
     <div class="container border" style="justify-content:center; padding: 20px">
         <a type="submit" class="btn btn-primary" asp-area="" asp-page="/RobotManager/Index">Roboter-Dashboard</a>
-        <a type="submit" class="btn btn-primary" asp-area="" asp-page="/PatientManager/Index">Patienten-Dashboard</a>
+        <a type="submit" class="btn btn-primary" asp-area="" asp-page="/PatientManager/Index">Patienten-Dashboard - @Html.DisplayName(Model.GetNumOfPatients())</a>
         <a type="submit" class="btn btn-dark" asp-area="" asp-page="/OrderManager/Index">Aufträge</a>
         <a type="submit" class="btn btn-danger" asp-area="" asp-page="">Konfliktmanager</a>
     </div>
