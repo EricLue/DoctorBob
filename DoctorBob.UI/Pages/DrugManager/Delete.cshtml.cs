@@ -115,7 +115,7 @@ namespace DoctorBob.UI.Pages.DrugManager
                     DateTimeOffset modifyDateTime = DateTimeOffset.Now;
                     Drug.Active = false;
 
-                    Drug.HistoryTemp = modifyDateTime.DateTime + " - " + "eluechinger" + " / " + Drug.Name +
+                    Drug.HistoryTemp = "⊕ " + modifyDateTime.DateTime + " - " + "eluechinger" + " / " + Drug.Name +
                     " / " + Drug.DoseInMg +
                     " / " + Drug.Description + 
                     " - INAKTIV";

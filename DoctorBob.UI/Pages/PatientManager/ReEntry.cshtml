@@ -1,12 +1,12 @@
 ﻿@page
-@model DoctorBob.UI.Pages.PatientManager.EditModel
+@model DoctorBob.UI.Pages.PatientManager.ReEntryModel
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "ReEntry";
 }
 
 <div class="container border" style="padding: 20px">
-    <h2>Patient bearbeiten</h2>
+    <h2>Wiedereintritt</h2>
     <hr />
     <div class="row">
         <div class="col-md-4">
@@ -26,13 +26,8 @@
                     </div>
                     <div class="form-group" style="padding-right:10px">
                         <label asp-for="Patient.EntryDate" class="control-label" style="width: 60px">Eintritt</label>
-                        <input asp-for="Patient.EntryDate" class="form-control" />
+                        <input asp-for="Patient.EntryDate" class="form-control" value=""/>
                         <span asp-validation-for="Patient.EntryDate" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Patient.LeavingDate" class="control-label" style="width: 60px">Austritt</label>
-                        <input asp-for="Patient.LeavingDate" value="" class="form-control" />
-                        <span asp-validation-for="Patient.LeavingDate" class="text-danger"></span>
                     </div>
                 </div>
                 <div style="display: flex">

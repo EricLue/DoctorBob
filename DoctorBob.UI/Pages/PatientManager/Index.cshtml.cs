@@ -29,7 +29,14 @@ namespace DoctorBob.UI.Pages.PatientManager
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                entity = entity.Where(e => e.FirstName.Contains(searchString) || e.LastName.Contains(searchString));
+                if (searchString.Contains("Aktiv") || searchString.Contains("aktiv"))
+                {
+                    entity = entity.Where(e => e.Active);
+                }
+                else
+                {
+                    entity = entity.Where(e => e.FirstName.Contains(searchString) || e.LastName.Contains(searchString));
+                }
             }
 
             Patient = await entity

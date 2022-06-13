@@ -210,7 +210,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
                     ModifiedAt = new DateTime(2022,01,10,16,44,21),
-                    History = "10.01.2022 15:44:21 - admin / Angela Schmitter / Chefarzt / aschmitter / *** - AKTIV",
+                    History = "⊕ 10.01.2022 15:44:21 - admin / Angela Schmitter / Chefarzt / aschmitter / *** - AKTIV",
                     Active = true
                 },
                 new Staff
@@ -225,7 +225,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
                     ModifiedAt = new DateTime(2022,01,10,16,44,21),
-                    History = "10.01.2022 15:44:21 - admin / Rudolf Sahli / Arzt / rsahli / *** - AKTIV",
+                    History = "⊕ 10.01.2022 15:44:21 - admin / Rudolf Sahli / Arzt / rsahli / *** - AKTIV",
                     Active = true
                 },
                 new Staff
@@ -240,7 +240,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
                     ModifiedAt = new DateTime(2022,01,10,16,44,21),
-                    History = "10.01.2022 15:44:21 - admin / Ibrahim Kesay / Arzt / ikesay / *** - AKTIV",
+                    History = "⊕ 10.01.2022 15:44:21 - admin / Ibrahim Kesay / Arzt / ikesay / *** - AKTIV",
                     Active = true
                 },
                 new Staff
@@ -255,7 +255,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
                     ModifiedAt = new DateTime(2022,01,10,16,44,21),
-                    History = "10.01.2022 15:44:21 - admin / Selina Kluser / Pflegefachperson / skluser / *** - AKTIV",
+                    History = "⊕ 10.01.2022 15:44:21 - admin / Selina Kluser / Pflegefachperson / skluser / *** - AKTIV",
                     Active = true
                 },
                 new Staff
@@ -270,7 +270,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
                     ModifiedAt = new DateTime(2022,01,10,16,44,21),
-                    History = "10.01.2022 15:44:21 - admin / Jacqueline Seitz / Pflegefachperson / jseitz / *** - AKTIV",
+                    History = "⊕ 10.01.2022 15:44:21 - admin / Jacqueline Seitz / Pflegefachperson / jseitz / *** - AKTIV",
                     Active = true
                 },
                 new Staff
@@ -285,7 +285,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
                     ModifiedAt = new DateTime(2022,01,10,16,44,21),
-                    History = "10.01.2022 15:44:21 - admin / Roland Agger / Pflegefachperson / ragger / *** - AKTIV",
+                    History = "⊕ 10.01.2022 15:44:21 - admin / Roland Agger / Pflegefachperson / ragger / *** - AKTIV",
                     Active = true
                 },
                 new Staff
@@ -300,7 +300,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
                     ModifiedAt = new DateTime(2022,01,10,16,44,21),
-                    History = "10.01.2022 15:44:21 - admin / Sybille Fernandez / Pflegefachperson / sfernandez / *** - AKTIV",
+                    History = "⊕ 10.01.2022 15:44:21 - admin / Sybille Fernandez / Pflegefachperson / sfernandez / *** - AKTIV",
                     Active = true
                 },
                 new Staff
@@ -315,7 +315,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
                     ModifiedAt = new DateTime(2022,01,10,16,44,21),
-                    History = "10.01.2022 15:44:21 - admin / Walter Seger / Anästhesie / wseger / *** - AKTIV",
+                    History = "⊕ 10.01.2022 15:44:21 - admin / Walter Seger / Anästhesie / wseger / *** - AKTIV",
                     Active = true
                 },
                 new Staff
@@ -330,7 +330,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
                     ModifiedAt = new DateTime(2022,01,10,16,44,21),
-                    History = "10.01.2022 15:44:21 - admin / Katherina Popp / Administration / kpopp / *** - AKTIV",
+                    History = "⊕ 10.01.2022 15:44:21 - admin / Katherina Popp / Administration / kpopp / *** - AKTIV",
                     Active = true
                 },
                 new Staff
@@ -345,7 +345,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
                     ModifiedAt = new DateTime(2022,01,10,16,44,21),
-                    History = "10.01.2022 15:44:21 - admin / Eric Luechinger / Administration / eluechinger / *** - AKTIV",
+                    History = "⊕ 10.01.2022 15:44:21 - admin / Eric Luechinger / Administration / eluechinger / *** - AKTIV",
                     Active = true
                 },
                 new Staff
@@ -360,7 +360,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
                     ModifiedAt = new DateTime(2022,01,10,16,44,21),
-                    History = "10.01.2022 15:44:21 - admin / Admin / Administration / admin / *** - AKTIV",
+                    History = "⊕ 10.01.2022 15:44:21 - admin / Admin / Administration / admin / *** - AKTIV",
                     Active = true
                 }
             };
@@ -379,7 +379,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
                     ModifiedAt = new DateTime(2022,01,10,16,44,21),
-                    History = "10.01.2022 15:44:21 - admin / Bisoprolol / 5 / Senkung Puls - AKTIV",
+                    History = "⊕ 10.01.2022 15:44:21 - admin / Bisoprolol / 5 / Senkung Puls - AKTIV",
                     Active = true
                 },
                 new Drug
@@ -392,7 +392,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
                     ModifiedAt = new DateTime(2022,01,10,16,44,21),
-                    History = "10.01.2022 15:44:21 - admin / Metformin / 850 / Regulation Blutzucker - AKTIV",
+                    History = "⊕ 10.01.2022 15:44:21 - admin / Metformin / 850 / Regulation Blutzucker - AKTIV",
                     Active = true
                 },
                 new Drug
@@ -405,7 +405,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
                     ModifiedAt = new DateTime(2022,01,10,16,44,21),
-                    History = "10.01.2022 15:44:21 - admin / Novalgin / 500 / Schmerzmittel - AKTIV",
+                    History = "⊕ 10.01.2022 15:44:21 - admin / Novalgin / 500 / Schmerzmittel - AKTIV",
                     Active = true
                 },
                 new Drug
@@ -418,7 +418,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
                     ModifiedAt = new DateTime(2022,01,10,16,44,21),
-                    History = "10.01.2022 15:44:21 - admin / Amlodipin / 5 / Senkung Blutdruck - AKTIV",
+                    History = "⊕ 10.01.2022 15:44:21 - admin / Amlodipin / 5 / Senkung Blutdruck - AKTIV",
                     Active = true
                 },
                 new Drug
@@ -431,7 +431,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
                     ModifiedAt = new DateTime(2022,01,10,16,44,21),
-                    History = "10.01.2022 15:44:21 - admin / Bisoprolol / 5 / Senkung Puls - INAKTIV",
+                    History = "⊕ 10.01.2022 15:44:21 - admin / Bisoprolol / 5 / Senkung Puls - INAKTIV",
                     Active = false
                 },
                 new Drug
@@ -444,7 +444,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
                     ModifiedAt = new DateTime(2022,01,10,16,44,21),
-                    History = "10.01.2022 15:44:21 - admin / Tafalgan / 450 / Schmerzmittel - INAKTIV",
+                    History = "⊕ 10.01.2022 15:44:21 - admin / Tafalgan / 450 / Schmerzmittel - INAKTIV",
                     Active = false
                 }
             };
@@ -461,7 +461,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
                     ModifiedAt = new DateTime(2022,01,10,16,44,21),
-                    History = "10.01.2022 15:44:21 - admin / Raum 101 - AKTIV",
+                    History = "⊕ 10.01.2022 15:44:21 - admin / Raum 101 - AKTIV",
                     Active = true
                 },
                 new Room
@@ -472,7 +472,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
                     ModifiedAt = new DateTime(2022,01,10,16,44,21),
-                    History = "10.01.2022 15:44:21 - admin / Raum 102 - AKTIV",
+                    History = "⊕ 10.01.2022 15:44:21 - admin / Raum 102 - AKTIV",
                     Active = true
                 },
                 new Room
@@ -483,7 +483,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
                     ModifiedAt = new DateTime(2022,01,10,16,44,21),
-                    History = "10.01.2022 15:44:21 - admin / Raum 103 - AKTIV",
+                    History = "⊕ 10.01.2022 15:44:21 - admin / Raum 103 - AKTIV",
                     Active = true
                 },
                 new Room
@@ -494,7 +494,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
                     ModifiedAt = new DateTime(2022,01,10,16,44,21),
-                    History = "10.01.2022 15:44:21 - admin / Raum 104 - AKTIV",
+                    History = "⊕ 10.01.2022 15:44:21 - admin / Raum 104 - AKTIV",
                     Active = true
                 },
                 new Room
@@ -505,7 +505,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
                     ModifiedAt = new DateTime(2022,01,10,16,44,21),
-                    History = "10.01.2022 15:44:21 - admin / Spital-Apotheke - AKTIV",
+                    History = "⊕ 10.01.2022 15:44:21 - admin / Spital-Apotheke - AKTIV",
                     Active = true
                 },
                 new Room
@@ -516,7 +516,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
                     ModifiedAt = new DateTime(2022,01,10,16,44,21),
-                    History = "10.01.2022 15:44:21 - admin / Homebase - AKTIV",
+                    History = "⊕ 10.01.2022 15:44:21 - admin / Homebase - AKTIV",
                     Active = true
                 }
 
@@ -535,7 +535,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
                     ModifiedAt = new DateTime(2022,01,10,16,44,21),
-                    History = "10.01.2022 15:44:21 - admin / 08.30 / 11.00 / 2 - AKTIV",
+                    History = "⊕ 10.01.2022 15:44:21 - admin / 08.30 / 11.00 / 2 - AKTIV",
                     Active = true
                 },
                 new TimeModel
@@ -547,7 +547,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
                     ModifiedAt = new DateTime(2022,01,10,16,44,21),
-                    History = "10.01.2022 15:44:21 - admin / 11.00 / 1 - AKTIV",
+                    History = "⊕ 10.01.2022 15:44:21 - admin / 11.00 / 1 - AKTIV",
                     Active = true
                 },
                 new TimeModel
@@ -559,7 +559,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
                     ModifiedAt = new DateTime(2022,01,10,16,44,21),
-                    History = "10.01.2022 15:44:21 - admin / 08.00 / 14.30 / 18.30 / 3 - AKTIV",
+                    History = "⊕ 10.01.2022 15:44:21 - admin / 08.00 / 14.30 / 18.30 / 3 - AKTIV",
                     Active = true
                 },
                 new TimeModel
@@ -571,7 +571,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
                     ModifiedAt = new DateTime(2022,01,10,16,44,21),
-                    History = "10.01.2022 15:44:21 - admin / 18.00 / 1 - AKTIV",
+                    History = "⊕ 10.01.2022 15:44:21 - admin / 18.00 / 1 - AKTIV",
                     Active = true
                 }
 
@@ -620,7 +620,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     ModifiedAt = new DateTime(2022,01,10,16,44,21),
                     IntakeCategoryId = 1,
                     ResponsibleStaffId = 101,
-                    History = "10.01.2022 15:44:21 - admin / Bisoprolol 1x, 5 mg / 1 / Bisoprolol / 1001 / oral / Sahli - AKTIV",
+                    History = "⊕ 10.01.2022 15:44:21 - admin / Bisoprolol 1x, 5 mg / 1 / Bisoprolol / 1001 / oral / Sahli - AKTIV",
                     Active = true
                 },
                 new Therapy
@@ -636,7 +636,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     ModifiedAt = new DateTime(2022,01,10,16,44,21),
                     IntakeCategoryId = 1,
                     ResponsibleStaffId = 100,
-                    History = "10.01.2022 15:44:21 - admin / Metformin 3x, 2550 mg / 3 / Metformin / 1002 / oral / Schmitter - AKTIV",
+                    History = "⊕ 10.01.2022 15:44:21 - admin / Metformin 3x, 2550 mg / 3 / Metformin / 1002 / oral / Schmitter - AKTIV",
                     Active = true
                 },
                 new Therapy
@@ -652,7 +652,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     ModifiedAt = new DateTime(2022,01,10,16,44,21),
                     IntakeCategoryId = 1,
                     ResponsibleStaffId = 102,
-                    History = "10.01.2022 15:44:21 - admin / Novalgin 1x, 500 mg / 1 / Novalgin / 1003 / oral / Kesay - AKTIV",
+                    History = "⊕ 10.01.2022 15:44:21 - admin / Novalgin 1x, 500 mg / 1 / Novalgin / 1003 / oral / Kesay - AKTIV",
                     Active = true
                 },
                 new Therapy
@@ -668,7 +668,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     ModifiedAt = new DateTime(2022,01,10,16,44,21),
                     IntakeCategoryId = 1,
                     ResponsibleStaffId = 101,
-                    History = "10.01.2022 15:44:21 - admin / Amlodipin 2x, 10 mg / 2 / Amlodipin / 1001 / oral / Sahli - AKTIV",
+                    History = "⊕ 10.01.2022 15:44:21 - admin / Amlodipin 2x, 10 mg / 2 / Amlodipin / 1001 / oral / Sahli - AKTIV",
                     Active = true
                 }
             };
@@ -706,14 +706,14 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     GenderId = 1,
                     RoomId = 101,
                     TherapyId = 101,
-                    CaringStaffId = 100,
+                    CaringStaffId = 123,
                     MedicalHistory = "Blinddarm-OP 20.06.2022",
                     EntryDate = new DateTime(2022,06,20,10,15,03),
                     CreatedBy = "sfernandez",
                     CreatedAt = new DateTime(2022,06,20,10,15,03).AddHours(2),
                     ModifiedBy = "sfernandez",
                     ModifiedAt = new DateTime(2022,06,20,10,15,03).AddHours(2),
-                    History = "20.06.2022 10:15:03 - sfernandez / A. Eichholzer / M / 101 / 101 / Schmitter / Blinddarm-OP 20.06.2022 / IN: 22.06.2022 10:15:03",
+                    History = "⊕ 20.06.2022 10:15:03 - sfernandez / A. Eichholzer / M / Raum 101 / Bisoprolol 1x, 5 mg / Fernandez / Blinddarm-OP 20.06.2022 / IN: 22.06.2022 10:15:03",
                     Active = true
                 },
                 new Patient
@@ -731,7 +731,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedAt = new DateTime(2022,06,25,09,38,57).AddHours(2),
                     ModifiedBy = "skluser",
                     ModifiedAt = new DateTime(2022,06,25,09,38,57).AddHours(2),
-                    History = "25.06.2022 09:38:57 - skluser / M. Watson / F / 102 / 104 / Kluser / Hüftoperation 25.06.2022, Schlaganfall im Juli 2015 / IN: 25.06.2022 09:38:57",
+                    History = "⊕ 25.06.2022 09:38:57 - skluser / M. Watson / F / Raum 102 / Amlodipin 2x, 10 mg / Kluser / Hüftoperation 25.06.2022, Schlaganfall im Juli 2015 / IN: 25.06.2022 09:38:57",
                     Active = true
                 },
                 new Patient
@@ -749,7 +749,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedAt = new DateTime(2022,06,26,20,42,03).AddHours(2),
                     ModifiedBy = "skluser",
                     ModifiedAt = new DateTime(2022,06,26,20,42,03).AddHours(2),
-                    History = "26.06.2022 20:42:03 - skluser / C. Castellazzi / M / 103 / 101 / Seitz / Beinbruch 26.06.2022 / IN: 26.06.2022 20:42:03",
+                    History = "⊕ 26.06.2022 20:42:03 - skluser / C. Castellazzi / M / Raum  103 / Bisoprolol 1x, 5 mg / Seitz / Beinbruch 26.06.2022 / IN: 26.06.2022 20:42:03",
                     Active = true
                 },
                 new Patient
@@ -767,7 +767,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedAt = new DateTime(2022, 06, 27, 05, 18, 22),
                     ModifiedBy = "ragger",
                     ModifiedAt = new DateTime(2022, 06, 27, 05, 18, 22),
-                    History = "27.06.2022 05:18:22 - ragger / L. Zellweger / F / 104 / 104 / Fernandez / Ellbogen-Bruch 27.06.2022, Herzstillstand 05.2011 mit anschliessender Reanimation / IN: 27.06.2022 05:18:22",
+                    History = "⊕ 27.06.2022 05:18:22 - ragger / L. Zellweger / F / Raum  104 / Amlodipin 2x, 10 mg / Fernandez / Ellbogen-Bruch 27.06.2022, Herzstillstand 05.2011 mit anschliessender Reanimation / IN: 27.06.2022 05:18:22",
                     Active = true
                 },
             };
@@ -905,7 +905,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedAt = new DateTime(2022,01,10,16,44,21),
                     ModifiedBy = "admin",
                     ModifiedAt = new DateTime(2022,01,10,16,44,21),
-                    History = "10.01.2022 15:44:21 - admin / DoctorBob R2D2 - AKTIV",
+                    History = "⊕ 10.01.2022 15:44:21 - admin / DoctorBob R2D2 - AKTIV",
                     Active = true
                 }
             };

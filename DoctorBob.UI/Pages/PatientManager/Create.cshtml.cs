@@ -24,7 +24,8 @@ namespace DoctorBob.UI.Pages.PatientManager
         ViewData["Gender"] = new SelectList(_context.Genders, "Id", "Name");
         ViewData["Room"] = new SelectList(_context.Rooms.Where(e => e.Active), "Id", "Name");
         ViewData["Therapy"] = new SelectList(_context.Therapies.Where(e => e.Active), "Id", "Name");
-        ViewData["CaringStaff"] = new SelectList(_context.StaffMembers.Where(e => e.Active), "Id", "Username");
+        ViewData["CaringStaff"] = new SelectList(_context.StaffMembers.Where(e => e.Active)
+            .Where(e => e.RoleId == 1 || e.RoleId == 4), "Id", "LastName");
             return Page();
         }
 
@@ -50,7 +51,7 @@ namespace DoctorBob.UI.Pages.PatientManager
             Patient.ModifiedAt = DateTimeOffset.UtcNow;
 
             Patient.Active = true;
-            Patient.History = Patient.ModifiedAt.DateTime.AddHours(2) + " - eluechinger / " + Patient.FirstName.Substring(0, 1) + ". " + Patient.LastName +
+            Patient.History = "⊕ " + Patient.ModifiedAt.DateTime.AddHours(2) + " - eluechinger / " + Patient.FirstName.Substring(0, 1) + ". " + Patient.LastName +
                 " / ";
             if (Patient.GenderId == 1)
             {
@@ -65,7 +66,8 @@ namespace DoctorBob.UI.Pages.PatientManager
                 Patient.History += " D / ";
             }
 
-            Patient.History += Patient.RoomId + " / " + Patient.TherapyId + " / " +
+            Patient.History += " Raum " + Patient.RoomId + " / " +
+                _context.Therapies.Find(Patient.TherapyId).Name + " / " +
                 _context.StaffMembers.Find(Patient.CaringStaffId).LastName + " / " + Patient.MedicalHistory +
                 " / IN: " + Patient.EntryDate;
 

@@ -101,7 +101,14 @@
          </textarea>
     </div>
     <div style="padding: 20px">
-        <a type="submit" class="btn btn-primary" asp-page="./Edit" asp-route-id="@Model.Patient.Id">Bearbeiten</a>
+        @if (!Model.Patient.Active)
+        {
+            <a type="submit" class="btn btn-primary" asp-page="./ReEntry" asp-route-id="@Model.Patient.Id">Wiedereintritt</a>
+        }
+        @if (Model.Patient.Active)
+        {
+            <a type="submit" class="btn btn-primary" asp-page="./Edit" asp-route-id="@Model.Patient.Id">Bearbeiten</a>
+        }
         <a type="submit" class="btn btn-primary" asp-page="./Index">Liste Patienten</a>
     </div>
 </div>

@@ -44,7 +44,7 @@ namespace DoctorBob.UI.Pages.DrugManager
             Drug.ModifiedAt = DateTimeOffset.UtcNow;
             Drug.Active = true;
 
-            Drug.History = Drug.ModifiedAt.DateTime.AddHours(2) +
+            Drug.History = "⊕ " + Drug.ModifiedAt.DateTime.AddHours(2) +
                 " - eluechinger / " + Drug.Name +
                 " / " + Drug.DoseInMg + " / " +
                 Drug.Description + " - AKTIV";

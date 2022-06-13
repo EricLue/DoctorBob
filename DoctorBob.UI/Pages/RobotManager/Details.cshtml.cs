@@ -37,5 +37,19 @@ namespace DoctorBob.UI.Pages.RobotManager
             }
             return Page();
         }
+        public String GetLocationName(int Id)
+        {
+            return _context.CurrentLocations.Find(Id).Name;
+        }
+
+        public String GetActivityName(int Id)
+        {
+            return _context.Activities.Find(Id).Name;
+        }
+
+        public String GetLastRoomName(int Id)
+        {
+            return _context.Rooms.Find(Id).Name;
+        }
     }
 }

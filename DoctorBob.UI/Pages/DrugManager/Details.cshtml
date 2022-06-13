@@ -94,7 +94,10 @@
          </textarea>
     </div>
     <div style="padding: 20px">
-        <a type="submit" class="btn btn-primary" asp-page="./Edit" asp-route-id="@Model.Drug.Id">Bearbeiten</a>
+        @if (Model.Drug.Active)
+        {
+            <a type="submit" class="btn btn-primary" asp-page="./Edit" asp-route-id="@Model.Drug.Id">Bearbeiten</a>
+        }
         <a type="submit" class="btn btn-primary" asp-page="./Index">Liste Medikamente</a>
     </div>
 </div>

@@ -7,24 +7,23 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DoctorBob.Core.Common.Infrastructure.Context;
-using DoctorBob.Core.DrugManagement.Domain;
-using DoctorBob.UI.Pages.Account;
+using DoctorBob.Core.PatientManagement.Domain;
 using System.IO;
 
-namespace DoctorBob.UI.Pages.DrugManager
+namespace DoctorBob.UI.Pages.PatientManager
 {
-    public class EditModel : PageModel
+    public class ReEntryModel : PageModel
     {
         private readonly DoctorBob.Core.Common.Infrastructure.Context.DoctorBobContext _context;
         string historyTemp;
 
-        public EditModel(DoctorBob.Core.Common.Infrastructure.Context.DoctorBobContext context)
+        public ReEntryModel(DoctorBob.Core.Common.Infrastructure.Context.DoctorBobContext context)
         {
             _context = context;
         }
 
         [BindProperty]
-        public Drug Drug { get; set; }
+        public Patient Patient { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -33,13 +32,18 @@ namespace DoctorBob.UI.Pages.DrugManager
                 return NotFound();
             }
 
-            Drug = await _context.Drugs.FirstOrDefaultAsync(m => m.Id == id);
+            Patient = await _context.Patients
+                .Include(p => p.Room)
+                .Include(p => p.Therapy)
+                .Include(p => p.Gender)
+                .Include(p => p.CaringStaff).FirstOrDefaultAsync(m => m.Id == id);
 
-            if (Drug == null)
+            if (Patient == null)
             {
                 return NotFound();
             }
-            historyTemp = Drug.History;
+
+            historyTemp = Patient.History;
 
             if (!String.IsNullOrEmpty(historyTemp))
             {
@@ -47,6 +51,11 @@ namespace DoctorBob.UI.Pages.DrugManager
 
             }
 
+            ViewData["Gender"] = new SelectList(_context.Genders, "Id", "Name");
+            ViewData["Room"] = new SelectList(_context.Rooms.Where(e => e.Active), "Id", "Name");
+            ViewData["Therapy"] = new SelectList(_context.Therapies.Where(e => e.Active), "Id", "Name");
+            ViewData["CaringStaff"] = new SelectList(_context.StaffMembers.Where(e => e.Active)
+                .Where(e => e.RoleId == 1 || e.RoleId == 4), "Id", "LastName");
             return Page();
         }
 
@@ -98,27 +107,47 @@ namespace DoctorBob.UI.Pages.DrugManager
                 return Page();
             }
 
+            Patient.Active = true;
             DateTimeOffset modifyDateTime = DateTimeOffset.Now;
-            Drug.Active = true;
-            Drug.HistoryTemp = "⊕ " + modifyDateTime.DateTime + " - " + "eluechinger" + " / " + Drug.Name +
-                " / " + Drug.DoseInMg +
-                " / " + Drug.Description;
-            if (Drug.Active)
+            Patient.HistoryTemp = "⊕ " + modifyDateTime.DateTime + " - eluechinger / " + Patient.FirstName.Substring(0, 1) + ". " + Patient.LastName +
+    " / ";
+            if (Patient.GenderId == 1)
             {
-                Drug.HistoryTemp += " - AKTIV";
+                Patient.HistoryTemp += " M / ";
+            }
+            if (Patient.GenderId == 2)
+            {
+                Patient.HistoryTemp += " F / ";
+            }
+            if (Patient.GenderId == 3)
+            {
+                Patient.HistoryTemp += " D / ";
+            }
+
+            Patient.HistoryTemp += " Raum " + Patient.RoomId + " / " +
+                _context.Therapies.Find(Patient.TherapyId).Name + " / " +
+                _context.StaffMembers.Find(Patient.CaringStaffId).LastName + " / " + Patient.MedicalHistory +
+                " / IN: " + Patient.EntryDate;
+
+            if (Patient.LeavingDate == new DateTime(1, 1, 1, 0, 0, 0))
+            {
+                Patient.Active = true;
             }
             else
             {
-                Drug.HistoryTemp += " - INAKTIV";
+                Patient.Active = false;
+                string leavingDate = Patient.LeavingDate.ToString() + "";
+                Patient.HistoryTemp += " / OUT: " + leavingDate;
             }
-            Drug.HistoryTempInternal = ReadHistory();
+
+            Patient.HistoryTempInternal = ReadHistory();
             DeleteContent();
 
             // Anpassen auf CurrentUser
-            Drug.ModifiedBy = "eluechinger";
-            Drug.ModifiedAt = modifyDateTime.DateTime;
+            Patient.ModifiedBy = "eluechinger";
+            Patient.ModifiedAt = modifyDateTime.DateTime;
 
-            _context.Attach(Drug).State = EntityState.Modified;
+            _context.Attach(Patient).State = EntityState.Modified;
 
             try
             {
@@ -126,7 +155,7 @@ namespace DoctorBob.UI.Pages.DrugManager
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!DrugExists(Drug.Id))
+                if (!PatientExists(Patient.Id))
                 {
                     return NotFound();
                 }
@@ -139,9 +168,9 @@ namespace DoctorBob.UI.Pages.DrugManager
             return RedirectToPage("./Index");
         }
 
-        private bool DrugExists(int id)
+        private bool PatientExists(int id)
         {
-            return _context.Drugs.Any(e => e.Id == id);
+            return _context.Patients.Any(e => e.Id == id);
         }
     }
 }

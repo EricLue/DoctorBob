@@ -40,7 +40,7 @@
                     @Html.DisplayName("Therapie")
                 </th>
                 <th>
-                    @Html.DisplayName("Verordnung")
+                    @Html.DisplayName("Betreuung")
                 </th>
                 <th>
                     @Html.DisplayName("Eintritt")
@@ -102,12 +102,24 @@
                         }
                     </td>
                     <td>
-                        <a asp-page="./Edit" asp-route-id="@item.Id">
-                            <img border="0" alt="edit" width="20" height="20" src="/images/edit.png" title="Bearbeiten" />
-                        </a>
-                        <a asp-page="./Details" asp-route-id="@item.Id">
-                            <img border="0" alt="view" width="20" height="20" src="/images/details.png" title="Details anzeigen" />
-                        </a>
+                        @if (item.Active)
+                        {
+                            <a asp-page="./Edit" asp-route-id="@item.Id">
+                                <img border="0" alt="edit" width="20" height="20" src="/images/edit.png" title="Bearbeiten" />
+                            </a>
+                            <a asp-page="./Details" asp-route-id="@item.Id">
+                                <img border="0" alt="view" width="20" height="20" src="/images/details.png" title="Details anzeigen" />
+                            </a>
+                        }
+                        @if (!item.Active)
+                        {
+                            <a asp-page="./ReEntry" asp-route-id="@item.Id">
+                                <img border="0" alt="edit" width="20" height="20" src="/images/reentry.png" title="Wiedereintritt" />
+                            </a>
+                            <a asp-page="./Details" asp-route-id="@item.Id">
+                                <img border="0" alt="view" width="20" height="20" src="/images/details.png" title="Details anzeigen" />
+                            </a>
+                        }
                     </td>
                 </tr>
             }
