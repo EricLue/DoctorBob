@@ -1,0 +1,16 @@
+﻿@page
+@model DoctorBob.UI.Pages.OrderManager.ConfirmModel
+
+@{
+    ViewData["Title"] = "Confirm";
+}
+<div class="container border" style="padding: 20px">
+    <h5>Der Auftrag wird ausgeführt</h5>
+    <div>
+        <hr />
+        <form method="post">
+            <input type="hidden" asp-for="Order.Id" />
+            <input type="submit" class="btn btn-primary" value="Ok" asp-page="./Index" />
+        </form>
+    </div>
+    </div>
