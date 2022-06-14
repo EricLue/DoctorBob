@@ -21,7 +21,10 @@
                 <select id="SelectedPatients" multiple="multiple" name="SelectedPatients">
                     @foreach (var patient in Model.GetList())
                     {
-                        <option value="@Html.DisplayName(Model.GetPatientId(patient.Id))">@Html.DisplayName(Model.GetPatient(patient.Id))</option>
+                        @if (patient.Active)
+                        {
+                            <option value="@Html.DisplayName(Model.GetPatientId(patient.Id))">@Html.DisplayName(Model.GetPatient(patient.Id))</option>
+                        }
                     }
                 </select>
                 <br />

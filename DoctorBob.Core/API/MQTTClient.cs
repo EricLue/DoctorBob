@@ -8,6 +8,7 @@ using MQTTnet.Client.Connecting;
 using MQTTnet.Client.Disconnecting;
 using MQTTnet.Client.Options;
 using MQTTnet.Extensions.ManagedClient;
+using DoctorBob.Core.OrderManagement.Domain;
 using Newtonsoft.Json;
 using Serilog;
 
@@ -16,9 +17,12 @@ namespace DoctorBob.Core.API
     public class MQTTClient
     {
 
-        public static string Main()
+        public static string Main(List<String> commandsList)
         {
             return "";
+
+            // Wieder aktivieren
+
             //// Creates a new client
             //MqttClientOptionsBuilder builder = new MqttClientOptionsBuilder()
             //                                        .WithClientId("Dev.To")
@@ -43,16 +47,19 @@ namespace DoctorBob.Core.API
 
             //// Send a new message to the broker every second
 
-            //// MUSS IN FOREACH - FÜR JEDEN P
+
+            //################// MUSS IN FOREACH - FÜR JEDEN PATIENTEN / JEDEN COMMAND SENDEN
+
             //string patientId = "1001";
             //_mqttClient.PublishAsync("Raum/101/Patient/", patientId);
             //string drugId = "1";
             //_mqttClient.PublishAsync("Raum/101/Medikament/", drugId);
 
-            
+
+            //#### KANN DEAKTIVIERT BLEIBEN
 
             //Task.Delay(1000).GetAwaiter().GetResult();
-            
+            //####
             //return "";
         }
 

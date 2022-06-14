@@ -66,29 +66,19 @@ namespace DoctorBob.UI.Pages.OrderManager
             Order.ModifiedBy = "eluechinger";
             Order.ModifiedAt = DateTimeOffset.UtcNow;
 
-            //Order.OrderPatients = new List<OrderPatient>
-            //{
-            //    new OrderPatient
-            //    {
-            //        OrderId = Order.Id,
-            //        PatientId = 10002
-            //    },
-            //    new OrderPatient
-            //    {
-            //        OrderId = Order.Id,
-            //        PatientId = 10003
-            //    },
-            //    new OrderPatient
-            //    {
-            //        OrderId = Order.Id,
-            //        PatientId = 10004
-            //    },
-            //    new OrderPatient
-            //    {
-            //        OrderId = Order.Id,
-            //        PatientId = 10005
-            //    }
-            //};
+            var selectedPatients = Request.Form["SelectedPatients"];
+            if (selectedPatients.Count > 0)
+            {
+                Order.OrderPatients = new List<OrderPatient>();
+                foreach (var patientId in selectedPatients)
+                {
+                    OrderPatient orderPatient = new OrderPatient();
+                    orderPatient.OrderId = Order.Id;
+                    orderPatient.PatientId = Int32.Parse(patientId);
+                    Order.OrderPatients.Add(orderPatient);
+                }
+            }
+
 
             _context.Orders.Add(Order);
             await _context.SaveChangesAsync();
