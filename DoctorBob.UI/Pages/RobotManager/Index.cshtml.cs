@@ -70,5 +70,18 @@ namespace DoctorBob.UI.Pages.RobotManager
             }
             return num.ToString();
         }
+
+        public String GetNumOfOrders()
+        {
+            int num = 0;
+            foreach (var entity in _context.Orders)
+            {
+                if (entity.StateId == 1 || entity.StateId == 2)
+                {
+                    num++;
+                }
+            }
+            return num.ToString();
+        }
     }
 }

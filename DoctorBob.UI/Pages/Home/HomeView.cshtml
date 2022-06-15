@@ -56,12 +56,19 @@
         </table>
     </div>
     <div class="container border" style="justify-content:center; padding: 20px">
-        <a type="submit" class="btn btn-primary" asp-area="" asp-page="/RobotManager/Index">Roboter-Dashboard</a>
-        <a type="submit" class="btn btn-primary" asp-area="" asp-page="/PatientManager/Index">Patienten-Dashboard - @Html.DisplayName(Model.GetNumOfPatients())
-            <img border="0" alt="Person" width="30" height="30" src="/images/person.png"/>
+        <a type="submit" class="btn btn-primary" asp-area="" asp-page="/RobotManager/Index">Roboter-Dashboard
+            <img border="0" alt="Robot" width="50" height="50" src="/images/robot.png" />
         </a>
-        <a type="submit" class="btn btn-dark" asp-area="" asp-page="/OrderManager/Index">Aufträge</a>
-        <a type="submit" class="btn btn-danger" asp-area="" asp-page="">Konfliktmanager</a>
+        <a type="submit" class="btn btn-primary" asp-area="" asp-page="/PatientManager/Index">Patienten-Dashboard - @Html.DisplayName(Model.GetNumOfPatients())
+            <img border="0" alt="Person" width="50" height="50" src="/images/person.png"/>
+        </a>
+        <a type="submit" class="btn btn-dark" asp-area="" asp-page="/OrderManager/Index">
+            Aufträge  - @Html.DisplayName(Model.GetNumOfOrders())
+            <img border="0" alt="Auftrag" width="50" height="50" src="/images/order.png" />
+        </a>
+        <a type="submit" class="btn btn-danger" asp-area="" asp-page="">Konfliktmanager
+            <img border="0" alt="Konflikt" width="50" height="50" src="/images/conflict.png" />
+        </a>
     </div>
     <div class="container border" style="justify-content: center; padding: 20px">
         <a type="submit" class="btn btn-secondary" asp-area="" asp-page="/StaffManager/Index">Personal</a>
