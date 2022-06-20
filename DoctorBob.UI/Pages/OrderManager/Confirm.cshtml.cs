@@ -45,18 +45,18 @@ namespace DoctorBob.UI.Pages.OrderManager
             List<String> commandsList = new List<String>();
             foreach (var orderPatient in Order.OrderPatients)
             {
-                string command = "AuftragNr/" + orderPatient.OrderId + "/";
                 Patient patient = _context.Patients.Find(orderPatient.PatientId);
                 string roomId = _context.Rooms.Find(patient.RoomId).Id.ToString();
-                string command1 = command+"Raum/" + roomId + "/Patient/" + patient.Id;
-                //_mqttClient.PublishAsync("Raum/101/Patient/", patientId);
+                string command1 = "Raum/" + roomId + "/Patient/" + patient.Id;
                 commandsList.Add(command1);
 
                 Therapy therapy = _context.Therapies.Find(patient.TherapyId);
                 string drugId = _context.Drugs.Find(therapy.DrugId).Id.ToString();
-                string command2 = command+"Raum/" + roomId + "/Medikament/" + drugId;
-                //_mqttClient.PublishAsync("Raum/101/Medikament/", drugId);
+                string command2 = "Raum/" + roomId + "/Medikament/" + drugId;
                 commandsList.Add(command2);
+
+                string command3 = "Raum/" + roomId + "/AuftragNr/" + orderPatient.OrderId;
+                commandsList.Add(command3);
             }
 
             MQTTClient.Main(commandsList);

@@ -64,7 +64,7 @@
                         @Html.DisplayName(Model.GetPatientDrug(orderPatient.Patient.Id))
                     </td>
                     <td>
-
+                        @*@Html.DisplayName(Model.GetMessage())*@
                     </td>
                 </tr>
                     }
@@ -72,16 +72,16 @@
         </table>
     </div>
     <div>
-        <th>
-            @Html.DisplayName("Ausgelöst von")
-        </th>
-        <th>
-            @Html.DisplayName("User")
-        </th>
-    </div>
+        @if (Model.Order.StateId > 1)
+        {
+            @Html.DisplayName(Model.GetUserName(Model.Order.Id))
+        }
 
-    <hr />
+    </div>
     <div style="padding: 20px">
+        <a asp-page="./Details" asp-route-id="@Model.Order.Id">
+            <img border="0" alt="refresh" width="40" height="40" src="/images/refresh.png"/>
+        </a>
         <a type="submit" class="btn btn-primary" asp-page="./Index">Liste Aufträge</a>
     </div>
 </div>

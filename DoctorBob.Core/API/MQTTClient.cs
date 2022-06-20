@@ -43,6 +43,31 @@ namespace DoctorBob.Core.API
             }
         }
 
+        //public static string GetMessage()
+        //{
+        //    // Creates a new client
+        //    MqttClientOptionsBuilder builder = new MqttClientOptionsBuilder()
+        //                                            .WithClientId("Dev.To")
+        //                                            .WithTcpServer("10.100.201.21", 1883);
+        //    // Create client options objects
+        //    ManagedMqttClientOptions options = new ManagedMqttClientOptionsBuilder()
+        //                            .WithAutoReconnectDelay(TimeSpan.FromSeconds(60))
+        //                            .WithClientOptions(builder.Build())
+        //                            .Build();
+
+        //    // Creates the client object
+        //    IManagedMqttClient _mqttClient = new MqttFactory().CreateManagedMqttClient();
+        //    string info = "";
+        //    _mqttClient.UseApplicationMessageReceivedHandler(e =>
+        //    {
+        //        info += $"+ Topic = {e.ApplicationMessage.Topic}";
+        //        info += $"+ Payload = {Encoding.UTF8.GetString(e.ApplicationMessage.Payload)}";
+        //        info += $"+ QoS = {e.ApplicationMessage.QualityOfServiceLevel}";
+        //        info += $"+ Retain = {e.ApplicationMessage.Retain}";
+        //    });
+        //    return info;
+        //}
+
         public static void OnConnected(MqttClientConnectedEventArgs obj)
         {
             Log.Logger.Information("Successfully connected.");

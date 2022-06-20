@@ -10,6 +10,7 @@ using DoctorBob.Core.OrderManagement.Domain;
 using DoctorBob.Core.PatientManagement.Domain;
 using DoctorBob.Core.DrugManagement.Domain;
 using DoctorBob.Core.TherapyManagement.Domain;
+using DoctorBob.Core.API;
 
 namespace DoctorBob.UI.Pages.OrderManager
 {
@@ -76,5 +77,15 @@ namespace DoctorBob.UI.Pages.OrderManager
             Drug drug = _context.Drugs.Find(therapy.DrugId);
             return drug.Name;
         }
+
+        public String GetUserName(int Id)
+        {
+            return "Ausgelöst von " + Order.CreatedBy;
+        }
+
+        //public String GetMessage()
+        //{
+        //    return MQTTClient.GetMessage();
+        //}
     }
 }
