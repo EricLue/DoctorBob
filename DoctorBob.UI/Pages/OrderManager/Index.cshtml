@@ -57,6 +57,9 @@
                         <td>
                             @foreach (var orderPatient in item.OrderPatients)
                             {
+                                <a asp-area="" asp-page="/PatientManager/Details" asp-route-id="@orderPatient.Patient.Id">
+                                    <img border="0" alt="view" width="20" height="20" src="/images/details.png" title="Details anzeigen" />
+                                </a>
                                 @Html.DisplayName(Model.GetPatient(orderPatient.Patient.Id));
                                 <br />
                             }

@@ -18,7 +18,8 @@
                     <span asp-validation-for="Order.Robot" class="text-danger"></span>
                 </div>
                 <br />
-                <select id="SelectedPatients" multiple="multiple" name="SelectedPatients">
+                <label>Welche Patienten sollen beliefert werden?</label>
+                <select id="SelectedPatients" multiple="multiple" name="SelectedPatients" style="width: 400px">
                     @foreach (var patient in Model.GetList())
                     {
                         @if (patient.Active)
@@ -27,6 +28,7 @@
                         }
                     }
                 </select>
+                <br />
                 <br />
                 <div class="form-group">
                     <input type="submit" value="Erstellen" class="btn btn-primary" />

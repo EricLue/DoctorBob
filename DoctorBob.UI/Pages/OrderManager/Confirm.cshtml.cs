@@ -45,15 +45,16 @@ namespace DoctorBob.UI.Pages.OrderManager
             List<String> commandsList = new List<String>();
             foreach (var orderPatient in Order.OrderPatients)
             {
+                string command = "AuftragNr/" + orderPatient.OrderId + "/";
                 Patient patient = _context.Patients.Find(orderPatient.PatientId);
                 string roomId = _context.Rooms.Find(patient.RoomId).Id.ToString();
-                string command1 = "Raum/" + roomId + "/Patient/" + patient.Id;
+                string command1 = command+"Raum/" + roomId + "/Patient/" + patient.Id;
                 //_mqttClient.PublishAsync("Raum/101/Patient/", patientId);
                 commandsList.Add(command1);
 
                 Therapy therapy = _context.Therapies.Find(patient.TherapyId);
                 string drugId = _context.Drugs.Find(therapy.DrugId).Id.ToString();
-                string command2 = "Raum/" + roomId + "/Medikament/" + drugId;
+                string command2 = command+"Raum/" + roomId + "/Medikament/" + drugId;
                 //_mqttClient.PublishAsync("Raum/101/Medikament/", drugId);
                 commandsList.Add(command2);
             }

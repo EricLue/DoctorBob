@@ -917,7 +917,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                 new State
                 {
                     Id = 1,
-                    Name = "Boarding"
+                    Name = "Bereit"
                 },
                 new State
                 {
@@ -927,52 +927,57 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                 new State
                 {
                     Id = 3,
-                    Name = "Abgeschlossen"
+                    Name = "Erfolgreich abgeschlossen"
+                },
+                new State
+                {
+                    Id = 4,
+                    Name = "Fehlerhaft abgeschlossen"
                 },
             };
             #endregion
 
-            #region List of OrderPatients
-            var orderPatients = new List<OrderPatient>
-            {
-                new OrderPatient
-                {
-                    OrderId = 1,
-                    PatientId = 1001
-                },
-                new OrderPatient
-                {
-                    OrderId = 1,
-                    PatientId = 1002
-                },
-                new OrderPatient
-                {
-                    OrderId = 1,
-                    PatientId = 1003
-                },
-                new OrderPatient
-                {
-                    OrderId = 1,
-                    PatientId = 1004
-                }
-            };
-            #endregion
+            //#region List of OrderPatients
+            //var orderPatients = new List<OrderPatient>
+            //{
+            //    new OrderPatient
+            //    {
+            //        OrderId = 1,
+            //        PatientId = 1001
+            //    },
+            //    new OrderPatient
+            //    {
+            //        OrderId = 1,
+            //        PatientId = 1002
+            //    },
+            //    new OrderPatient
+            //    {
+            //        OrderId = 1,
+            //        PatientId = 1003
+            //    },
+            //    new OrderPatient
+            //    {
+            //        OrderId = 1,
+            //        PatientId = 1004
+            //    }
+            //};
+            //#endregion
 
-            #region List of Orders
-            var orders = new List<Order>
-            {
-                new Order
-                {
-                    Id = 1,
-                    RobotId = 1,
-                    StateId = 3,
-                    CreatedBy = "eluechinger",
-                    CreatedAt = new DateTime(2022,06,27,16,44,21),
-                    ModifiedBy = "eluechinger",
-                    ModifiedAt = new DateTime(2022,06,27,16,44,21),
-                }
-            };
-            #endregion
+            //#region List of Orders
+            //var orders = new List<Order>
+            //{
+            //    new Order
+            //    {
+            //        Id = 1,
+            //        RobotId = 1,
+            //        StateId = 3,
+            //        CreatedBy = "eluechinger",
+            //        CreatedAt = new DateTime(2022,06,27,16,44,21),
+            //        ModifiedBy = "eluechinger",
+            //        ModifiedAt = new DateTime(2022,06,27,16,44,21),
+            //    }
+            //};
+            //#endregion
 
             #region Preload Data
             roles.ForEach(r => modelBuilder.Entity<Role>().HasData(r));
@@ -988,8 +993,8 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
             activities.ForEach(a => modelBuilder.Entity<Activity>().HasData(a));
             robot.ForEach(r => modelBuilder.Entity<Robot>().HasData(r));
             states.ForEach(s => modelBuilder.Entity<State>().HasData(s));
-            orders.ForEach(o => modelBuilder.Entity<Order>().HasData(o));
-            orderPatients.ForEach(o => modelBuilder.Entity<OrderPatient>().HasData(o));
+            //orders.ForEach(o => modelBuilder.Entity<Order>().HasData(o));
+            //orderPatients.ForEach(o => modelBuilder.Entity<OrderPatient>().HasData(o));
             #endregion
         }
 

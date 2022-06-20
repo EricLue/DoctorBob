@@ -1,0 +1,87 @@
+﻿@page
+@model DoctorBob.UI.Pages.OrderManager.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container border" style="padding: 20px">
+    <div class="row" style="padding: 10px">
+        <div class="column" style="padding-left: 10px">
+            <h2>
+                Auftrag Nr. @Html.DisplayFor(model => model.Order.Id) - @Html.DisplayName(Model.GetRobotName(Model.Order.RobotId)) -
+                @if (Model.Order.StateId == 1)
+                {
+                    @Html.DisplayName(Model.GetStateName(Model.Order.StateId))
+                }
+                @if (Model.Order.StateId == 2)
+                {
+                <img border="0" width="40" height="40" src="/images/pending.png" />
+                }
+                @if (Model.Order.StateId == 3)
+                {
+            <img border="0" width="40" height="40" src="/images/alldone.png" />
+                }
+                @if (Model.Order.StateId == 4)
+                {
+            <img border="0" width="40" height="40" src="/images/problem.png" />
+                }
+            </h2>
+        </div>
+    </div>
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayName("Patient")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Raum")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Medikament")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Status Lieferung")
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                    @foreach (var orderPatient in Model.Order.OrderPatients)
+                    {
+                <tr>
+                    <td>
+                        <a asp-area="" asp-page="/PatientManager/Details" asp-route-id="@orderPatient.Patient.Id">
+                            <img border="0" alt="view" width="20" height="20" src="/images/details.png" title="Details anzeigen" />
+                        </a>
+                        @Html.DisplayName(Model.GetPatient(orderPatient.Patient.Id))
+                    </td>
+                    <td>
+                        @Html.DisplayName(Model.GetPatientRoom(orderPatient.Patient.Id))
+                    </td>
+                    <td>
+                        @Html.DisplayName(Model.GetPatientDrug(orderPatient.Patient.Id))
+                    </td>
+                    <td>
+
+                    </td>
+                </tr>
+                    }
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <th>
+            @Html.DisplayName("Ausgelöst von")
+        </th>
+        <th>
+            @Html.DisplayName("User")
+        </th>
+    </div>
+
+    <hr />
+    <div style="padding: 20px">
+        <a type="submit" class="btn btn-primary" asp-page="./Index">Liste Aufträge</a>
+    </div>
+</div>
