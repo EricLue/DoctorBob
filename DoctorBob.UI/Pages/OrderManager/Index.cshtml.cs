@@ -31,6 +31,8 @@ namespace DoctorBob.UI.Pages.OrderManager
             {
                 entity = entity.Where(e => e.CreatedAt.ToString().Contains(searchString));
             }
+
+            Order.OrderBy(x => x.Id);
             Order = await entity
                 .Include(o => o.Robot)
                 .Include(o => o.State).ToListAsync();

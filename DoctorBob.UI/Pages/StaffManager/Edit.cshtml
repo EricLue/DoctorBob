@@ -34,6 +34,11 @@
                     <span asp-validation-for="Staff.Username" class="text-danger"></span>
                 </div>
                 <div class="form-group">
+                    <label asp-for="Staff.Password" class="control-label">Passwort</label>
+                    <input  type="password" asp-for="Staff.Password" class="form-control" />
+                    <span asp-validation-for="Staff.Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
                     <input type="submit" value="Speichern" class="btn btn-primary" />
                     <a type="submit" class="btn btn-primary" asp-page="./Index">Zurück zu Liste</a>
                 </div>
