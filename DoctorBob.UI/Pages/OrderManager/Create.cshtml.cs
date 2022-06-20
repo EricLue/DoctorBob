@@ -79,8 +79,7 @@ namespace DoctorBob.UI.Pages.OrderManager
                 }
             }
 
-
-            _context.Orders.Add(Order);
+                _context.Orders.Add(Order);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

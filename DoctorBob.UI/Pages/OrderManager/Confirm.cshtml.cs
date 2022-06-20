@@ -9,6 +9,7 @@ using DoctorBob.Core.Common.Infrastructure.Context;
 using DoctorBob.Core.OrderManagement.Domain;
 using DoctorBob.Core.PatientManagement.Domain;
 using DoctorBob.Core.TherapyManagement.Domain;
+using DoctorBob.Core.RobotManagement.Domain;
 using DoctorBob.Core.API;
 using System.IO;
 
@@ -61,7 +62,12 @@ namespace DoctorBob.UI.Pages.OrderManager
 
             MQTTClient.Main(commandsList);
             Order.StateId = 2;
+
+            Robot Robot = Order.Robot;
+            Robot.ActivityId = 5;
+
             _context.Attach(Order).State = EntityState.Modified;
+            _context.Attach(Robot).State = EntityState.Modified;
 
             try
             {
