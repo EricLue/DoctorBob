@@ -1,16 +1,13 @@
 ﻿@page
-@model DoctorBob.UI.Pages.OrderManager.IndexModel
+@model DoctorBob.UI.Pages.ConflictManager.IndexModel
 
 @{
     ViewData["Title"] = "Index";
 }
 
     <div class="container border" style="display: flex; justify-content: space-between; padding: 20px ">
-        <h2>Auftragsverwaltung</h2>
+        <h2>Konfliktmanager</h2>
         <div style="display: flex; justify-content: space-between">
-            <a type="submit" class="btn btn-light" asp-page="Create">
-                <img border="0" alt="new" width="35" height="35" src="/images/new.png" title="Hinzufügen" />
-            </a>
             <div style="padding: 5px"></div>
             <form style="margin-top:10px">
                 <p>
@@ -26,7 +23,7 @@
             <thead>
                 <tr>
                     <th>
-                        @Html.DisplayName("Nummer")
+                        @Html.DisplayName("Nr")
                     </th>
                     <th>
                         @Html.DisplayName("Roboter")
@@ -37,8 +34,9 @@
                     <th>
                         @Html.DisplayName("Status")
                     </th>
+                    <th></th>
                     <th>
-                        @Html.DisplayName("Erfassungsdatum")
+                        @Html.DisplayName("Ausgeführt")
                     </th>
                     <th></th>
                 </tr>
@@ -57,11 +55,7 @@
                         <td>
                             @foreach (var orderPatient in item.OrderPatients)
                             {
-                                <a asp-area="" asp-page="/PatientManager/Details" asp-route-id="@orderPatient.Patient.Id">
-                                    <img border="0" alt="view" width="20" height="20" src="/images/details.png" title="Details anzeigen" />
-                                </a>
                                 @Html.DisplayName(Model.GetPatient(orderPatient.Patient.Id));
-                                <br />
                             }
 
                         </td>
@@ -69,28 +63,10 @@
                             @Html.DisplayName(Model.GetStateName(item.StateId))
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.CreatedAt.DateTime)
+                            @Html.DisplayName(Model.GetFailureName())
                         </td>
                         <td>
-                            @if (item.StateId == 1)
-                            {
-                                <a asp-page="./Details" asp-route-id="@item.Id">
-                                    <img border="0" alt="view" width="20" height="20" src="/images/details.png" title="Details anzeigen" />
-                                </a>
-                                <a asp-page="./Delete" asp-route-id="@item.Id">
-                                    <img border="0" alt="delete" width="20" height="20" src="/images/delete.png" title="Deaktivieren" />
-                                </a>
-                                <a asp-page="./Confirm" asp-route-id="@item.Id">
-                                    <img border="0" alt="run" width="40" height="40" src="/images/run.png" title="Ausführen" />
-                                </a>
-                            }
-                            @if (item.StateId == 2 || item.StateId == 3 || item.StateId == 4)
-                            {
-                                <a asp-page="./Details" asp-route-id="@item.Id">
-                                    <img border="0" alt="view" width="20" height="20" src="/images/details.png" title="Details anzeigen" />
-                                </a>
-                            }
-
+                            @Html.DisplayFor(modelItem => item.CreatedAt.DateTime)
                         </td>
                     </tr>
                 }

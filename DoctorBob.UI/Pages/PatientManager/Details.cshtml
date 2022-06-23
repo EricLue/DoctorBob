@@ -9,7 +9,14 @@
     <div class="row" style="padding: 10px">
         @if (Model.Patient.GenderId == 1)
         {
-            <img border="0" width="40" height="40" src="/images/male.png" />
+            @if (Model.Patient.Id == 1001)
+            {
+                <img border="0" width="50" height="60" src="/images/gobbo.png" />
+            }
+            @if (Model.Patient.Id != 1001)
+            {
+                <img border="0" width="40" height="40" src="/images/male.png" />
+            }
         }
         @if (Model.Patient.GenderId == 2)
         {

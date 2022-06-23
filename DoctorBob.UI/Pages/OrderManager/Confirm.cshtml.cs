@@ -48,16 +48,18 @@ namespace DoctorBob.UI.Pages.OrderManager
             {
                 Patient patient = _context.Patients.Find(orderPatient.PatientId);
                 string roomId = _context.Rooms.Find(patient.RoomId).Id.ToString();
-                string command1 = "Raum/" + roomId + "/Patient/" + patient.Id;
-                commandsList.Add(command1);
-
                 Therapy therapy = _context.Therapies.Find(patient.TherapyId);
                 string drugId = _context.Drugs.Find(therapy.DrugId).Id.ToString();
-                string command2 = "Raum/" + roomId + "/Medikament/" + drugId;
-                commandsList.Add(command2);
+                string command1 = "Raum/" + roomId + "/Patient/" + patient.Id + "/Medikament/" + drugId + "/AutragsNr/" + orderPatient.OrderId;
+                commandsList.Add(command1);
 
-                string command3 = "Raum/" + roomId + "/AuftragNr/" + orderPatient.OrderId;
-                commandsList.Add(command3);
+                //Therapy therapy = _context.Therapies.Find(patient.TherapyId);
+                //string drugId = _context.Drugs.Find(therapy.DrugId).Id.ToString();
+                //string command2 = "Raum/" + roomId + "/Medikament/" + drugId;
+                //commandsList.Add(command2);
+
+                //string command3 = "Raum/" + roomId + "/AuftragNr/" + orderPatient.OrderId;
+                //commandsList.Add(command3);
             }
 
             MQTTClient.Main(commandsList);

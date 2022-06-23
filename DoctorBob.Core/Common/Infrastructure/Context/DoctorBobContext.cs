@@ -789,7 +789,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                 new CurrentLocation
                 {
                     Id = 1,
-                    Name = "Auf Weg zu Raum 101"
+                    Name = "Unterwegs"
                 },
                 new CurrentLocation
                 {
@@ -897,8 +897,8 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                 {
                     Id = 1,
                     Name = "DoctorBob R2D2",
-                    LastRoomId = 900,
-                    CurrentLocationId = 900,
+                    LastRoomId = 999,
+                    CurrentLocationId = 999,
                     Power = 85,
                     ActivityId = 1,
                     CreatedBy = "admin",
@@ -932,7 +932,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                 new State
                 {
                     Id = 4,
-                    Name = "Fehlerhaft abgeschlossen"
+                    Name = "Fehler"
                 },
             };
             #endregion

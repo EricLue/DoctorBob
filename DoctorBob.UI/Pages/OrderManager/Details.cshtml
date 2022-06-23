@@ -67,7 +67,14 @@
                         @Html.DisplayName(Model.GetPatientDrug(orderPatient.Patient.Id))
                     </td>
                     <td>
-                        @*@Html.DisplayName(Model.GetMessage())*@
+                        @if (orderPatient.Order.StateId != 4)
+                        {
+                            <img border="0" width="40" height="40" src="/images/pending.png" />
+                        }
+                        @if (orderPatient.Order.StateId == 4)
+                        {
+                            <img border="0" width="40" height="40" src="/images/problem.png" />
+                        }
                     </td>
                     <td>
                         <a asp-page="./Detail" asp-route-id="@Model.Order.Id">
