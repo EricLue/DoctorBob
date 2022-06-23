@@ -719,8 +719,8 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                 new Patient
                 {
                     Id = 1002,
-                    FirstName = "Martha",
-                    LastName = "Watson",
+                    FirstName = "Chantal",
+                    LastName = "Egger",
                     GenderId = 2,
                     RoomId = 102,
                     TherapyId = 104,
@@ -731,7 +731,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     CreatedAt = new DateTime(2022,06,25,09,38,57).AddHours(2),
                     ModifiedBy = "skluser",
                     ModifiedAt = new DateTime(2022,06,25,09,38,57).AddHours(2),
-                    History = "⊕ 25.06.2022 09:38:57 - skluser / M. Watson / F / Raum 102 / Amlodipin 2x, 10 mg / Kluser / Hüftoperation 25.06.2022, Schlaganfall im Juli 2015 / IN: 25.06.2022 09:38:57",
+                    History = "⊕ 25.06.2022 09:38:57 - skluser / C. Egger / F / Raum 102 / Amlodipin 2x, 10 mg / Kluser / Hüftoperation 25.06.2022, Schlaganfall im Juli 2015 / IN: 25.06.2022 09:38:57",
                     Active = true
                 },
                 new Patient

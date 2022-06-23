@@ -87,7 +87,7 @@ namespace DoctorBob.UI.Pages.ConflictManager
             }
             if (rand_num == 3)
             {
-                return "DBF-9 / GoBBo-Supply";
+                return "DBF-9 / GoBBo-Kabelproblem";
             }
             if (rand_num == 5)
             {

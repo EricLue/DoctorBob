@@ -56,8 +56,8 @@
                             @foreach (var orderPatient in item.OrderPatients)
                             {
                                 @Html.DisplayName(Model.GetPatient(orderPatient.Patient.Id));
+                                <br />
                             }
-
                         </td>
                         <td>
                             @Html.DisplayName(Model.GetStateName(item.StateId))
