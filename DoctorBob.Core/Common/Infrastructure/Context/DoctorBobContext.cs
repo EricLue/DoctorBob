@@ -338,7 +338,7 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     Id = 160,
                     FirstName = "Eric",
                     LastName = "Luechinger",
-                    RoleId = 6,
+                    RoleId = 5,
                     Username = "eluechinger",
                     Password = "DoctorBob2022!",
                     CreatedBy = "admin",
