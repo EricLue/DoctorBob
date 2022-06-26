@@ -40,14 +40,16 @@ namespace DoctorBob.UI.Pages.ConflictManager
 
             foreach (Order order in _context.Orders.ToList())
             {
-                order.StateId = 4;
-                _context.Attach(order).State = EntityState.Modified;
-            }
+                if (order.StateId == 1 || order.StateId == 2)
+                {
+                    order.StateId = 4;
 
-            foreach (Robot robot in _context.Robots.ToList())
-            {
-                robot.ActivityId = 10;
-                _context.Attach(robot).State = EntityState.Modified;
+                    Robot robot = _context.Robots.Find(order.RobotId);
+                    robot.ActivityId = 10;
+
+                    _context.Attach(robot).State = EntityState.Modified;
+                    _context.Attach(order).State = EntityState.Modified;
+                }
             }
             await _context.SaveChangesAsync();
         }

@@ -707,13 +707,13 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     RoomId = 101,
                     TherapyId = 101,
                     CaringStaffId = 123,
-                    MedicalHistory = "Blinddarm-OP 20.06.2022",
+                    MedicalHistory = "Blinddarm-OP",
                     EntryDate = new DateTime(2022,06,20,10,15,03),
                     CreatedBy = "sfernandez",
                     CreatedAt = new DateTime(2022,06,20,10,15,03).AddHours(2),
                     ModifiedBy = "sfernandez",
                     ModifiedAt = new DateTime(2022,06,20,10,15,03).AddHours(2),
-                    History = "⊕ 20.06.2022 10:15:03 - sfernandez / A. Eichholzer / M / Raum 101 / Bisoprolol 1x, 5 mg / Fernandez / Blinddarm-OP 20.06.2022 / IN: 22.06.2022 10:15:03",
+                    History = "⊕ 20.06.2022 10:15:03 - sfernandez / A. Eichholzer / M / Raum 101 / Bisoprolol 1x, 5 mg / Fernandez / Blinddarm-OP / IN: 22.06.2022 10:15:03",
                     Active = true
                 },
                 new Patient
@@ -743,33 +743,15 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                     RoomId = 103,
                     TherapyId = 101,
                     CaringStaffId = 121,
-                    MedicalHistory = "Beinbruch 26.06.2022",
+                    MedicalHistory = "Beinbruch rechts 26.06.2022",
                     EntryDate = new DateTime(2022,06,26,20,42,03),
                     CreatedBy = "skluser",
                     CreatedAt = new DateTime(2022,06,26,20,42,03).AddHours(2),
                     ModifiedBy = "skluser",
                     ModifiedAt = new DateTime(2022,06,26,20,42,03).AddHours(2),
-                    History = "⊕ 26.06.2022 20:42:03 - skluser / C. Castellazzi / M / Raum  103 / Bisoprolol 1x, 5 mg / Seitz / Beinbruch 26.06.2022 / IN: 26.06.2022 20:42:03",
+                    History = "⊕ 26.06.2022 20:42:03 - skluser / C. Castellazzi / M / Raum  103 / Bisoprolol 1x, 5 mg / Seitz / Beinbruch rechts 26.06.2022 / IN: 26.06.2022 20:42:03",
                     Active = true
-                },
-                new Patient
-                {
-                    Id = 1004,
-                    FirstName = "Lisa",
-                    LastName = "Zellweger",
-                    GenderId = 2,
-                    RoomId = 104,
-                    TherapyId = 104,
-                    CaringStaffId = 123,
-                    MedicalHistory = "Ellbogen-Bruch 27.06.2022, Herzstillstand 05.2011 mit anschliessender Reanimation",
-                    EntryDate = new DateTime(2022, 06, 27, 05, 18, 22),
-                    CreatedBy = "ragger",
-                    CreatedAt = new DateTime(2022, 06, 27, 05, 18, 22),
-                    ModifiedBy = "ragger",
-                    ModifiedAt = new DateTime(2022, 06, 27, 05, 18, 22),
-                    History = "⊕ 27.06.2022 05:18:22 - ragger / L. Zellweger / F / Raum  104 / Amlodipin 2x, 10 mg / Fernandez / Ellbogen-Bruch 27.06.2022, Herzstillstand 05.2011 mit anschliessender Reanimation / IN: 27.06.2022 05:18:22",
-                    Active = true
-                },
+                }
             };
             #endregion
 
@@ -936,48 +918,6 @@ namespace DoctorBob.Core.Common.Infrastructure.Context
                 },
             };
             #endregion
-
-            //#region List of OrderPatients
-            //var orderPatients = new List<OrderPatient>
-            //{
-            //    new OrderPatient
-            //    {
-            //        OrderId = 1,
-            //        PatientId = 1001
-            //    },
-            //    new OrderPatient
-            //    {
-            //        OrderId = 1,
-            //        PatientId = 1002
-            //    },
-            //    new OrderPatient
-            //    {
-            //        OrderId = 1,
-            //        PatientId = 1003
-            //    },
-            //    new OrderPatient
-            //    {
-            //        OrderId = 1,
-            //        PatientId = 1004
-            //    }
-            //};
-            //#endregion
-
-            //#region List of Orders
-            //var orders = new List<Order>
-            //{
-            //    new Order
-            //    {
-            //        Id = 1,
-            //        RobotId = 1,
-            //        StateId = 3,
-            //        CreatedBy = "eluechinger",
-            //        CreatedAt = new DateTime(2022,06,27,16,44,21),
-            //        ModifiedBy = "eluechinger",
-            //        ModifiedAt = new DateTime(2022,06,27,16,44,21),
-            //    }
-            //};
-            //#endregion
 
             #region Preload Data
             roles.ForEach(r => modelBuilder.Entity<Role>().HasData(r));
