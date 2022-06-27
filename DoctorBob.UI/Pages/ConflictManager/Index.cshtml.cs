@@ -42,7 +42,52 @@ namespace DoctorBob.UI.Pages.ConflictManager
             {
                 if (order.StateId == 1 || order.StateId == 2)
                 {
+                    Random rd = new Random();
+                    int rand_num = rd.Next(1, 9);
+                    string failure = "";
+
+                    if (order.Message == null)
+                    {
+                        if (rand_num == 1)
+                        {
+                            failure = "DBF-52 / Hub-Servo überlastet";
+                        }
+                        if (rand_num == 2)
+                        {
+                            failure = "DBF-81 / Fehler in Sensorik (obere Endlage)";
+                        }
+                        if (rand_num == 3)
+                        {
+                            failure = "DBF-9 / Problem Raumerkennung";
+                        }
+                        if (rand_num == 4)
+                        {
+                            failure = "DBF-13 / Antriebsproblem";
+                        }
+                        if (rand_num == 5)
+                        {
+                            failure = "DBF-77 / Störung TOF-Sensor";
+                        }
+                        if (rand_num == 6)
+                        {
+                            failure = "DBF-3 / Connection lost Motorenboard";
+                        }
+                        if (rand_num == 7)
+                        {
+                            failure = "DBF-101 / Connection lost Main-Board";
+                        }
+                        if (rand_num == 8)
+                        {
+                            failure = "DBF-25 / Fehler in Sensorik (untere Endlage)";
+                        }
+                        else
+                        {
+                            failure = "DBF-39 / Überhitzung";
+                        }
+                    }
+
                     order.StateId = 4;
+                    order.Message = failure;
 
                     Robot robot = _context.Robots.Find(order.RobotId);
                     robot.ActivityId = 10;
@@ -72,49 +117,6 @@ namespace DoctorBob.UI.Pages.ConflictManager
             patientInfo += " ";
             patientInfo += _context.Patients.Find(Id).LastName;
             return patientInfo;
-        }
-
-        public String GetFailureName()
-        {
-            Random rd = new Random();
-            int rand_num = rd.Next(1,10);
-
-            if (rand_num == 1)
-            {
-                return "DBF-52 / Hub-Servo überlastet";
-            }
-            if (rand_num == 2)
-            {
-                return "DBF-81 / Fehler in Greif-Sensorik (obere Endlage)";
-            }
-            if (rand_num == 3)
-            {
-                return "DBF-9 / GoBBo-Kabelproblem";
-            }
-            if (rand_num == 5)
-            {
-                return "DBF-13 / Antriebsproblem";
-            }
-            if (rand_num == 6)
-            {
-                return "DBF-77 / Störung TOF-Sensor";
-            }
-            if (rand_num == 7)
-            {
-                return "DBF-3 / Connection lost Motorenboard";
-            }
-            if (rand_num == 8)
-            {
-                return "DBF-101 / Connection lost Main-Board";
-            }
-            if (rand_num == 9)
-            {
-                return "DBF-25 / Fehler in Greif-Sensorik (untere Endlage)";
-            }
-            else
-            {
-                return "DBF-39 / Überhitzung";
-            }
         }
 
         public void RunRobot(int Id)

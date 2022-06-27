@@ -63,7 +63,7 @@
                             @Html.DisplayName(Model.GetStateName(item.StateId))
                         </td>
                         <td>
-                            @Html.DisplayName(Model.GetFailureName())
+                            @Html.DisplayFor(modelItem => item.Message)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.CreatedAt.DateTime)

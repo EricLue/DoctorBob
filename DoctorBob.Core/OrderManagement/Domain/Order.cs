@@ -18,5 +18,7 @@ namespace DoctorBob.Core.OrderManagement.Domain
         public ICollection<OrderPatient> OrderPatients { get; set; }
         public int StateId { get; set; }
         public State State { get; set; }
+
+        public string Message { get; set; }
     }
 }
